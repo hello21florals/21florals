@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Wedding Florals — 21 Florals</title>
+<link href="shared.css" rel="stylesheet"/>
+<style>
+/* HERO */
+.wedding-hero {
+  min-height: 88vh;
+  position: relative;
+  display: flex; align-items: center;
+  overflow: hidden;
+}
+.wedding-hero-bg {
+  position: absolute; inset: 0;
+  background: linear-gradient(160deg, #fdf0f4 0%, #fde8f0 50%, #f8e8f4 100%);
+}
+.wedding-hero-img {
+  position: absolute; right: 0; top: 0; bottom: 0;
+  width: 52%; object-fit: cover; opacity: 0.55;
+}
+.wedding-hero-grad {
+  position: absolute; inset: 0;
+  background: linear-gradient(to right, #fdf0f4 42%, transparent 75%);
+}
+.wedding-hero-content {
+  position: relative; z-index: 2;
+  padding: 0 60px; max-width: 620px;
+}
+.wedding-hero-content .script { font-family:'Libre Baskerville',serif; font-style:italic; font-size:1.1rem; color:#c090a0; margin-bottom:16px; }
+.wedding-hero-content h1 { font-size:4rem; line-height:1.12; margin-bottom:20px; }
+.wedding-hero-content h1 em { color:var(--rose); font-style:italic; }
+.wedding-hero-content p { font-size:1.05rem; color:#7a6068; line-height:1.9; max-width:460px; margin-bottom:36px; font-weight:300; }
+.hero-stats { display:flex; gap:36px; margin-top:36px; }
+.hero-stat { text-align:center; }
+.hero-stat .num { font-family:'Libre Baskerville',serif; font-size:2.2rem; color:var(--rose); line-height:1; }
+.hero-stat .label { font-size:0.75rem; color:var(--muted); letter-spacing:1px; text-transform:uppercase; margin-top:4px; }
+
+/* SERVICES */
+.services { padding:90px 60px; background:#fff; }
+.services-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; margin-top:52px; }
+.service-card { border-radius:20px; overflow:hidden; border:1.5px solid var(--border); transition:all 0.3s; }
+.service-card:hover { transform:translateY(-6px); box-shadow:0 16px 40px rgba(176,96,128,0.14); border-color:var(--rose-light); }
+.service-card img { width:100%; height:240px; object-fit:cover; }
+.service-info { padding:28px; }
+.service-tag { font-size:0.65rem; letter-spacing:3px; text-transform:uppercase; color:var(--rose); font-weight:600; margin-bottom:10px; }
+.service-info h3 { font-size:1.2rem; margin-bottom:10px; }
+.service-info p { font-size:0.88rem; color:var(--muted); line-height:1.7; font-weight:300; margin-bottom:18px; }
+.service-price { font-family:'Libre Baskerville',serif; font-size:1.1rem; color:var(--rose); }
+
+/* WHY SILK WEDDING */
+.why-wedding { padding:90px 60px; background:linear-gradient(160deg,#fde8f0,#fdf0f4); }
+.why-wedding-grid { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
+.why-wedding-img img { width:100%; height:520px; object-fit:cover; border-radius:30px 30px 100px 30px; box-shadow:0 20px 60px rgba(176,96,128,0.18); }
+.why-list { list-style:none; margin-top:24px; }
+.why-list li { display:flex; gap:14px; margin-bottom:20px; align-items:flex-start; }
+.why-list .check { width:28px; height:28px; border-radius:50%; background:linear-gradient(135deg,#d4a0b0,#b06080); display:flex; align-items:center; justify-content:center; color:#fff; font-size:0.8rem; flex-shrink:0; margin-top:2px; }
+.why-list h4 { font-size:0.95rem; margin-bottom:4px; }
+.why-list p { font-size:0.85rem; color:var(--muted); font-weight:300; line-height:1.6; }
+
+/* PROCESS */
+.process { padding:90px 60px; background:#fff; }
+.process-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:32px; margin-top:52px; position:relative; }
+.process-grid::before { content:''; position:absolute; top:28px; left:12%; right:12%; height:1px; background:linear-gradient(90deg,transparent,var(--rose-light),transparent); }
+.process-step { text-align:center; position:relative; }
+.step-circle { width:56px; height:56px; border-radius:50%; background:linear-gradient(135deg,#d4a0b0,#b06080); display:flex; align-items:center; justify-content:center; margin:0 auto 20px; color:#fff; font-family:'Libre Baskerville',serif; font-size:1.2rem; font-weight:700; box-shadow:0 6px 20px rgba(176,96,128,0.3); }
+.process-step h3 { font-size:1rem; margin-bottom:8px; }
+.process-step p { font-size:0.85rem; color:var(--muted); line-height:1.6; font-weight:300; }
+
+/* GALLERY STRIP */
+.gallery-strip { padding:80px 60px; background:var(--cream); }
+.gallery-grid { display:grid; grid-template-columns:2fr 1fr 1fr; grid-template-rows:auto auto; gap:12px; margin-top:40px; }
+.gallery-item { overflow:hidden; border-radius:16px; }
+.gallery-item:first-child { grid-row:span 2; }
+.gallery-item img { width:100%; height:100%; min-height:220px; object-fit:cover; transition:transform 0.5s; display:block; }
+.gallery-item:hover img { transform:scale(1.05); }
+
+/* TESTIMONIALS */
+.wedding-test { padding:90px 60px; background:linear-gradient(160deg,#fde8f0,#fdf0f4); }
+.test-featured { background:#fff; border-radius:24px; padding:48px; max-width:700px; margin:0 auto 40px; text-align:center; box-shadow:0 8px 40px rgba(176,96,128,0.1); }
+.test-featured .quote { font-family:'Libre Baskerville',serif; font-size:4rem; color:var(--rose-light); line-height:0.5; margin-bottom:24px; }
+.test-featured p { font-size:1.05rem; color:#7a6068; line-height:1.8; font-style:italic; font-weight:300; margin-bottom:24px; }
+.test-featured .name { font-weight:700; color:var(--ink); }
+.test-featured .title { font-size:0.82rem; color:var(--rose-light); }
+.test-mini-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+.test-mini { background:#fff; border-radius:16px; padding:24px; border:1.5px solid var(--border); }
+.test-mini .stars { color:#d4a0b0; font-size:0.9rem; margin-bottom:10px; }
+.test-mini p { font-size:0.85rem; color:#7a6068; line-height:1.7; font-style:italic; font-weight:300; margin-bottom:14px; }
+.test-mini .name { font-size:0.82rem; font-weight:600; color:var(--ink); }
+
+/* PACKAGES */
+.packages { padding:90px 60px; background:#fff; }
+.packages-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:52px; }
+.package-card { border-radius:20px; border:1.5px solid var(--border); padding:36px; text-align:center; transition:all 0.3s; position:relative; overflow:hidden; }
+.package-card.featured { border-color:var(--rose); background:linear-gradient(160deg,#fde8f0,#fdf8f5); }
+.package-card.featured::before { content:'Most Popular'; position:absolute; top:16px; right:-28px; background:var(--rose); color:#fff; font-size:0.65rem; letter-spacing:2px; text-transform:uppercase; padding:6px 40px; transform:rotate(45deg); font-weight:600; }
+.package-card:hover { transform:translateY(-6px); box-shadow:0 16px 40px rgba(176,96,128,0.12); }
+.package-icon { font-size:2.5rem; margin-bottom:16px; }
+.package-card h3 { font-size:1.3rem; margin-bottom:8px; }
+.package-price { font-family:'Libre Baskerville',serif; font-size:2rem; color:var(--rose); margin:12px 0; }
+.package-price span { font-size:0.9rem; color:var(--muted); font-family:'Raleway',sans-serif; }
+.package-list { list-style:none; margin:20px 0 28px; text-align:left; }
+.package-list li { font-size:0.85rem; color:#7a6068; padding:8px 0; border-bottom:1px solid var(--border); display:flex; gap:10px; font-weight:300; }
+.package-list li::before { content:'✿'; color:var(--rose-light); flex-shrink:0; }
+
+/* CTA */
+.wedding-cta { padding:100px 60px; background:linear-gradient(135deg,#c07090,#b06080,#904060); text-align:center; color:#fff; position:relative; overflow:hidden; }
+.wedding-cta::before { content:'💍'; position:absolute; font-size:300px; opacity:0.05; right:-40px; top:-60px; }
+.wedding-cta .script { font-family:'Libre Baskerville',serif; font-style:italic; font-size:1.1rem; opacity:0.85; margin-bottom:12px; }
+.wedding-cta h2 { font-size:3rem; color:#fff; margin-bottom:16px; }
+.wedding-cta p { font-size:1.05rem; opacity:0.88; margin-bottom:40px; font-weight:300; max-width:500px; margin-left:auto; margin-right:auto; }
+</style>
+</head>
+<body>
+<div class="promo-banner">🌸 Wedding Consultations Available  <span>|</span>  Custom Packages for Every Budget  <span>|</span>  Call (818) 856-0033</div>
+<nav class="site-nav">
+<a class="nav-logo" href="index.html">
+<svg class="logo-svg" fill="none" viewbox="0 0 60 60"><circle cx="30" cy="30" r="28" stroke="#b06080" stroke-width="1.5"></circle><path d="M14 30 C14 24, 20 20, 26 26 C29 29, 31 31, 34 34 C40 40, 46 36, 46 30 C46 24, 40 20, 34 26 C31 29, 29 31, 26 34 C20 40, 14 36, 14 30 Z" fill="none" stroke="#b06080" stroke-width="1.8"></path><line stroke="#b06080" stroke-linecap="round" stroke-width="1.8" x1="30" x2="30" y1="34" y2="46"></line></svg>
+<span class="logo-text" style="margin-left:8px;">21 Florals</span>
+</a>
+<ul class="nav-links">
+<li><a href="index.html">Home</a></li>
+<li><a href="shop.html">Shop</a></li>
+<li><a class="active" href="weddings.html">Weddings</a></li>
+<li><a href="why-silk.html">Why Silk?</a></li>
+<li><a href="gallery.html">Gallery</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+<div class="nav-actions">
+<a class="btn btn-sm btn-outline" href="contact.html">Book Consultation</a>
+<button class="cart-btn" onclick="window.location='cart.html'">🛒 Cart <span class="cart-count" style="display:none;">0</span></button>
+</div>
+</nav>
+<!-- HERO -->
+<section class="wedding-hero">
+<div class="wedding-hero-bg"></div>
+<img alt="Wedding Florals" class="wedding-hero-img" src="https://www.elegantwedding.ca/wp-content/uploads/2024/01/DECOR-AND-MORE-SILK-FLOWER-DECOR-810x1046.jpg"/>
+<div class="wedding-hero-grad"></div>
+<div class="wedding-hero-content">
+<div class="script">~ Your Perfect Day ~</div>
+<h1>Wedding Florals<br/>That Last <em>Forever</em></h1>
+<p>Your wedding day deserves flowers as enduring as your love. Our handcrafted silk floral arrangements are designed to be treasured long after the last dance.</p>
+<div style="display:flex;gap:16px;flex-wrap:wrap;">
+<a class="btn btn-primary" href="contact.html">Book a Consultation</a>
+<a class="btn btn-outline" href="#packages">View Packages</a>
+</div>
+<div class="hero-stats">
+<div class="hero-stat"><div class="num">200+</div><div class="label">Weddings</div></div>
+<div class="hero-stat"><div class="num">100%</div><div class="label">Custom Made</div></div>
+<div class="hero-stat"><div class="num">♾️</div><div class="label">Lasts Forever</div></div>
+</div>
+</div>
+</section>
+<!-- SERVICES -->
+<section class="services">
+<div class="section-header">
+<div class="section-script">~ What We Offer ~</div>
+<h2>Wedding Floral Services</h2>
+<p>Everything you need for a breathtakingly beautiful wedding</p>
+<div class="petal-divider"><span>✿</span></div>
+</div>
+<div class="services-grid">
+<div class="service-card">
+<img alt="Bridal Bouquet" src="https://i.etsystatic.com/26456938/r/il/62c8ec/3509310965/il_fullxfull.3509310965_7vui.jpg"/>
+<div class="service-info">
+<div class="service-tag">Signature Service</div>
+<h3>Bridal Bouquets</h3>
+<p>Your bouquet is the centrepiece of your wedding day look. We craft each one by hand to perfectly match your vision, colours, and style — and it's yours to keep forever.</p>
+<div class="service-price">From $145</div>
+</div>
+</div>
+<div class="service-card">
+<img alt="Centerpieces" src="https://botanicblossoms.com/wp-content/uploads/2025/05/Silk-flower-centerpieces-1.webp"/>
+<div class="service-info">
+<div class="service-tag">Reception</div>
+<h3>Table Centrepieces</h3>
+<p>Stunning silk floral centrepieces that transform your reception tables into something truly magical — and can be taken home as keepsakes by your guests.</p>
+<div class="service-price">From $85 each</div>
+</div>
+</div>
+<div class="service-card">
+<img alt="Full Wedding Package" src="https://images.squarespace-cdn.com/content/v1/552d50f2e4b0ef77163cfc0f/1561744173290-54I8D3A2NAU6DW7XUTKN/ke17ZwdGBToddI8pDm48kMXRibDYMhUiookWqwUxEZ97gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0luUmcNM2NMBIHLdYyXL-Jww_XBra4mrrAHD6FMA3bNKOBm5vyMDUBjVQdcIrt03OQ/silk-flower-wedding-recreation-reception-centerpieces.jpg"/>
+<div class="service-info">
+<div class="service-tag">Full Package</div>
+<h3>Complete Wedding Florals</h3>
+<p>From ceremony arch to reception tables, boutonnieres to flower girl baskets — we handle every floral detail of your perfect day.</p>
+<div class="service-price">Custom Pricing</div>
+</div>
+</div>
+</div>
+</section>
+<!-- WHY SILK FOR WEDDINGS -->
+<section class="why-wedding">
+<div class="why-wedding-grid">
+<div class="why-wedding-img">
+<img alt="Why Silk Weddings" src="https://weddingfrontier.com/wp-content/uploads/2024/02/floral-arrangements-with-blush-pink-flowers.jpg"/>
+</div>
+<div>
+<div class="section-script" style="text-align:left;">~ The Silk Advantage ~</div>
+<h2 style="font-size:2.4rem;margin-bottom:16px;">Why Silk Florals Are Perfect for Weddings</h2>
+<p style="color:var(--muted);font-weight:300;line-height:1.8;margin-bottom:8px;">Fresh flowers are beautiful — but they wilt, they're seasonal, and they're gone by morning. Our silk florals give you everything fresh flowers offer, and so much more.</p>
+<ul class="why-list">
+<li><div class="check">✓</div><div><h4>Keep Your Bouquet Forever</h4><p>Your bridal bouquet becomes a treasured keepsake — displayed in your home for years to come, looking just as beautiful as your wedding day.</p></div></li>
+<li><div class="check">✓</div><div><h4>No Seasonal Limitations</h4><p>Want peonies in December or tulips in August? With silk, every flower is available every season — no compromises on your dream florals.</p></div></li>
+<li><div class="check">✓</div><div><h4>Safe for Sensitive Guests</h4><p>No pollen, no fragrance, no allergens. Your guests with allergies, asthma, or sensitivities can enjoy the beauty without any discomfort.</p></div></li>
+<li><div class="check">✓</div><div><h4>Perfect All Day Long</h4><p>No wilting in the heat, no drooping by the reception. Your florals look freshly arranged from the first photo to the last dance.</p></div></li>
+<li><div class="check">✓</div><div><h4>Often More Affordable</h4><p>Premium silk arrangements can be more cost-effective than fresh florals, especially for large weddings — without sacrificing any beauty.</p></div></li>
+</ul>
+</div>
+</div>
+</section>
+<!-- PROCESS -->
+<section class="process">
+<div class="section-header">
+<div class="section-script">~ How It Works ~</div>
+<h2>Your Wedding Floral Journey</h2>
+<p>From first consultation to your perfect day</p>
+<div class="petal-divider"><span>✿</span></div>
+</div>
+<div class="process-grid">
+<div class="process-step"><div class="step-circle">1</div><h3>Consultation</h3><p>We discuss your vision, colour palette, style, and budget in a personal consultation.</p></div>
+<div class="process-step"><div class="step-circle">2</div><h3>Design Proposal</h3><p>We create a detailed proposal with sketches and fabric samples for your approval.</p></div>
+<div class="process-step"><div class="step-circle">3</div><h3>Handcrafting</h3><p>Your arrangements are lovingly handcrafted using premium silk botanicals.</p></div>
+<div class="process-step"><div class="step-circle">4</div><h3>Your Perfect Day</h3><p>Delivered and set up beautifully — then yours to keep and cherish forever.</p></div>
+</div>
+</section>
+<!-- GALLERY -->
+<section class="gallery-strip">
+<div class="section-header">
+<div class="section-script">~ Our Work ~</div>
+<h2>Wedding Gallery</h2>
+<p>A glimpse of the love we've helped celebrate</p>
+<div class="petal-divider"><span>✿</span></div>
+</div>
+<div class="gallery-grid">
+<div class="gallery-item"><img alt="Wedding" src="https://images.squarespace-cdn.com/content/v1/552d50f2e4b0ef77163cfc0f/1561744173290-54I8D3A2NAU6DW7XUTKN/ke17ZwdGBToddI8pDm48kMXRibDYMhUiookWqwUxEZ97gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0luUmcNM2NMBIHLdYyXL-Jww_XBra4mrrAHD6FMA3bNKOBm5vyMDUBjVQdcIrt03OQ/silk-flower-wedding-recreation-reception-centerpieces.jpg"/></div>
+<div class="gallery-item"><img alt="Bouquet" src="https://i.etsystatic.com/26456938/r/il/62c8ec/3509310965/il_fullxfull.3509310965_7vui.jpg"/></div>
+<div class="gallery-item"><img alt="Centerpiece" src="https://botanicblossoms.com/wp-content/uploads/2025/05/Silk-flower-centerpieces-1.webp"/></div>
+<div class="gallery-item"><img alt="Blush" src="https://weddingfrontier.com/wp-content/uploads/2024/02/floral-arrangements-with-blush-pink-flowers.jpg"/></div>
+<div class="gallery-item"><img alt="Bridal" src="https://images.squarespace-cdn.com/content/v1/552d50f2e4b0ef77163cfc0f/1578333818811-99BRWK5212MSBQOFSP32/custom-silk-bridal-bouquet-centerpieces-wedding-flowers.jpg"/></div>
+</div>
+</section>
+<!-- TESTIMONIALS -->
+<section class="wedding-test">
+<div class="section-header">
+<div class="section-script">~ Love Stories ~</div>
+<h2>From Our Brides</h2>
+<div class="petal-divider"><span>✿</span></div>
+</div>
+<div class="test-featured">
+<div class="quote">"</div>
+<p>I was hesitant about silk flowers at first, but 21 Florals completely changed my mind. My bridal bouquet was the most beautiful thing I've ever held. Three years later, it sits in a glass case in our bedroom and still looks as perfect as the day I walked down the aisle. I couldn't imagine my wedding without them.</p>
+<div class="name">Jessica &amp; Tom L.</div>
+<div class="title">Married June 2023 · Los Angeles, CA</div>
+</div>
+<div class="test-mini-grid">
+<div class="test-mini"><div class="stars">★★★★★</div><p>"The centrepieces were absolutely breathtaking. Every single guest asked where they came from!"</p><div class="name">— Emily R., Bride</div></div>
+<div class="test-mini"><div class="stars">★★★★★</div><p>"As someone with severe allergies, I never thought I could have beautiful florals at my wedding. 21 Florals made it possible."</p><div class="name">— Melissa T., Bride</div></div>
+<div class="test-mini"><div class="stars">★★★★★</div><p>"The consultation process was so personal and thoughtful. They truly understood my vision and brought it to life perfectly."</p><div class="name">— Sophia K., Bride</div></div>
+</div>
+</section>
+<!-- PACKAGES -->
+<section class="packages" id="packages">
+<div class="section-header">
+<div class="section-script">~ Investment ~</div>
+<h2>Wedding Packages</h2>
+<p>Beautiful options for every vision and budget</p>
+<div class="petal-divider"><span>✿</span></div>
+</div>
+<div class="packages-grid">
+<div class="package-card">
+<div class="package-icon">🌸</div>
+<h3>The Blossom</h3>
+<div class="package-price">$450 <span>starting from</span></div>
+<ul class="package-list">
+<li>1 Bridal Bouquet</li>
+<li>2 Bridesmaid Bouquets</li>
+<li>2 Boutonnieres</li>
+<li>Ceremony Accent Pieces</li>
+<li>Free Consultation</li>
+</ul>
+<a class="btn btn-outline" href="contact.html" style="width:100%;text-align:center;">Get Started</a>
+</div>
+<div class="package-card featured">
+<div class="package-icon">💐</div>
+<h3>The Garden</h3>
+<div class="package-price">$950 <span>starting from</span></div>
+<ul class="package-list">
+<li>1 Bridal Bouquet</li>
+<li>4 Bridesmaid Bouquets</li>
+<li>4 Boutonnieres</li>
+<li>6 Table Centrepieces</li>
+<li>Ceremony Arch Florals</li>
+<li>Free Consultation + Design</li>
+</ul>
+<a class="btn btn-primary" href="contact.html" style="width:100%;text-align:center;">Get Started</a>
+</div>
+<div class="package-card">
+<div class="package-icon">👑</div>
+<h3>The Grand</h3>
+<div class="package-price">Custom <span>pricing</span></div>
+<ul class="package-list">
+<li>Full Wedding Florals</li>
+<li>Unlimited Bouquets</li>
+<li>All Table Centrepieces</li>
+<li>Ceremony &amp; Reception</li>
+<li>Flower Wall / Arch</li>
+<li>Dedicated Coordinator</li>
+</ul>
+<a class="btn btn-outline" href="contact.html" style="width:100%;text-align:center;">Request Quote</a>
+</div>
+</div>
+</section>
+<!-- CTA -->
+<section class="wedding-cta">
+<div class="script">~ Begin Your Journey ~</div>
+<h2>Let's Create Your Dream Wedding</h2>
+<p>Book a free consultation and let us bring your floral vision to life — beautifully, personally, and forever.</p>
+<div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+<a class="btn btn-white" href="contact.html">Book Free Consultation</a>
+<a class="btn btn-outline" href="shop.html?cat=wedding" style="border-color:rgba(255,255,255,0.5);color:#fff;">Shop Wedding Collection</a>
+</div>
+</section>
+<footer class="site-footer">
+<div class="footer-grid">
+<div class="footer-brand"><span class="logo-text">21 Florals</span><p>Handcrafted silk floral arrangements inspired by the beauty of nature. Made with love in Northridge, CA.</p></div>
+<div><h4>Shop</h4><ul><li><a href="shop.html">All Arrangements</a></li><li><a href="weddings.html">Wedding Florals</a></li><li><a href="contact.html">Custom Orders</a></li></ul></div>
+<div><h4>Company</h4><ul><li><a href="about.html">Our Story</a></li><li><a href="why-silk.html">Why Silk?</a></li><li><a href="gallery.html">Gallery</a></li></ul></div>
+<div><h4>Contact</h4><ul><li><a href="tel:8188560033">📞 (818) 856-0033</a></li><li><a>📍 18543 Devonshire St, Suite 1008<br/>    Northridge, CA 91324</a></li></ul></div>
+</div>
+<div class="footer-bottom"><p>© 2025 21 Florals. All rights reserved. | Inspired by Nature 🌸</p></div>
+</footer>
+<script src="shared.js"></script>
+</body>
+</html>

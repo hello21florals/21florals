@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>About Us — 21 Florals</title>
+<link href="shared.css" rel="stylesheet"/>
+<style>
+/* STORY SECTION */
+.story { padding: 90px 60px; background: #fff; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.story-images { position: relative; }
+.story-img-main { width: 100%; height: 500px; object-fit: cover; border-radius: 30px 30px 100px 30px; box-shadow: 0 20px 60px rgba(176,96,128,0.18); }
+.story-img-accent { position: absolute; bottom: -30px; right: -30px; width: 200px; height: 200px; object-fit: cover; border-radius: 20px; border: 6px solid #fff; box-shadow: 0 12px 36px rgba(176,96,128,0.2); }
+.story-text .script { font-family: 'Libre Baskerville', serif; font-style: italic; font-size: 1rem; color: #c090a0; margin-bottom: 12px; }
+.story-text h2 { font-size: 2.6rem; margin-bottom: 20px; line-height: 1.2; }
+.story-divider { width: 50px; height: 2px; background: linear-gradient(90deg, #b06080, #d4a0b0); margin: 24px 0; border-radius: 2px; }
+.story-text p { font-size: 0.95rem; color: #7a6068; line-height: 1.9; font-weight: 300; margin-bottom: 16px; }
+
+/* VALUES */
+.values { padding: 90px 60px; background: linear-gradient(160deg, #fde8f0, #fdf0f4); }
+.values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 52px; }
+.value-card { background: #fff; border-radius: 20px; padding: 40px 32px; text-align: center; border: 1.5px solid var(--border); transition: all 0.3s; }
+.value-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(176,96,128,0.12); border-color: var(--rose-light); }
+.value-icon { font-size: 2.8rem; margin-bottom: 18px; }
+.value-card h3 { font-size: 1.1rem; margin-bottom: 12px; }
+.value-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.7; font-weight: 300; }
+
+/* MISSION */
+.mission { padding: 90px 60px; background: #fff; }
+.mission-inner { max-width: 800px; margin: 0 auto; text-align: center; }
+.mission-quote { font-family: 'Libre Baskerville', serif; font-size: 1.8rem; font-style: italic; color: var(--ink); line-height: 1.5; margin: 40px 0; position: relative; padding: 0 40px; }
+.mission-quote::before, .mission-quote::after { content: '"'; font-size: 5rem; color: var(--rose-light); position: absolute; line-height: 0.5; }
+.mission-quote::before { top: 20px; left: 0; }
+.mission-quote::after { bottom: -10px; right: 0; }
+.mission-inner p { font-size: 1rem; color: var(--muted); line-height: 1.9; font-weight: 300; }
+
+/* STATS */
+.stats { padding: 70px 60px; background: linear-gradient(135deg, #c07090, #b06080); color: #fff; }
+.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; text-align: center; }
+.stat-item .num { font-family: 'Libre Baskerville', serif; font-size: 3.2rem; font-weight: 700; line-height: 1; margin-bottom: 8px; }
+.stat-item .label { font-size: 0.82rem; letter-spacing: 2px; text-transform: uppercase; opacity: 0.85; font-weight: 500; }
+
+/* PROCESS */
+.our-process { padding: 90px 60px; background: var(--cream); }
+.process-steps { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 52px; }
+.process-card { background: #fff; border-radius: 20px; padding: 32px; border: 1.5px solid var(--border); display: flex; gap: 20px; align-items: flex-start; transition: all 0.3s; }
+.process-card:hover { border-color: var(--rose-light); transform: translateY(-3px); }
+.process-num { font-family: 'Libre Baskerville', serif; font-size: 2.5rem; color: var(--rose-light); line-height: 1; flex-shrink: 0; width: 48px; }
+.process-card h3 { font-size: 1rem; margin-bottom: 8px; }
+.process-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.7; font-weight: 300; }
+
+/* PROMISE */
+.promise { padding: 90px 60px; background: #fff; }
+.promise-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+.promise-img img { width: 100%; height: 480px; object-fit: cover; border-radius: 30px 100px 30px 30px; box-shadow: 0 20px 60px rgba(176,96,128,0.15); }
+.promise-text .script { font-family: 'Libre Baskerville', serif; font-style: italic; font-size: 1rem; color: #c090a0; margin-bottom: 12px; }
+.promise-text h2 { font-size: 2.4rem; margin-bottom: 16px; }
+.promise-divider { width: 50px; height: 2px; background: linear-gradient(90deg, #b06080, #d4a0b0); margin: 20px 0; border-radius: 2px; }
+.promise-text p { font-size: 0.95rem; color: #7a6068; line-height: 1.9; font-weight: 300; margin-bottom: 14px; }
+.promise-list { list-style: none; margin-top: 20px; }
+.promise-list li { display: flex; gap: 12px; align-items: center; font-size: 0.9rem; color: var(--ink); margin-bottom: 12px; font-weight: 500; }
+.promise-list li::before { content: '✿'; color: var(--rose-light); font-size: 1rem; }
+
+/* CTA */
+.about-cta { padding: 100px 60px; background: linear-gradient(135deg, #c07090, #b06080, #904060); text-align: center; color: #fff; }
+.about-cta .script { font-family: 'Libre Baskerville', serif; font-style: italic; font-size: 1.1rem; opacity: 0.85; margin-bottom: 12px; }
+.about-cta h2 { font-size: 3rem; color: #fff; margin-bottom: 16px; }
+.about-cta p { font-size: 1.05rem; opacity: 0.88; margin-bottom: 40px; font-weight: 300; max-width: 500px; margin-left: auto; margin-right: auto; }
+</style>
+</head>
+<body>
+<div class="promo-banner">🌸 Buy Any 3 Arrangements, Get the 4th FREE!  <span>|</span>  Handcrafted with Love in Northridge, CA</div>
+<nav class="site-nav">
+<a class="nav-logo" href="index.html">
+<svg class="logo-svg" fill="none" viewbox="0 0 60 60"><circle cx="30" cy="30" r="28" stroke="#b06080" stroke-width="1.5"></circle><path d="M14 30 C14 24, 20 20, 26 26 C29 29, 31 31, 34 34 C40 40, 46 36, 46 30 C46 24, 40 20, 34 26 C31 29, 29 31, 26 34 C20 40, 14 36, 14 30 Z" fill="none" stroke="#b06080" stroke-width="1.8"></path><line stroke="#b06080" stroke-linecap="round" stroke-width="1.8" x1="30" x2="30" y1="34" y2="46"></line></svg>
+<span class="logo-text" style="margin-left:8px;">21 Florals</span>
+</a>
+<ul class="nav-links">
+<li><a href="index.html">Home</a></li>
+<li><a href="shop.html">Shop</a></li>
+<li><a href="weddings.html">Weddings</a></li>
+<li><a href="why-silk.html">Why Silk?</a></li>
+<li><a href="gallery.html">Gallery</a></li>
+<li><a class="active" href="about.html">About</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+<div class="nav-actions">
+<a class="btn btn-sm btn-outline" href="shop.html">Shop Now</a>
+<button class="cart-btn" onclick="window.location='cart.html'">🛒 Cart <span class="cart-count" style="display:none;">0</span></button>
+</div>
+</nav>
+<div class="breadcrumb"><a href="index.html">Home</a><span>›</span> About Us</div>
+<div class="page-hero">
+<div class="script">~ Our Story ~</div>
+<h1>Made with Love,<br/>Inspired by Nature</h1>
+<p>The story behind 21 Florals — a passion for beauty, a love of nature, and a desire to create something that lasts forever.</p>
+</div>
+<!-- STORY -->
+<section class="story">
+<div class="story-images">
+<img alt="21 Florals Story" class="story-img-main" src="https://valarflower.com/cdn/shop/files/Luxurious_Artificial_Flower_Arrangements_-_Silk_Floral_Decor_for_Weddings_Events_VB-203-6.jpg?v=1729086390&amp;width=1800"/>
+<img alt="Silk Florals Detail" class="story-img-accent" src="https://i.etsystatic.com/22099876/r/il/fd4fb2/3728140963/il_1080xN.3728140963_ksgn.jpg"/>
+</div>
+<div class="story-text">
+<div class="script">~ How It All Began ~</div>
+<h2>A Passion Born from Nature's Beauty</h2>
+<div class="story-divider"></div>
+<p>21 Florals was born from a deep, lifelong love of nature and a fascination with the way flowers can transform a space — filling it with colour, warmth, and a sense of life.</p>
+<p>The name "21" carries a special meaning: it represents the infinite loop of nature's beauty — the way flowers bloom, inspire, and bring joy in an endless cycle. Just like our arrangements, that beauty never ends.</p>
+<p>What started as a personal passion for creating beautiful silk arrangements for friends and family quickly grew into something much bigger. Word spread, requests came in, and 21 Florals was born — a small, heartfelt business dedicated to bringing nature's beauty into every home, every celebration, and every cherished moment.</p>
+<p>Every arrangement we create is handcrafted with love, using only the finest premium silk botanicals. We pour our heart into every single piece — because we believe that beauty should be lasting, and joy should never wilt.</p>
+<a class="btn btn-primary" href="shop.html" style="margin-top:8px;">Explore Our Collection</a>
+</div>
+</section>
+<!-- MISSION -->
+<section class="mission">
+<div class="section-header">
+<div class="section-script">~ What Drives Us ~</div>
+<h2>Our Mission</h2>
+<div class="petal-divider"><span>✿</span></div>
+</div>
+<div class="mission-inner">
+<div class="mission-quote">To bring the enduring beauty of nature into every home, every celebration, and every heart — through handcrafted silk florals that never fade, never wilt, and never stop bringing joy.</div>
+<p>We believe that everyone deserves to live surrounded by beauty. That's why we create silk floral arrangements that are not only stunning, but also safe, sustainable, and designed to last a lifetime. From a cosy living room to a grand wedding venue, our florals bring nature's magic to every space.</p>
+</div>
+</section>
+<!-- VALUES -->
+<section class="values">
+<div class="section-header">
+<div class="section-script">~ What We Stand For ~</div>
+<h2>Our Values</h2>
+<p>The principles that guide everything we create</p>
+<div class="petal-divider"><span>✿</span></div>
+</div>
+<div class="values-grid">
+<div class="value-card"><div class="value-icon">🌸</div><h3>Beauty in Every Detail</h3><p>We obsess over every petal, every leaf, every stem. Our arrangements are crafted with meticulous attention to detail — because beauty lives in the details.</p></div>
+<div class="value-card"><div class="value-icon">💛</div><h3>Made with Love</h3><p>Every arrangement is handcrafted by hand, with genuine care and passion. We don't mass-produce — we create, thoughtfully and lovingly, one piece at a time.</p></div>
+<div class="value-card"><div class="value-icon">🌿</div><h3>Inspired by Nature</h3><p>Nature is our greatest muse. We study real flowers, real gardens, and real landscapes to capture their organic beauty in every silk arrangement we create.</p></div>
+<div class="value-card"><div class="value-icon">🛡️</div><h3>Safety First</h3><p>We are committed to creating arrangements that are completely safe — non-toxic, non-poisonous, and free from allergens — for every member of your family.</p></div>
+<div class="value-card"><div class="value-icon">♾️</div><h3>Lasting Quality</h3><p>We use only premium silk botanicals that are built to last. We believe in creating things of enduring quality — not disposable beauty.</p></div>
+<div class="value-card"><div class="value-icon">🤝</div><h3>Personal Connection</h3><p>We're a small, personal business and we love connecting with our customers. Every order matters to us, and every customer is treated like family.</p></div>
+</div>
+</section>
+<!-- STATS -->
+<section class="stats">
+<div class="stats-grid">
+<div class="stat-item"><div class="num">500+</div><div class="label">Happy Customers</div></div>
+<div class="stat-item"><div class="num">200+</div><div class="label">Weddings Served</div></div>
+<div class="stat-item"><div class="num">12+</div><div class="label">Signature Designs</div></div>
+<div class="stat-item"><div class="num">100%</div><div class="label">Handcrafted</div></div>
+</div>
+</section>
+<!-- OUR PROCESS -->
+<section class="our-process">
+<div class="section-header">
+<div class="section-script">~ How We Work ~</div>
+<h2>The Art of Our Craft</h2>
+<p>Every arrangement is a labour of love</p>
+<div class="petal-divider"><span>✿</span></div>
+</div>
+<div class="process-steps">
+<div class="process-card"><div class="process-num">01</div><div><h3>Inspiration from Nature</h3><p>Every design begins with nature. We study real flowers, seasonal blooms, and natural colour palettes to create arrangements that feel genuinely organic and alive.</p></div></div>
+<div class="process-card"><div class="process-num">02</div><div><h3>Premium Material Selection</h3><p>We source only the finest silk botanicals — materials that capture the texture, colour, and delicate imperfections of real flowers with extraordinary realism.</p></div></div>
+<div class="process-card"><div class="process-num">03</div><div><h3>Handcrafted with Care</h3><p>Each arrangement is assembled entirely by hand. We shape every stem, position every bloom, and adjust every leaf until the arrangement feels perfectly natural and beautiful.</p></div></div>
+<div class="process-card"><div class="process-num">04</div><div><h3>Quality Checked with Love</h3><p>Before any arrangement leaves our studio, it's carefully inspected to ensure it meets our exacting standards of beauty, quality, and craftsmanship.</p></div></div>
+</div>
+</section>
+<!-- PROMISE -->
+<section class="promise">
+<div class="promise-grid">
+<div class="promise-img">
+<img alt="Our Promise" src="https://i.etsystatic.com/25994246/r/il/24ea64/4893437678/il_1080xN.4893437678_3k7w.jpg"/>
+</div>
+<div class="promise-text">
+<div class="script">~ Our Commitment to You ~</div>
+<h2>The 21 Florals Promise</h2>
+<div class="promise-divider"></div>
+<p>When you choose 21 Florals, you're not just buying a beautiful arrangement — you're investing in something made with genuine love and care, designed to bring you joy for years to come.</p>
+<p>We stand behind every piece we create. If you're ever not completely delighted with your arrangement, we'll make it right — because your happiness is our greatest reward.</p>
+<ul class="promise-list">
+<li>Premium silk quality, always</li>
+<li>100% handcrafted, never mass-produced</li>
+<li>Safe for pets, children &amp; sensitive individuals</li>
+<li>Designed to last for years</li>
+<li>Personal, caring customer service</li>
+<li>Custom orders welcomed with open arms</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- CTA -->
+<section class="about-cta">
+<div class="script">~ Join Our Family ~</div>
+<h2>Let's Create Something Beautiful</h2>
+<p>Whether you're looking for the perfect home accent, a wedding floral, or a heartfelt gift — we'd love to create something special just for you.</p>
+<div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+<a class="btn btn-white" href="shop.html">Shop the Collection</a>
+<a class="btn btn-outline" href="contact.html" style="border-color:rgba(255,255,255,0.5);color:#fff;">Get in Touch</a>
+</div>
+</section>
+<footer class="site-footer">
+<div class="footer-grid">
+<div class="footer-brand"><span class="logo-text">21 Florals</span><p>Handcrafted silk floral arrangements inspired by the beauty of nature. Made with love in Northridge, CA.</p></div>
+<div><h4>Shop</h4><ul><li><a href="shop.html">All Arrangements</a></li><li><a href="weddings.html">Wedding Florals</a></li><li><a href="contact.html">Custom Orders</a></li></ul></div>
+<div><h4>Company</h4><ul><li><a href="about.html">Our Story</a></li><li><a href="why-silk.html">Why Silk?</a></li><li><a href="gallery.html">Gallery</a></li></ul></div>
+<div><h4>Contact</h4><ul><li><a href="tel:8188560033">📞 (818) 856-0033</a></li><li><a>📍 18543 Devonshire St, Suite 1008<br/>    Northridge, CA 91324</a></li></ul></div>
+</div>
+<div class="footer-bottom"><p>© 2025 21 Florals. All rights reserved. | Inspired by Nature 🌸</p></div>
+</footer>
+<script src="shared.js"></script>
+</body>
+</html>

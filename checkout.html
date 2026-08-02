@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Checkout — 21 Florals</title>
+<link href="shared.css" rel="stylesheet"/>
+<style>
+.checkout-layout { display: grid; grid-template-columns: 1fr 400px; gap: 40px; padding: 50px 60px; align-items: start; }
+
+/* STEPS */
+.checkout-steps { display: flex; align-items: center; gap: 0; margin-bottom: 36px; }
+.step { display: flex; align-items: center; gap: 10px; }
+.step-num { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.82rem; font-weight: 700; transition: all 0.3s; }
+.step.active .step-num { background: var(--rose); color: #fff; }
+.step.done .step-num { background: #4caf50; color: #fff; }
+.step.inactive .step-num { background: var(--border); color: var(--muted); }
+.step-label { font-size: 0.82rem; font-weight: 600; }
+.step.active .step-label { color: var(--rose); }
+.step.done .step-label { color: #4caf50; }
+.step.inactive .step-label { color: var(--muted); }
+.step-line { flex: 1; height: 2px; background: var(--border); margin: 0 12px; max-width: 60px; }
+.step-line.done { background: #4caf50; }
+
+/* FORM SECTIONS */
+.form-section { background: #fff; border-radius: 20px; border: 1.5px solid var(--border); padding: 32px; margin-bottom: 24px; }
+.form-section h3 { font-size: 1.1rem; margin-bottom: 24px; padding-bottom: 14px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 10px; }
+.form-section h3 .icon { font-size: 1.2rem; }
+
+/* PAYMENT METHODS */
+.payment-methods { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 24px; }
+.pay-method { border: 1.5px solid var(--border); border-radius: 12px; padding: 14px; text-align: center; cursor: pointer; transition: all 0.2s; }
+.pay-method:hover { border-color: var(--rose-light); }
+.pay-method.selected { border-color: var(--rose); background: var(--rose-pale); }
+.pay-method .icon { font-size: 1.6rem; margin-bottom: 6px; }
+.pay-method .label { font-size: 0.75rem; font-weight: 600; color: var(--ink); }
+
+/* CARD FORM */
+.card-number-wrap { position: relative; }
+.card-icons { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); display: flex; gap: 6px; font-size: 1.2rem; }
+.card-field { font-family: 'Courier New', monospace; letter-spacing: 2px; }
+
+/* APPLE/GOOGLE PAY BUTTONS */
+.express-pay { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+.apple-pay-btn { background: #000; color: #fff; border: none; border-radius: 12px; padding: 14px; font-size: 0.9rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: opacity 0.2s; }
+.apple-pay-btn:hover { opacity: 0.85; }
+.google-pay-btn { background: #fff; color: #333; border: 1.5px solid #ddd; border-radius: 12px; padding: 14px; font-size: 0.9rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.2s; }
+.google-pay-btn:hover { border-color: #aaa; }
+.paypal-btn { width: 100%; background: #ffc439; color: #003087; border: none; border-radius: 12px; padding: 14px; font-size: 1rem; font-weight: 700; cursor: pointer; margin-bottom: 12px; transition: opacity 0.2s; display: flex; align-items: center; justify-content: center; gap: 8px; }
+.paypal-btn:hover { opacity: 0.9; }
+.divider-or { text-align: center; color: var(--muted); font-size: 0.82rem; margin: 16px 0; position: relative; }
+.divider-or::before, .divider-or::after { content: ''; position: absolute; top: 50%; width: 42%; height: 1px; background: var(--border); }
+.divider-or::before { left: 0; }
+.divider-or::after { right: 0; }
+
+/* ORDER SUMMARY SIDEBAR */
+.order-sidebar { background: #fff; border-radius: 20px; border: 1.5px solid var(--border); padding: 28px; position: sticky; top: 90px; }
+.order-sidebar h3 { font-size: 1.1rem; margin-bottom: 20px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+.order-item { display: flex; gap: 14px; margin-bottom: 16px; align-items: center; }
+.order-item img { width: 60px; height: 60px; object-fit: cover; border-radius: 10px; flex-shrink: 0; }
+.order-item-info { flex: 1; }
+.order-item-info h4 { font-size: 0.88rem; margin-bottom: 2px; }
+.order-item-info .qty { font-size: 0.78rem; color: var(--muted); font-weight: 300; }
+.order-item-price { font-family: 'Libre Baskerville', serif; font-size: 0.95rem; color: var(--rose); }
+.summary-divider { height: 1px; background: var(--border); margin: 16px 0; }
+.summary-row { display: flex; justify-content: space-between; font-size: 0.88rem; margin-bottom: 10px; }
+.summary-row .label { color: var(--muted); font-weight: 300; }
+.summary-row.discount .value { color: #4caf50; font-weight: 600; }
+.summary-row.total { font-size: 1.05rem; padding-top: 12px; border-top: 1px solid var(--border); margin-top: 4px; }
+.summary-row.total .label { font-weight: 700; color: var(--ink); }
+.summary-row.total .value { font-family: 'Libre Baskerville', serif; font-size: 1.3rem; color: var(--rose); }
+.place-order-btn { width: 100%; padding: 18px; background: linear-gradient(135deg, #c07090, #b06080); color: #fff; border: none; border-radius: 50px; font-size: 0.9rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; margin-top: 20px; transition: all 0.3s; box-shadow: 0 6px 20px rgba(176,96,128,0.3); }
+.place-order-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(176,96,128,0.4); }
+.trust-row { display: flex; justify-content: center; gap: 16px; margin-top: 14px; font-size: 0.72rem; color: var(--muted); flex-wrap: wrap; }
+
+/* SUCCESS SCREEN */
+.success-screen { text-align: center; padding: 80px 60px; display: none; }
+.success-screen .check { font-size: 5rem; margin-bottom: 20px; }
+.success-screen h1 { font-size: 2.8rem; margin-bottom: 14px; color: var(--rose); }
+.success-screen p { font-size: 1rem; color: var(--muted); line-height: 1.8; max-width: 500px; margin: 0 auto 32px; font-weight: 300; }
+.order-num { background: var(--rose-pale); border: 1.5px solid var(--border); border-radius: 12px; padding: 16px 28px; display: inline-block; margin-bottom: 28px; }
+.order-num span { font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 4px; }
+.order-num strong { font-family: 'Libre Baskerville', serif; font-size: 1.4rem; color: var(--rose); }
+</style>
+</head>
+<body>
+<div class="promo-banner">🌸 Secure Checkout  <span>|</span>  All Major Payment Methods Accepted  <span>|</span>  Free Shipping on Orders Over $150</div>
+<nav class="site-nav">
+<a class="nav-logo" href="index.html">
+<svg class="logo-svg" fill="none" viewbox="0 0 60 60"><circle cx="30" cy="30" r="28" stroke="#b06080" stroke-width="1.5"></circle><path d="M14 30 C14 24, 20 20, 26 26 C29 29, 31 31, 34 34 C40 40, 46 36, 46 30 C46 24, 40 20, 34 26 C31 29, 29 31, 26 34 C20 40, 14 36, 14 30 Z" fill="none" stroke="#b06080" stroke-width="1.8"></path><line stroke="#b06080" stroke-linecap="round" stroke-width="1.8" x1="30" x2="30" y1="34" y2="46"></line></svg>
+<span class="logo-text" style="margin-left:8px;">21 Florals</span>
+</a>
+<ul class="nav-links">
+<li><a href="index.html">Home</a></li>
+<li><a href="shop.html">Shop</a></li>
+<li><a href="cart.html">Cart</a></li>
+</ul>
+<div class="nav-actions">
+<button class="cart-btn" onclick="window.location='cart.html'">🛒 Cart <span class="cart-count" style="display:none;">0</span></button>
+</div>
+</nav>
+<div class="breadcrumb"><a href="index.html">Home</a><span>›</span><a href="cart.html">Cart</a><span>›</span> Checkout</div>
+<!-- SUCCESS SCREEN -->
+<div class="success-screen" id="success-screen">
+<div class="check">🌸</div>
+<h1>Thank You!</h1>
+<p>Your order has been placed successfully. We're so excited to handcraft your beautiful silk floral arrangements! You'll receive a confirmation email shortly.</p>
+<div class="order-num"><span>Order Number</span><strong id="order-num-display">#21F-00000</strong></div>
+<div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+<a class="btn btn-primary" href="shop.html">Continue Shopping</a>
+<a class="btn btn-outline" href="index.html">Back to Home</a>
+</div>
+</div>
+<!-- CHECKOUT FORM -->
+<div id="checkout-main">
+<div style="padding: 32px 60px 0;">
+<div class="checkout-steps">
+<div class="step active"><div class="step-num">1</div><div class="step-label">Information</div></div>
+<div class="step-line"></div>
+<div class="step inactive"><div class="step-num">2</div><div class="step-label">Shipping</div></div>
+<div class="step-line"></div>
+<div class="step inactive"><div class="step-num">3</div><div class="step-label">Payment</div></div>
+</div>
+</div>
+<div class="checkout-layout">
+<!-- LEFT: FORM -->
+<div>
+<!-- CONTACT -->
+<div class="form-section">
+<h3><span class="icon">👤</span> Contact Information</h3>
+<div class="form-row">
+<div class="form-group"><label>First Name</label><input id="fname" placeholder="Rose" type="text"/></div>
+<div class="form-group"><label>Last Name</label><input id="lname" placeholder="Johnson" type="text"/></div>
+</div>
+<div class="form-group"><label>Email Address</label><input id="email" placeholder="rose@example.com" type="email"/></div>
+<div class="form-group"><label>Phone Number</label><input id="phone" placeholder="(818) 555-0000" type="tel"/></div>
+</div>
+<!-- SHIPPING -->
+<div class="form-section">
+<h3><span class="icon">📦</span> Shipping Address</h3>
+<div class="form-group"><label>Street Address</label><input id="address" placeholder="123 Blossom Lane" type="text"/></div>
+<div class="form-group"><label>Apartment / Suite (optional)</label><input placeholder="Apt 4B" type="text"/></div>
+<div class="form-row">
+<div class="form-group"><label>City</label><input id="city" placeholder="Los Angeles" type="text"/></div>
+<div class="form-group"><label>State</label>
+<select id="state">
+<option>California</option><option>New York</option><option>Texas</option><option>Florida</option><option>Other</option>
+</select>
+</div>
+</div>
+<div class="form-row">
+<div class="form-group"><label>ZIP Code</label><input id="zip" placeholder="91324" type="text"/></div>
+<div class="form-group"><label>Country</label><select><option>United States</option><option>Canada</option></select></div>
+</div>
+<div class="form-group">
+<label>Shipping Method</label>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:4px;">
+<label style="display:flex;align-items:center;gap:10px;padding:14px;border:1.5px solid var(--rose);border-radius:12px;cursor:pointer;background:var(--rose-pale);">
+<input checked="" name="shipping" style="accent-color:var(--rose);" type="radio" value="standard"/>
+<div><div style="font-size:0.85rem;font-weight:600;">Standard (5–7 days)</div><div id="std-price" style="font-size:0.78rem;color:var(--muted);">$12.99</div></div>
+</label>
+<label style="display:flex;align-items:center;gap:10px;padding:14px;border:1.5px solid var(--border);border-radius:12px;cursor:pointer;">
+<input name="shipping" style="accent-color:var(--rose);" type="radio" value="express"/>
+<div><div style="font-size:0.85rem;font-weight:600;">Express (2–3 days)</div><div style="font-size:0.78rem;color:var(--muted);">$24.99</div></div>
+</label>
+</div>
+</div>
+<div class="form-group">
+<label>Gift Message (optional)</label>
+<textarea placeholder="Add a personal message to include with your order... 🌸" style="min-height:80px;"></textarea>
+</div>
+</div>
+<!-- PAYMENT -->
+<div class="form-section">
+<h3><span class="icon">💳</span> Payment</h3>
+<!-- EXPRESS PAY -->
+<div class="express-pay">
+<button class="apple-pay-btn" onclick="handleExpressPay('Apple Pay')">🍎 Apple Pay</button>
+<button class="google-pay-btn" onclick="handleExpressPay('Google Pay')">
+<span style="font-weight:700;color:#4285f4;">G</span><span style="font-weight:700;color:#ea4335;">o</span><span style="font-weight:700;color:#fbbc05;">o</span><span style="font-weight:700;color:#4285f4;">g</span><span style="font-weight:700;color:#34a853;">l</span><span style="font-weight:700;color:#ea4335;">e</span> Pay
+          </button>
+</div>
+<button class="paypal-btn" onclick="handleExpressPay('PayPal')">
+<span style="color:#003087;font-weight:900;">Pay</span><span style="color:#009cde;font-weight:900;">Pal</span>
+</button>
+<div class="divider-or">or pay with card</div>
+<!-- PAYMENT METHOD TABS -->
+<div class="payment-methods">
+<div class="pay-method selected" onclick="selectPay(this,'card')"><div class="icon">💳</div><div class="label">Credit / Debit</div></div>
+<div class="pay-method" onclick="selectPay(this,'visa')"><div class="icon">🏦</div><div class="label">Visa / MC</div></div>
+<div class="pay-method" onclick="selectPay(this,'amex')"><div class="icon">💠</div><div class="label">Amex</div></div>
+</div>
+<div class="form-group">
+<label>Card Number</label>
+<div class="card-number-wrap">
+<input class="card-field" id="card-num" maxlength="19" oninput="formatCard(this)" placeholder="1234  5678  9012  3456" type="text"/>
+<div class="card-icons">💳</div>
+</div>
+</div>
+<div class="form-row">
+<div class="form-group"><label>Expiry Date</label><input maxlength="7" oninput="formatExpiry(this)" placeholder="MM / YY" type="text"/></div>
+<div class="form-group"><label>CVV</label><input maxlength="4" placeholder="•••" style="letter-spacing:4px;" type="text"/></div>
+</div>
+<div class="form-group"><label>Name on Card</label><input placeholder="Rose Johnson" type="text"/></div>
+<div style="display:flex;align-items:center;gap:10px;margin-top:8px;font-size:0.82rem;color:var(--muted);">
+<span>🔒</span> Your payment information is encrypted and secure. We never store your card details.
+        </div>
+</div>
+</div>
+<!-- RIGHT: ORDER SUMMARY -->
+<div class="order-sidebar">
+<h3>Order Summary</h3>
+<div id="checkout-items"></div>
+<div class="summary-divider"></div>
+<div id="checkout-totals"></div>
+<button class="place-order-btn" onclick="placeOrder()">🌸 Place Order</button>
+<div class="trust-row">
+<span>🔒 SSL Secure</span>
+<span>🚚 Fast Shipping</span>
+<span>↩️ Easy Returns</span>
+</div>
+</div>
+</div>
+</div>
+<footer class="site-footer">
+<div class="footer-grid">
+<div class="footer-brand"><span class="logo-text">21 Florals</span><p>Handcrafted silk floral arrangements inspired by the beauty of nature.</p></div>
+<div><h4>Shop</h4><ul><li><a href="shop.html">All Arrangements</a></li><li><a href="weddings.html">Wedding Florals</a></li></ul></div>
+<div><h4>Support</h4><ul><li><a href="contact.html">Contact Us</a></li><li><a href="#">Shipping Policy</a></li><li><a href="#">Returns</a></li></ul></div>
+<div><h4>Contact</h4><ul><li><a href="tel:8188560033">📞 (818) 856-0033</a></li><li><a>📍 Northridge, CA 91324</a></li></ul></div>
+</div>
+<div class="footer-bottom"><p>© 2025 21 Florals. All rights reserved.</p></div>
+</footer>
+<script src="shared.js"></script>
+<script>
+function renderCheckoutSummary() {
+  const cart = getCart();
+  const subtotal = getCartTotal();
+  const discount = calcPromoDiscount();
+  const shipping = subtotal - discount >= 150 ? 0 : 12.99;
+  const total = subtotal - discount + shipping;
+
+  document.getElementById('checkout-items').innerHTML = cart.map(i => {
+    const p = PRODUCTS.find(x => x.id === i.id);
+    if (!p) return '';
+    return `<div class="order-item">
+      <img src="${p.img}" alt="${p.name}">
+      <div class="order-item-info"><h4>${p.name}</h4><div class="qty">Qty: ${i.qty}</div></div>
+      <div class="order-item-price">$${(p.price * i.qty).toFixed(2)}</div>
+    </div>`;
+  }).join('');
+
+  document.getElementById('checkout-totals').innerHTML = `
+    <div class="summary-row"><span class="label">Subtotal</span><span>$${subtotal.toFixed(2)}</span></div>
+    ${discount > 0 ? `<div class="summary-row discount"><span class="label">🎁 Promo Discount</span><span class="value">−$${discount.toFixed(2)}</span></div>` : ''}
+    <div class="summary-row"><span class="label">Shipping</span><span>${shipping === 0 ? '<span style="color:#4caf50">FREE</span>' : '$' + shipping.toFixed(2)}</span></div>
+    <div class="summary-row total"><span class="label">Total</span><span class="value">$${total.toFixed(2)}</span></div>`;
+}
+
+function selectPay(el, type) {
+  document.querySelectorAll('.pay-method').forEach(m => m.classList.remove('selected'));
+  el.classList.add('selected');
+}
+
+function formatCard(input) {
+  let v = input.value.replace(/\D/g, '').substring(0, 16);
+  input.value = v.replace(/(.{4})/g, '$1  ').trim();
+}
+function formatExpiry(input) {
+  let v = input.value.replace(/\D/g, '').substring(0, 4);
+  if (v.length >= 2) v = v.substring(0,2) + ' / ' + v.substring(2);
+  input.value = v;
+}
+
+function handleExpressPay(method) {
+  if (getCart().length === 0) { alert('Your cart is empty!'); return; }
+  showSuccess();
+}
+
+function placeOrder() {
+  const fname = document.getElementById('fname').value;
+  const email = document.getElementById('email').value;
+  const address = document.getElementById('address').value;
+  const cardNum = document.getElementById('card-num').value;
+  if (!fname || !email || !address) { alert('Please fill in your contact and shipping information.'); return; }
+  if (!cardNum || cardNum.replace(/\s/g,'').length < 16) { alert('Please enter a valid card number.'); return; }
+  showSuccess();
+}
+
+function showSuccess() {
+  const orderNum = '#21F-' + Math.floor(10000 + Math.random() * 90000);
+  document.getElementById('order-num-display').textContent = orderNum;
+  document.getElementById('checkout-main').style.display = 'none';
+  document.getElementById('success-screen').style.display = 'block';
+  localStorage.removeItem('21florals_cart');
+  updateCartCount();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+renderCheckoutSummary();
+</script>
+</body>
+</html>

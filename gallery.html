@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gallery — 21 Florals</title>
+<link href="shared.css" rel="stylesheet"/>
+<style>
+/* FILTER BAR */
+.filter-bar { padding: 32px 60px; background: #fff; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.filter-bar span { font-size: 0.78rem; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-right: 8px; font-weight: 600; }
+.gal-filter { background: none; border: 1.5px solid var(--border); border-radius: 30px; padding: 9px 22px; font-size: 0.82rem; font-weight: 600; color: #7a6068; cursor: pointer; transition: all 0.2s; font-family: 'Raleway', sans-serif; }
+.gal-filter:hover { border-color: var(--rose-light); color: var(--rose); }
+.gal-filter.active { background: var(--rose); border-color: var(--rose); color: #fff; }
+
+/* MASONRY GALLERY */
+.gallery-section { padding: 50px 60px 80px; background: var(--cream); }
+.masonry { columns: 4; column-gap: 16px; }
+.masonry-item { break-inside: avoid; margin-bottom: 16px; border-radius: 16px; overflow: hidden; position: relative; cursor: pointer; display: block; }
+.masonry-item img { width: 100%; display: block; transition: transform 0.5s; }
+.masonry-item:hover img { transform: scale(1.04); }
+.masonry-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(176,96,128,0.75) 0%, transparent 50%); opacity: 0; transition: opacity 0.3s; display: flex; flex-direction: column; justify-content: flex-end; padding: 20px; }
+.masonry-item:hover .masonry-overlay { opacity: 1; }
+.masonry-overlay h4 { font-family: 'Libre Baskerville', serif; font-size: 1rem; color: #fff; margin-bottom: 4px; }
+.masonry-overlay p { font-size: 0.75rem; color: rgba(255,255,255,0.85); font-weight: 300; }
+.masonry-overlay .price { font-family: 'Libre Baskerville', serif; font-size: 1rem; color: #fff; margin-top: 8px; }
+.masonry-overlay .shop-link { display: inline-block; margin-top: 8px; background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); color: #fff; font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; padding: 6px 14px; border-radius: 20px; font-weight: 600; transition: background 0.2s; }
+.masonry-overlay .shop-link:hover { background: rgba(255,255,255,0.35); }
+
+/* LIGHTBOX */
+.lightbox { position: fixed; inset: 0; background: rgba(30,15,20,0.92); backdrop-filter: blur(8px); z-index: 2000; display: none; align-items: center; justify-content: center; }
+.lightbox.open { display: flex; }
+.lightbox-inner { position: relative; max-width: 900px; width: 90%; display: grid; grid-template-columns: 1fr 340px; border-radius: 24px; overflow: hidden; box-shadow: 0 32px 80px rgba(0,0,0,0.5); }
+.lightbox-img { background: #1a0e14; }
+.lightbox-img img { width: 100%; height: 100%; object-fit: cover; min-height: 500px; display: block; }
+.lightbox-info { background: #fff; padding: 40px; display: flex; flex-direction: column; }
+.lightbox-badge { display: inline-block; background: var(--rose); color: #fff; font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; padding: 5px 12px; border-radius: 20px; margin-bottom: 14px; width: fit-content; }
+.lightbox-info h2 { font-size: 1.5rem; margin-bottom: 10px; }
+.lightbox-price { font-family: 'Libre Baskerville', serif; font-size: 1.6rem; color: var(--rose); margin-bottom: 14px; }
+.lightbox-info p { font-size: 0.88rem; color: var(--muted); line-height: 1.7; font-weight: 300; flex: 1; margin-bottom: 24px; }
+.lightbox-close { position: absolute; top: 16px; right: 16px; background: rgba(255,255,255,0.15); backdrop-filter: blur(4px); border: none; width: 40px; height: 40px; border-radius: 50%; color: #fff; font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
+.lightbox-close:hover { background: rgba(255,255,255,0.3); }
+.lightbox-nav { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.15); backdrop-filter: blur(4px); border: none; width: 44px; height: 44px; border-radius: 50%; color: #fff; font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
+.lightbox-nav:hover { background: rgba(255,255,255,0.3); }
+.lightbox-prev { left: 16px; }
+.lightbox-next { right: 16px; }
+
+/* INSTAGRAM CTA */
+.insta-cta { padding: 80px 60px; background: linear-gradient(135deg, #fde8f0, #fdf0f4); text-align: center; }
+.insta-cta h2 { font-size: 2.2rem; margin-bottom: 12px; }
+.insta-cta p { color: var(--muted); font-weight: 300; margin-bottom: 28px; }
+.insta-handle { font-family: 'Libre Baskerville', serif; font-size: 1.8rem; color: var(--rose); font-style: italic; display: block; margin-bottom: 24px; }
+</style>
+</head>
+<body>
+<div class="promo-banner">🌸 Buy Any 3 Arrangements, Get the 4th FREE!  <span>|</span>  Tag us @21florals for a chance to be featured</div>
+<nav class="site-nav">
+<a class="nav-logo" href="index.html">
+<svg class="logo-svg" fill="none" viewbox="0 0 60 60"><circle cx="30" cy="30" r="28" stroke="#b06080" stroke-width="1.5"></circle><path d="M14 30 C14 24, 20 20, 26 26 C29 29, 31 31, 34 34 C40 40, 46 36, 46 30 C46 24, 40 20, 34 26 C31 29, 29 31, 26 34 C20 40, 14 36, 14 30 Z" fill="none" stroke="#b06080" stroke-width="1.8"></path><line stroke="#b06080" stroke-linecap="round" stroke-width="1.8" x1="30" x2="30" y1="34" y2="46"></line></svg>
+<span class="logo-text" style="margin-left:8px;">21 Florals</span>
+</a>
+<ul class="nav-links">
+<li><a href="index.html">Home</a></li>
+<li><a href="shop.html">Shop</a></li>
+<li><a href="weddings.html">Weddings</a></li>
+<li><a href="why-silk.html">Why Silk?</a></li>
+<li><a class="active" href="gallery.html">Gallery</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+<div class="nav-actions">
+<a class="btn btn-sm btn-outline" href="shop.html">Shop Now</a>
+<button class="cart-btn" onclick="window.location='cart.html'">🛒 Cart <span class="cart-count" style="display:none;">0</span></button>
+</div>
+</nav>
+<div class="breadcrumb"><a href="index.html">Home</a><span>›</span> Gallery</div>
+<div class="page-hero">
+<div class="script">~ Our Work ~</div>
+<h1>The Gallery</h1>
+<p>A collection of our most beloved handcrafted silk floral arrangements — each one made with love and inspired by nature.</p>
+</div>
+<!-- FILTER BAR -->
+<div class="filter-bar">
+<span>Filter:</span>
+<button class="gal-filter active" data-filter="all">All</button>
+<button class="gal-filter" data-filter="home">Home Decor</button>
+<button class="gal-filter" data-filter="wedding">Weddings</button>
+<button class="gal-filter" data-filter="gift">Gifts</button>
+</div>
+<!-- GALLERY -->
+<section class="gallery-section">
+<div class="masonry" id="gallery-grid"></div>
+</section>
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+<button class="lightbox-close" onclick="closeLightbox()">✕</button>
+<button class="lightbox-nav lightbox-prev" onclick="navLightbox(-1)">‹</button>
+<button class="lightbox-nav lightbox-next" onclick="navLightbox(1)">›</button>
+<div class="lightbox-inner" id="lightbox-inner"></div>
+</div>
+<!-- INSTAGRAM CTA -->
+<section class="insta-cta">
+<div class="section-script">~ Share Your Beauty ~</div>
+<h2>Show Us Your 21 Florals</h2>
+<p>Tag your arrangements on Instagram and you could be featured in our gallery!</p>
+<span class="insta-handle">@21florals</span>
+<a class="btn btn-primary" href="shop.html">Shop the Collection</a>
+</section>
+<footer class="site-footer">
+<div class="footer-grid">
+<div class="footer-brand"><span class="logo-text">21 Florals</span><p>Handcrafted silk floral arrangements inspired by the beauty of nature. Made with love in Northridge, CA.</p></div>
+<div><h4>Shop</h4><ul><li><a href="shop.html">All Arrangements</a></li><li><a href="weddings.html">Wedding Florals</a></li><li><a href="contact.html">Custom Orders</a></li></ul></div>
+<div><h4>Company</h4><ul><li><a href="about.html">Our Story</a></li><li><a href="why-silk.html">Why Silk?</a></li><li><a href="gallery.html">Gallery</a></li></ul></div>
+<div><h4>Contact</h4><ul><li><a href="tel:8188560033">📞 (818) 856-0033</a></li><li><a>📍 Northridge, CA 91324</a></li></ul></div>
+</div>
+<div class="footer-bottom"><p>© 2025 21 Florals. All rights reserved. | Inspired by Nature 🌸</p></div>
+</footer>
+<script src="shared.js"></script>
+<script>
+const GALLERY = PRODUCTS.map(p => ({ ...p, category: p.tags[0] }));
+let currentFilter = 'all';
+let currentLightboxIdx = 0;
+let filteredItems = [];
+
+function renderGallery() {
+  filteredItems = currentFilter === 'all' ? GALLERY : GALLERY.filter(p => p.tags.includes(currentFilter));
+  const grid = document.getElementById('gallery-grid');
+  grid.innerHTML = filteredItems.map((p, i) => `
+    <div class="masonry-item" data-filter="${p.tags.join(' ')}" onclick="openLightbox(${i})">
+      <img src="${p.img}" alt="${p.name}" loading="lazy">
+      <div class="masonry-overlay">
+        <h4>${p.name}</h4>
+        <p>${p.badge}</p>
+        <div class="price">$${p.price}</div>
+        <span class="shop-link">Quick View</span>
+      </div>
+    </div>`).join('');
+}
+
+function openLightbox(idx) {
+  currentLightboxIdx = idx;
+  renderLightbox();
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function navLightbox(dir) {
+  currentLightboxIdx = (currentLightboxIdx + dir + filteredItems.length) % filteredItems.length;
+  renderLightbox();
+}
+function renderLightbox() {
+  const p = filteredItems[currentLightboxIdx];
+  document.getElementById('lightbox-inner').innerHTML = `
+    <div class="lightbox-img"><img src="${p.img}" alt="${p.name}"></div>
+    <div class="lightbox-info">
+      <div class="lightbox-badge">${p.badge}</div>
+      <h2>${p.name}</h2>
+      <div class="lightbox-price">$${p.price}</div>
+      <p>${p.desc}<br><br>✅ Premium silk quality &nbsp; ✅ Handcrafted<br>✅ Pet safe &nbsp; ✅ Never wilts &nbsp; ✅ No maintenance</p>
+      <button class="btn btn-primary" style="width:100%;margin-bottom:10px;" onclick="addToCart(${p.id});closeLightbox();">Add to Cart</button>
+      <a href="shop.html" class="btn btn-outline" style="width:100%;text-align:center;">View All Arrangements</a>
+    </div>`;
+}
+
+document.getElementById('lightbox').addEventListener('click', e => { if (e.target === document.getElementById('lightbox')) closeLightbox(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); if (e.key === 'ArrowLeft') navLightbox(-1); if (e.key === 'ArrowRight') navLightbox(1); });
+
+document.querySelectorAll('.gal-filter').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.gal-filter').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentFilter = btn.dataset.filter;
+    renderGallery();
+  });
+});
+
+renderGallery();
+</script>
+</body>
+</html>

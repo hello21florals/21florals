@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Why Silk Florals? — 21 Florals</title>
+<link href="shared.css" rel="stylesheet"/>
+<style>
+/* HERO */
+.why-hero {
+  background: linear-gradient(160deg, #fdf0f4 0%, #fde8f0 50%, #f8e8f4 100%);
+  padding: 90px 60px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+  position: relative; overflow: hidden;
+}
+.why-hero::after { content:'✿'; position:absolute; font-size:400px; opacity:0.04; right:-60px; top:-80px; color:var(--rose); }
+.why-hero-text .script { font-family:'Libre Baskerville',serif; font-style:italic; font-size:1.1rem; color:#c090a0; margin-bottom:16px; }
+.why-hero-text h1 { font-size:3.6rem; line-height:1.12; margin-bottom:20px; }
+.why-hero-text h1 em { color:var(--rose); font-style:italic; }
+.why-hero-text p { font-size:1.05rem; color:#7a6068; line-height:1.9; font-weight:300; margin-bottom:28px; }
+.why-hero-img img { width:100%; height:500px; object-fit:cover; border-radius:30px 30px 100px 30px; box-shadow:0 20px 60px rgba(176,96,128,0.18); }
+
+/* COMPARISON TABLE */
+.comparison { padding:90px 60px; background:#fff; }
+.compare-table { width:100%; border-collapse:collapse; margin-top:52px; border-radius:20px; overflow:hidden; box-shadow:0 4px 24px rgba(176,96,128,0.08); }
+.compare-table thead tr { background:linear-gradient(135deg,#c07090,#b06080); color:#fff; }
+.compare-table thead th { padding:20px 28px; text-align:left; font-size:0.9rem; font-weight:600; letter-spacing:1px; }
+.compare-table thead th:first-child { width:35%; }
+.compare-table thead th:nth-child(2) { background:rgba(255,255,255,0.15); }
+.compare-table tbody tr { border-bottom:1px solid var(--border); transition:background 0.2s; }
+.compare-table tbody tr:hover { background:var(--cream); }
+.compare-table tbody tr:last-child { border-bottom:none; }
+.compare-table td { padding:18px 28px; font-size:0.9rem; vertical-align:middle; }
+.compare-table td:first-child { font-weight:600; color:var(--ink); }
+.compare-table td:nth-child(2) { background:rgba(176,96,128,0.04); }
+.check-yes { color:#4caf50; font-size:1.2rem; font-weight:700; }
+.check-no { color:#e06060; font-size:1.2rem; }
+.check-partial { color:#f5a623; font-size:1rem; }
+.silk-col { font-weight:600; color:var(--rose); }
+
+/* BENEFITS DEEP DIVE */
+.benefits { padding:90px 60px; background:var(--cream); }
+.benefits-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:28px; margin-top:52px; }
+.benefit-card { background:#fff; border-radius:20px; padding:36px; border:1.5px solid var(--border); display:flex; gap:24px; align-items:flex-start; transition:all 0.3s; }
+.benefit-card:hover { border-color:var(--rose-light); transform:translateY(-4px); box-shadow:0 12px 32px rgba(176,96,128,0.1); }
+.benefit-icon { width:56px; height:56px; border-radius:16px; background:linear-gradient(135deg,#fde8f0,#fdf0f4); display:flex; align-items:center; justify-content:center; font-size:1.8rem; flex-shrink:0; }
+.benefit-text h3 { font-size:1.05rem; margin-bottom:10px; }
+.benefit-text p { font-size:0.88rem; color:var(--muted); line-height:1.7; font-weight:300; }
+
+/* HEALTH SECTION */
+.health { padding:90px 60px; background:linear-gradient(160deg,#fde8f0,#fdf0f4); }
+.health-grid { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
+.health-cards { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.health-card { background:#fff; border-radius:16px; padding:24px; border:1.5px solid var(--border); text-align:center; transition:all 0.3s; }
+.health-card:hover { border-color:var(--rose-light); transform:translateY(-3px); }
+.health-card .icon { font-size:2rem; margin-bottom:10px; }
+.health-card h4 { font-size:0.9rem; margin-bottom:6px; }
+.health-card p { font-size:0.78rem; color:var(--muted); line-height:1.6; font-weight:300; }
+.health-text .script { font-family:'Libre Baskerville',serif; font-style:italic; font-size:1rem; color:#c090a0; margin-bottom:12px; }
+.health-text h2 { font-size:2.4rem; margin-bottom:16px; }
+.health-text p { font-size:0.95rem; color:#7a6068; line-height:1.9; font-weight:300; margin-bottom:16px; }
+.health-divider { width:50px; height:2px; background:linear-gradient(90deg,#b06080,#d4a0b0); margin:20px 0; border-radius:2px; }
+
+/* LONGEVITY */
+.longevity { padding:90px 60px; background:#fff; }
+.longevity-timeline { display:flex; gap:0; margin-top:52px; position:relative; }
+.longevity-timeline::before { content:''; position:absolute; top:28px; left:0; right:0; height:2px; background:linear-gradient(90deg,var(--rose-light),var(--rose),var(--rose-light)); }
+.timeline-item { flex:1; text-align:center; position:relative; padding-top:60px; }
+.timeline-dot { width:56px; height:56px; border-radius:50%; background:linear-gradient(135deg,#d4a0b0,#b06080); display:flex; align-items:center; justify-content:center; margin:0 auto; position:absolute; top:0; left:50%; transform:translateX(-50%); color:#fff; font-weight:700; font-family:'Libre Baskerville',serif; font-size:0.9rem; box-shadow:0 4px 16px rgba(176,96,128,0.3); }
+.timeline-item h4 { font-size:0.95rem; margin-bottom:8px; }
+.timeline-item p { font-size:0.82rem; color:var(--muted); line-height:1.6; font-weight:300; padding:0 12px; }
+
+/* FAQ */
+.faq { padding:90px 60px; background:var(--cream); }
+.faq-grid { max-width:800px; margin:52px auto 0; }
+.faq-item { background:#fff; border-radius:16px; border:1.5px solid var(--border); margin-bottom:12px; overflow:hidden; }
+.faq-question { padding:22px 28px; display:flex; justify-content:space-between; align-items:center; cursor:pointer; transition:background 0.2s; }
+.faq-question:hover { background:var(--cream); }
+.faq-question h4 { font-size:0.95rem; color:var(--ink); }
+.faq-toggle { color:var(--rose); font-size:1.2rem; transition:transform 0.3s; font-weight:300; }
+.faq-item.open .faq-toggle { transform:rotate(45deg); }
+.faq-answer { padding:0 28px; max-height:0; overflow:hidden; transition:all 0.3s; }
+.faq-item.open .faq-answer { padding:0 28px 22px; max-height:300px; }
+.faq-answer p { font-size:0.88rem; color:var(--muted); line-height:1.8; font-weight:300; }
+
+/* CTA */
+.why-cta { padding:100px 60px; background:linear-gradient(135deg,#c07090,#b06080,#904060); text-align:center; color:#fff; }
+.why-cta .script { font-family:'Libre Baskerville',serif; font-style:italic; font-size:1.1rem; opacity:0.85; margin-bottom:12px; }
+.why-cta h2 { font-size:3rem; color:#fff; margin-bottom:16px; }
+.why-cta p { font-size:1.05rem; opacity:0.88; margin-bottom:40px; font-weight:300; max-width:500px; margin-left:auto; margin-right:auto; }
+</style>
+</head>
+<body>
+<div class="promo-banner">🌸 Buy Any 3 Arrangements, Get the 4th FREE!  <span>|</span>  Always in Bloom. Never Wilts. Lasts for Years.</div>
+<nav class="site-nav">
+<a class="nav-logo" href="index.html">
+<svg class="logo-svg" fill="none" viewbox="0 0 60 60"><circle cx="30" cy="30" r="28" stroke="#b06080" stroke-width="1.5"></circle><path d="M14 30 C14 24, 20 20, 26 26 C29 29, 31 31, 34 34 C40 40, 46 36, 46 30 C46 24, 40 20, 34 26 C31 29, 29 31, 26 34 C20 40, 14 36, 14 30 Z" fill="none" stroke="#b06080" stroke-width="1.8"></path><line stroke="#b06080" stroke-linecap="round" stroke-width="1.8" x1="30" x2="30" y1="34" y2="46"></line></svg>
+<span class="logo-text" style="margin-left:8px;">21 Florals</span>
+</a>
+<ul class="nav-links">
+<li><a href="index.html">Home</a></li>
+<li><a href="shop.html">Shop</a></li>
+<li><a href="weddings.html">Weddings</a></li>
+<li><a class="active" href="why-silk.html">Why Silk?</a></li>
+<li><a href="gallery.html">Gallery</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+<div class="nav-actions">
+<a class="btn btn-sm btn-outline" href="shop.html">Shop Now</a>
+<button class="cart-btn" onclick="window.location='cart.html'">🛒 Cart <span class="cart-count" style="display:none;">0</span></button>
+</div>
+</nav>
+<div class="breadcrumb"><a href="index.html">Home</a><span>›</span> Why Silk Florals?</div>
+<!-- HERO -->
+<section class="why-hero">
+<div class="why-hero-text">
+<div class="script">~ The Smarter Choice ~</div>
+<h1>Beauty That<br/>Lasts <em>Forever</em></h1>
+<p>Fresh flowers are fleeting. Our premium silk florals are designed to bring joy, beauty, and nature's elegance into your space — not just for a week, but for many years to come.</p>
+<a class="btn btn-primary" href="shop.html">Shop the Collection</a>
+</div>
+<div class="why-hero-img">
+<img alt="Silk Florals" src="https://valarflower.com/cdn/shop/files/Luxurious_Artificial_Flower_Arrangements_-_Silk_Floral_Decor_for_Weddings_Events_VB-203-6.jpg?v=1729086390&amp;width=1800"/>
+</div>
+</section>
+<!-- COMPARISON TABLE -->
+<section class="comparison">
+<div class="section-header">
+<div class="section-script">~ Side by Side ~</div>
+<h2>Silk Florals vs. Fresh Flowers</h2>
+<p>See exactly why more and more people are choosing silk</p>
+<div class="petal-divider"><span>✿</span></div>
+</div>
+<table class="compare-table">
+<thead>
+<tr>
+<th>Feature</th>
+<th>🌸 21 Florals Silk</th>
+<th>🌷 Fresh Flowers</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Lifespan</td><td class="silk-col">✅ Years — even decades</td><td><span class="check-no">✗</span> 5–10 days</td></tr>
+<tr><td>Always in Bloom</td><td class="silk-col">✅ Every single day</td><td><span class="check-no">✗</span> Wilts quickly</td></tr>
+<tr><td>Watering Required</td><td class="silk-col">✅ None — ever</td><td><span class="check-no">✗</span> Daily</td></tr>
+<tr><td>Maintenance</td><td class="silk-col">✅ Zero maintenance</td><td><span class="check-no">✗</span> Trimming, feeding, water changes</td></tr>
+<tr><td>Pet Safe</td><td class="silk-col">✅ 100% non-toxic</td><td><span class="check-no">✗</span> Many flowers are toxic to pets</td></tr>
+<tr><td>Allergy Friendly</td><td class="silk-col">✅ No pollen, no fragrance</td><td><span class="check-no">✗</span> Pollen &amp; fragrance triggers</td></tr>
+<tr><td>Safe for Respiratory Conditions</td><td class="silk-col">✅ COPD, asthma, Lyme disease safe</td><td><span class="check-no">✗</span> Can trigger symptoms</td></tr>
+<tr><td>Immunocompromised Safe</td><td class="silk-col">✅ No bacteria or mould risk</td><td><span class="check-no">✗</span> Standing water breeds bacteria</td></tr>
+<tr><td>Seasonal Availability</td><td class="silk-col">✅ Every flower, every season</td><td><span class="check-partial">~</span> Limited by season</td></tr>
+<tr><td>Colour Consistency</td><td class="silk-col">✅ Always perfect</td><td><span class="check-partial">~</span> Varies by batch</td></tr>
+<tr><td>Travel Friendly</td><td class="silk-col">✅ Ships and travels beautifully</td><td><span class="check-no">✗</span> Delicate, wilts in transit</td></tr>
+<tr><td>Environmental Impact</td><td class="silk-col">✅ Reusable, no waste</td><td><span class="check-no">✗</span> Discarded weekly</td></tr>
+<tr><td>Cost Over Time</td><td class="silk-col">✅ One-time investment</td><td><span class="check-no">✗</span> Recurring weekly cost</td></tr>
+</tbody>
+</table>
+</section>
+<!-- BENEFITS DEEP DIVE -->
+<section class="benefits">
+<div class="section-header">
+<div class="section-script">~ The Details ~</div>
+<h2>Every Reason to Love Silk Florals</h2>
+<p>A deeper look at what makes our arrangements so special</p>
+<div class="petal-divider"><span>✿</span></div>
+</div>
+<div class="benefits-grid">
+<div class="benefit-card"><div class="benefit-icon">♾️</div><div class="benefit-text"><h3>Permanently in Bloom</h3><p>Our silk florals are designed to remain in full, beautiful bloom indefinitely. No wilting, no browning, no dropping petals — just enduring beauty that greets you every single day, exactly as you arranged it.</p></div></div>
+<div class="benefit-card"><div class="benefit-icon">💧</div><div class="benefit-text"><h3>Absolutely Zero Maintenance</h3><p>No watering. No trimming. No feeding. No changing vase water. No sunlight requirements. Simply place your arrangement and enjoy it — forever. Perfect for busy lifestyles and frequent travellers.</p></div></div>
+<div class="benefit-card"><div class="benefit-icon">🐾</div><div class="benefit-text"><h3>Safe for Your Beloved Pets</h3><p>Many popular fresh flowers — including lilies, tulips, and daffodils — are highly toxic to cats and dogs. Our premium silk florals are 100% non-toxic and non-poisonous, giving you complete peace of mind.</p></div></div>
+<div class="benefit-card"><div class="benefit-icon">🌬️</div><div class="benefit-text"><h3>Allergy &amp; Respiratory Safe</h3><p>No pollen. No fragrance. No airborne irritants. Our silk florals are the perfect choice for those with hay fever, allergies, asthma, COPD, Lyme disease, or compromised immune systems — beauty without the worry.</p></div></div>
+<div class="benefit-card"><div class="benefit-icon">🌍</div><div class="benefit-text"><h3>Environmentally Conscious</h3><p>Fresh flowers are discarded within days, creating significant waste. Our silk arrangements are a lasting, reusable investment — reducing the environmental footprint of your home décor significantly over time.</p></div></div>
+<div class="benefit-card"><div class="benefit-icon">💰</div><div class="benefit-text"><h3>Exceptional Long-Term Value</h3><p>A fresh flower arrangement might cost $40–$80 and last a week. Our silk arrangements are a one-time investment that brings beauty to your home for years — making them far more economical over time.</p></div></div>
+<div class="benefit-card"><div class="benefit-icon">🎨</div><div class="benefit-text"><h3>Every Flower, Every Season</h3><p>Want peonies in winter? Tulips in autumn? With silk, there are no seasonal limitations. Every flower, every colour, every style is available year-round — so your vision is never compromised.</p></div></div>
+<div class="benefit-card"><div class="benefit-icon">✈️</div><div class="benefit-text"><h3>Ships &amp; Travels Beautifully</h3><p>Unlike fresh flowers that wilt in transit, our silk arrangements travel perfectly. They make wonderful gifts that can be shipped anywhere — arriving just as beautiful as the day they were made.</p></div></div>
+</div>
+</section>
+<!-- HEALTH SECTION -->
+<section class="health">
+<div class="health-grid">
+<div class="health-text">
+<div class="script">~ Health &amp; Wellness ~</div>
+<h2>Safe for Everyone You Love</h2>
+<div class="health-divider"></div>
+<p>At 21 Florals, we believe that beauty should never come at the cost of health. Our premium silk florals are thoughtfully designed to be completely safe for every member of your household — including the most vulnerable.</p>
+<p>Whether you or a loved one lives with allergies, respiratory conditions, a compromised immune system, or you simply want to protect your pets, our silk arrangements let you enjoy the beauty of florals without any of the risks.</p>
+<a class="btn btn-primary" href="shop.html" style="margin-top:8px;">Shop Safe Florals</a>
+</div>
+<div class="health-cards">
+<div class="health-card"><div class="icon">🤧</div><h4>Allergy Sufferers</h4><p>Zero pollen, zero fragrance — enjoy florals without the sneezing and watery eyes.</p></div>
+<div class="health-card"><div class="icon">🫁</div><h4>Asthma &amp; COPD</h4><p>No airborne irritants or strong scents that can trigger respiratory symptoms.</p></div>
+<div class="health-card"><div class="icon">🛡️</div><h4>Immunocompromised</h4><p>No standing water means no bacteria or mould growth — completely safe.</p></div>
+<div class="health-card"><div class="icon">🦟</div><h4>Lyme Disease</h4><p>No soil, no outdoor exposure risks — pure, clean beauty for sensitive individuals.</p></div>
+<div class="health-card"><div class="icon">🐱</div><h4>Cats &amp; Dogs</h4><p>100% non-toxic and non-poisonous — safe even if curious pets take a nibble.</p></div>
+<div class="health-card"><div class="icon">👶</div><h4>Babies &amp; Children</h4><p>No toxic substances, no sharp thorns, no choking hazards from falling petals.</p></div>
+</div>
+</div>
+</section>
+<!-- LONGEVITY TIMELINE -->
+<section class="longevity">
+<div class="section-header">
+<div class="section-script">~ The Long View ~</div>
+<h2>A Lifetime of Beauty</h2>
+<p>See how our silk florals compare over time</p>
+<div class="petal-divider"><span>✿</span></div>
+</div>
+<div class="longevity-timeline">
+<div class="timeline-item"><div class="timeline-dot">Day 1</div><h4>Fresh Flowers</h4><p>Looking beautiful and fresh out of the shop</p></div>
+<div class="timeline-item"><div class="timeline-dot">Day 3</div><h4>Fresh Flowers</h4><p>Beginning to wilt, petals starting to drop</p></div>
+<div class="timeline-item"><div class="timeline-dot">Day 7</div><h4>Fresh Flowers</h4><p>Wilted and discarded — time to buy again</p></div>
+<div class="timeline-item"><div class="timeline-dot">Year 1</div><h4>21 Florals Silk</h4><p>Still looking as beautiful as day one ✨</p></div>
+<div class="timeline-item"><div class="timeline-dot">Year 5+</div><h4>21 Florals Silk</h4><p>Still in full bloom, still bringing joy every day 🌸</p></div>
+</div>
+</section>
+<!-- FAQ -->
+<section class="faq">
+<div class="section-header">
+<div class="section-script">~ Questions ~</div>
+<h2>Frequently Asked Questions</h2>
+<div class="petal-divider"><span>✿</span></div>
+</div>
+<div class="faq-grid">
+<div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><h4>Do silk florals look realistic?</h4><span class="faq-toggle">+</span></div><div class="faq-answer"><p>Absolutely! Our premium silk florals are crafted with extraordinary attention to detail — the texture, colour gradients, and natural imperfections of real flowers are all faithfully reproduced. Many of our customers report that guests regularly mistake them for fresh flowers.</p></div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><h4>How do I care for my silk arrangement?</h4><span class="faq-toggle">+</span></div><div class="faq-answer"><p>Silk florals require virtually no maintenance. Simply dust them occasionally with a soft brush or use a gentle blast of cool air from a hair dryer on the lowest setting. Keep them out of direct, prolonged sunlight to preserve their colours. That's it!</p></div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><h4>Are they really safe for pets?</h4><span class="faq-toggle">+</span></div><div class="faq-answer"><p>Yes! Our silk florals are made from non-toxic, non-poisonous materials. Unlike many fresh flowers (lilies, tulips, daffodils, and others are highly toxic to cats and dogs), our arrangements pose no risk to your beloved pets. We always recommend keeping arrangements out of reach of very young animals who might chew on them, but they are completely safe.</p></div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><h4>How long will my arrangement last?</h4><span class="faq-toggle">+</span></div><div class="faq-answer"><p>With proper care, our silk floral arrangements can last many years — even decades. Unlike fresh flowers that last 5–10 days, your 21 Florals arrangement is a lasting investment in beauty for your home.</p></div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><h4>Can I customise my arrangement?</h4><span class="faq-toggle">+</span></div><div class="faq-answer"><p>Absolutely! We love creating custom arrangements. Simply visit our Contact page and fill out the Custom Order form with your vision — flower types, colours, size, vase preference, and occasion. We'll work with you to create something truly unique.</p></div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><h4>Do you offer wedding packages?</h4><span class="faq-toggle">+</span></div><div class="faq-answer"><p>Yes! We offer a range of wedding packages from intimate ceremonies to grand celebrations. Visit our Weddings page to learn more, or contact us directly to discuss a custom package tailored to your vision and budget.</p></div></div>
+</div>
+</section>
+<!-- CTA -->
+<section class="why-cta">
+<div class="script">~ Ready to Experience the Difference? ~</div>
+<h2>Discover Lasting Beauty</h2>
+<p>Explore our full collection of handcrafted silk floral arrangements — beauty that never fades, joy that never ends.</p>
+<div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+<a class="btn btn-white" href="shop.html">Shop the Collection</a>
+<a class="btn btn-outline" href="contact.html" style="border-color:rgba(255,255,255,0.5);color:#fff;">Custom Order</a>
+</div>
+</section>
+<footer class="site-footer">
+<div class="footer-grid">
+<div class="footer-brand"><span class="logo-text">21 Florals</span><p>Handcrafted silk floral arrangements inspired by the beauty of nature. Made with love in Northridge, CA.</p></div>
+<div><h4>Shop</h4><ul><li><a href="shop.html">All Arrangements</a></li><li><a href="weddings.html">Wedding Florals</a></li><li><a href="contact.html">Custom Orders</a></li></ul></div>
+<div><h4>Company</h4><ul><li><a href="about.html">Our Story</a></li><li><a href="why-silk.html">Why Silk?</a></li><li><a href="gallery.html">Gallery</a></li></ul></div>
+<div><h4>Contact</h4><ul><li><a href="tel:8188560033">📞 (818) 856-0033</a></li><li><a>📍 Northridge, CA 91324</a></li></ul></div>
+</div>
+<div class="footer-bottom"><p>© 2025 21 Florals. All rights reserved. | Inspired by Nature 🌸</p></div>
+</footer>
+<script src="shared.js"></script>
+<script>
+function toggleFaq(el) {
+  const item = el.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+</script>
+</body>
+</html>
