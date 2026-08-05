@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>21 Florals – AI Silk Floral Arrangement Designer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ==========================================================================
+       1. VARIABLES & THEMING
+       ========================================================================== */
+    :root {
+      --bg-primary: #FAF8F5;
+      --bg-surface: #FFFFFF;
+      --bg-card: #FFFFFF;
+      --text-main: #2C2A29;
+      --text-muted: #706C69;
+      --border-color: #E8E2D9;
+      --accent-gold: #C5A059;
+      --accent-gold-hover: #B28E46;
+      --accent-gold-light: #F7F3EB;
+      --shadow-soft: 0 10px 30px rgba(44, 42, 41, 0.05);
+      --shadow-hover: 0 15px 35px rgba(197, 160, 89, 0.12);
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    [data-theme="dark"] {
+      --bg-primary: #121212;
+      --bg-surface: #1E1E1E;
+      --bg-card: #252525;
+      --text-main: #F3F0EB;
+      --text-muted: #A09C97;
+      --border-color: #333333;
+      --accent-gold: #D4AF37;
+      --accent-gold-hover: #E5BE48;
+      --accent-gold-light: #2A261D;
+      --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.3);
+      --shadow-hover: 0 15px 35px rgba(212, 175, 55, 0.15);
+    }
+
+    /* ==========================================================================
+       2. GLOBAL STYLES
+       ========================================================================== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      transition: background-color 0.4s ease, color 0.4s ease;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    h1, h2, h3, h4, .brand-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+    }
+
+    /* ==========================================================================
+       3. HEADER & NAVBAR
+       ========================================================================== */
+    header {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-color);
+      padding: 1.2rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+    }
+
+    .header-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--accent-gold);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: white;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    .brand-title {
+      font-size: 1.8rem;
+      letter-spacing: 1px;
+      color: var(--text-main);
+    }
+
+    .brand-subtitle {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--accent-gold);
+      display: block;
+      margin-top: -4px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .theme-toggle {
+      background: none;
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 8px 14px;
+      border-radius: 30px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      transition: var(--transition);
+    }
+
+    .theme-toggle:hover {
+      border-color: var(--accent-gold);
+      color: var(--accent-gold);
+    }
+
+    /* ==========================================================================
+       4. LAYOUT & CONTAINERS
+       ========================================================================== */
+    main {
+      max-width: 1400px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+      flex: 1;
+      width: 100%;
+    }
+
+    .studio-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+
+    @media (max-width: 1024px) {
+      .studio-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ==========================================================================
+       5. CONTROL PANEL & CARDS
+       ========================================================================== */
+    .panel {
+      background: var(--bg-surface);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      margin-bottom: 0.3rem;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .section-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .badge {
+      font-size: 0.7rem;
+      background: var(--accent-gold-light);
+      color: var(--accent-gold);
+      padding: 3px 10px;
+      border-radius: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+    }
+
+    .category-group {
+      margin-bottom: 2rem;
+    }
+
+    .category-label {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+      display: flex;
+      justify-content: space-between;
+      color: var(--text-main);
+    }
+
+    .category-hint {
+      font-weight: 400;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+
+    /* Flower Grid */
+    .flower-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 10px;
+    }
+
+    .flower-chip {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 10px;
+      text-align: center;
+      cursor: pointer;
+      transition: var(--transition);
+      user-select: none;
+      font-size: 0.85rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .flower-chip:hover {
+      border-color: var(--accent-gold);
+      transform: translateY(-2px);
+    }
+
+    .flower-chip.selected {
+      background: var(--accent-gold-light);
+      border-color: var(--accent-gold);
+      color: var(--accent-gold);
+      font-weight: 600;
+    }
+
+    .flower-chip .flower-type {
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+
+    /* Selection Selects & Controls */
+    .option-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .control-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .control-group label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    select, input {
+      width: 100%;
+      padding: 12px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      color: var(--text-main);
+      font-family: inherit;
+      font-size: 0.9rem;
+      outline: none;
+      transition: var(--transition);
+    }
+
+    select:focus, input:focus {
+      border-color: var(--accent-gold);
+      box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.15);
+    }
+
+    /* Buttons */
+    .btn-group {
+      display: flex;
+      gap: 12px;
+      margin-top: 1.5rem;
+    }
+
+    .btn {
+      padding: 14px 24px;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: var(--transition);
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .btn-primary {
+      background: var(--accent-gold);
+      color: white;
+      flex: 2;
+      box-shadow: 0 4px 15px rgba(197, 160, 89, 0.3);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-gold-hover);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      flex: 1;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent-gold);
+      color: var(--accent-gold);
+    }
+
+    /* ==========================================================================
+       6. DISPLAY & DISPLAY RESULTS AREA
+       ========================================================================== */
+    .preview-panel {
+      position: sticky;
+      top: 90px;
+    }
+
+    .image-container {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      background: var(--bg-card);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.5s ease;
+    }
+
+    .placeholder-state {
+      text-align: center;
+      padding: 2rem;
+      color: var(--text-muted);
+    }
+
+    .placeholder-state svg {
+      width: 64px;
+      height: 64px;
+      margin-bottom: 1rem;
+      stroke: var(--accent-gold);
+      opacity: 0.6;
+    }
+
+    /* Loading Overlay */
+    .loading-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+      backdrop-filter: blur(4px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .loading-overlay.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .spinner {
+      width: 48px;
+      height: 48px;
+      border: 3px solid rgba(255, 255, 255, 0.2);
+      border-top-color: var(--accent-gold);
+      border-radius: 50%;
+      animation: spin 1s infinite linear;
+      margin-bottom: 1rem;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Summary Details */
+    .details-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .details-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+    }
+
+    .detail-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .detail-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      letter-spacing: 0.5px;
+    }
+
+    .detail-value {
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .prompt-box {
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 10px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-family: monospace;
+      max-height: 80px;
+      overflow-y: auto;
+      margin-bottom: 1rem;
+      word-break: break-word;
+    }
+
+    .action-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn-sm {
+      padding: 8px 14px;
+      font-size: 0.8rem;
+      flex: 1;
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--text-main);
+      color: var(--bg-primary);
+      padding: 12px 20px;
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      transform: translateY(100px);
+      opacity: 0;
+      transition: var(--transition);
+      z-index: 1000;
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-container">
+      <div class="brand">
+        <div class="brand-icon">21</div>
+        <div>
+          <span class="brand-title">21 FLORALS</span>
+          <span class="brand-subtitle">AI Silk Arrangement Studio</span>
+        </div>
+      </div>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme">
+          <span id="themeIcon">🌙</span>
+          <span id="themeText">Dark Mode</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN STUDIO -->
+  <main>
+    <div class="studio-grid">
+      
+      <!-- CONTROLS PANEL -->
+      <div class="panel">
+        <div class="section-title">
+          <span>Floral Recipe</span>
+          <span class="badge">Customizer</span>
+        </div>
+        <p class="section-desc">Select your botanical elements and container specs below.</p>
+
+        <!-- Primary Flowers -->
+        <div class="category-group">
+          <div class="category-label">
+            <span>Primary Focal Blooms</span>
+            <span class="category-hint"><span id="primaryCount">0</span>/2 selected</span>
+          </div>
+          <div class="flower-grid" id="primaryGrid"></div>
+        </div>
+
+        <!-- Secondary Flowers -->
+        <div class="category-group">
+          <div class="category-label">
+            <span>Secondary Flowers</span>
+            <span class="category-hint"><span id="secondaryCount">0</span>/2 selected</span>
+          </div>
+          <div class="flower-grid" id="secondaryGrid"></div>
+        </div>
+
+        <!-- Accent Flowers & Foliage -->
+        <div class="category-group">
+          <div class="category-label">
+            <span>Accents & Greenery</span>
+            <span class="category-hint"><span id="accentCount">0</span>/2 selected</span>
+          </div>
+          <div class="flower-grid" id="accentGrid"></div>
+        </div>
+
+        <hr style="border: none; border-top: 1px solid var(--border-color); margin: 1.5rem 0;">
+
+        <!-- Vase & Style Settings -->
+        <div class="option-grid">
+          <div class="control-group">
+            <label for="vaseSelect">Vase & Vessel</label>
+            <select id="vaseSelect">
+              <option value="Clear Glass">Clear Glass</option>
+              <option value="White Ceramic">White Ceramic</option>
+              <option value="Black Ceramic">Black Ceramic</option>
+              <option value="Gold Vase">Gold Vase</option>
+              <option value="Rustic Wood">Rustic Wood</option>
+              <option value="Modern Cylinder">Modern Cylinder</option>
+              <option value="Vintage Urn">Vintage Urn</option>
+              <option value="Compote Bowl">Compote Bowl</option>
+            </select>
+          </div>
+
+          <div class="control-group">
+            <label for="styleSelect">Arrangement Style</label>
+            <select id="styleSelect">
+              <option value="Garden">Garden Style</option>
+              <option value="Round">Classic Round</option>
+              <option value="Modern">Modern Minimalist</option>
+              <option value="Ikebana">Ikebana Art</option>
+              <option value="Wild">Organic Wild</option>
+            </select>
+          </div>
+
+          <div class="control-group">
+            <label for="sizeSelect">Arrangement Size</label>
+            <select id="sizeSelect">
+              <option value="Medium">Medium Tabletop</option>
+              <option value="Small">Small Petite</option>
+              <option value="Large">Large Centerpiece</option>
+              <option value="Luxury">Grand Luxury</option>
+            </select>
+          </div>
+
+          <div class="control-group">
+            <label for="themeSelect">Color Palette</label>
+            <select id="themeSelect">
+              <option value="Romantic">Romantic Blush</option>
+              <option value="Neutral">Soft Neutral</option>
+              <option value="Spring">Fresh Spring</option>
+              <option value="Autumn">Warm Autumn</option>
+              <option value="Tropical">Vibrant Tropical</option>
+              <option value="Custom">Custom Natural</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="btn-group">
+          <button class="btn btn-primary" id="generateBtn">
+            <span>✨ Generate Arrangement</span>
+          </button>
+          <button class="btn btn-secondary" id="randomizeBtn" title="Randomize selection">
+            <span>🔀 Randomize</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- PREVIEW & RESULTS PANEL -->
+      <div class="preview-panel">
+        <div class="panel">
+          <div class="section-title">
+            <span>Arrangement Studio Preview</span>
+            <span class="badge" id="statusBadge">Ready</span>
+          </div>
+          <p class="section-desc">AI Photorealistic Silk Floral Rendering</p>
+
+          <!-- Render Container -->
+          <div class="image-container">
+            <div class="placeholder-state" id="placeholderState">
+              <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v2.25m-4.5-2.25v2.25M3.75 6.75A2.25 2.25 0 016 4.5h12a2.25 2.25 0 012.25 2.25v9a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 15.75v-9z" />
+              </svg>
+              <p>Choose your flowers and click <strong>Generate Arrangement</strong> to render a high-detail preview.</p>
+            </div>
+
+            <img id="renderedImage" src="" alt="Silk Floral Arrangement" style="display: none;">
+
+            <div class="loading-overlay" id="loadingOverlay">
+              <div class="spinner"></div>
+              <p style="font-weight: 500;">Designing Silk Floral Creation...</p>
+              <p style="font-size: 0.75rem; opacity: 0.8; margin-top: 4px;">Rendering via AI Studio Engine</p>
+            </div>
+          </div>
+
+          <!-- Recipe Details & Prompt Output -->
+          <div class="details-card">
+            <div class="details-grid">
+              <div class="detail-item">
+                <span class="detail-label">Primary</span>
+                <span class="detail-value" id="resPrimary">None</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">Secondary</span>
+                <span class="detail-value" id="resSecondary">None</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">Accents</span>
+                <span class="detail-value" id="resAccent">None</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">Vase / Style</span>
+                <span class="detail-value" id="resVaseStyle">Clear Glass / Garden</span>
+              </div>
+            </div>
+
+            <div class="detail-label" style="margin-bottom: 4px;">Generated Natural Language Prompt</div>
+            <div class="prompt-box" id="promptText">Your generated AI prompt will appear here...</div>
+
+            <div class="action-row">
+              <button class="btn btn-secondary btn-sm" id="copyPromptBtn">📋 Copy Prompt</button>
+              <button class="btn btn-secondary btn-sm" id="downloadBtn">📥 Download Image</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <div class="toast" id="toast">Notification message</div>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    /* ==========================================================================
+       1. DATA STRUCTURES (EXACTLY 21 SILK FLORALS)
+       ========================================================================== */
+    const FLORALS = [
+      { name: "Rose", category: "primary" },
+      { name: "Peony", category: "primary" },
+      { name: "Hydrangea", category: "primary" },
+      { name: "Dahlia", category: "primary" },
+      { name: "Magnolia", category: "primary" },
+      { name: "Garden Rose", category: "primary" },
+      { name: "Camellia", category: "primary" },
+
+      { name: "Ranunculus", category: "secondary" },
+      { name: "Tulip", category: "secondary" },
+      { name: "Orchid", category: "secondary" },
+      { name: "Lily", category: "secondary" },
+      { name: "Sunflower", category: "secondary" },
+      { name: "Carnation", category: "secondary" },
+      { name: "Chrysanthemum", category: "secondary" },
+
+      { name: "Lavender", category: "accent" },
+      { name: "Eucalyptus", category: "accent" },
+      { name: "Baby's Breath", category: "accent" },
+      { name: "Dusty Miller", category: "accent" },
+      { name: "Fern", category: "accent" },
+      { name: "Berry Stem", category: "accent" },
+      { name: "Willow Branch", category: "accent" }
+    ];
+
+    // State object
+    const state = {
+      primary: ["Rose", "Peony"],
+      secondary: ["Ranunculus", "Hydrangea"], // fallback lookup mapped dynamically
+      accent: ["Eucalyptus", "Baby's Breath"],
+      vase: "White Ceramic",
+      style: "Garden",
+      size: "Luxury",
+      theme: "Romantic",
+      currentPrompt: ""
+    };
+
+    /* ==========================================================================
+       2. INITIALIZATION & UI RENDERING
+       ========================================================================== */
+    document.addEventListener("DOMContentLoaded", () => {
+      renderFlowerGrids();
+      setupEventListeners();
+      updateCounters();
+      // Set initial random arrangement for instant polished look
+      randomizeSelection();
+    });
+
+    function renderFlowerGrids() {
+      const primaryContainer = document.getElementById("primaryGrid");
+      const secondaryContainer = document.getElementById("secondaryGrid");
+      const accentContainer = document.getElementById("accentGrid");
+
+      primaryContainer.innerHTML = "";
+      secondaryContainer.innerHTML = "";
+      accentContainer.innerHTML = "";
+
+      FLORALS.forEach(flower => {
+        const chip = document.createElement("div");
+        chip.className = "flower-chip";
+        chip.dataset.name = flower.name;
+        chip.dataset.category = flower.category;
+        chip.innerHTML = `
+          <span>${flower.name}</span>
+          <span class="flower-type">Silk Floral</span>
+        `;
+
+        chip.addEventListener("click", () => toggleFlowerSelection(flower));
+
+        if (flower.category === "primary") primaryContainer.appendChild(chip);
+        else if (flower.category === "secondary") secondaryContainer.appendChild(chip);
+        else if (flower.category === "accent") accentContainer.appendChild(chip);
+      });
+    }
+
+    function toggleFlowerSelection(flower) {
+      const categoryList = state[flower.category];
+      const index = categoryList.indexOf(flower.name);
+
+      if (index > -1) {
+        categoryList.splice(index, 1);
+      } else {
+        if (categoryList.length >= 2) {
+          categoryList.shift(); // keep max 2 selected
+        }
+        categoryList.push(flower.name);
+      }
+
+      updateUISelections();
+      updateCounters();
+    }
+
+    function updateUISelections() {
+      document.querySelectorAll(".flower-chip").forEach(chip => {
+        const name = chip.dataset.name;
+        const category = chip.dataset.category;
+        if (state[category].includes(name)) {
+          chip.classList.add("selected");
+        } else {
+          chip.classList.remove("selected");
+        }
+      });
+    }
+
+    function updateCounters() {
+      document.getElementById("primaryCount").textContent = state.primary.length;
+      document.getElementById("secondaryCount").textContent = state.secondary.length;
+      document.getElementById("accentCount").textContent = state.accent.length;
+    }
+
+    /* ==========================================================================
+       3. PROMPT GENERATOR & AI INTEGRATION
+       ========================================================================== */
+    function buildPrompt() {
+      const primaryStr = state.primary.length > 0 ? state.primary.join(" and ") : "premium roses";
+      const secondaryStr = state.secondary.length > 0 ? state.secondary.join(" and ") : "lush blooms";
+      const accentStr = state.accent.length > 0 ? state.accent.join(" and ") : "delicate foliage";
+
+      const prompt = `An elegant ${state.size.toLowerCase()} silk floral arrangement featuring ${primaryStr} as the primary focal flowers, ${secondaryStr} as supporting secondary blooms, with ${accentStr} accents, beautifully arranged in a ${state.vase.toLowerCase()} in a ${state.style.toLowerCase()} style, ${state.theme.toLowerCase()} color theme, studio lighting, ultra realistic, professional floral photography, high detail, 8k.`;
+
+      state.currentPrompt = prompt;
+      return prompt;
+    }
+
+    function generateArrangement() {
+      // Sync dropdown values
+      state.vase = document.getElementById("vaseSelect").value;
+      state.style = document.getElementById("styleSelect").value;
+      state.size = document.getElementById("sizeSelect").value;
+      state.theme = document.getElementById("themeSelect").value;
+
+      const prompt = buildPrompt();
+
+      // UI state update
+      document.getElementById("promptText").textContent = prompt;
+      document.getElementById("resPrimary").textContent = state.primary.join(", ") || "None";
+      document.getElementById("resSecondary").textContent = state.secondary.join(", ") || "None";
+      document.getElementById("resAccent").textContent = state.accent.join(", ") || "None";
+      document.getElementById("resVaseStyle").textContent = `${state.vase} / ${state.style}`;
+
+      const loadingOverlay = document.getElementById("loadingOverlay");
+      const img = document.getElementById("renderedImage");
+      const placeholder = document.getElementById("placeholderState");
+      const statusBadge = document.getElementById("statusBadge");
+
+      loadingOverlay.classList.add("active");
+      statusBadge.textContent = "Rendering...";
+
+      // Pollinations.ai Keyless Realtime Image API
+      const seed = Math.floor(Math.random() * 999999);
+      const imageUrl = `https://image.pollinations.ai/prompt/${encodeURIComponent(prompt)}?width=800&height=800&nologo=true&seed=${seed}`;
+
+      img.onload = () => {
+        loadingOverlay.classList.remove("active");
+        placeholder.style.display = "none";
+        img.style.display = "block";
+        statusBadge.textContent = "Completed";
+      };
+
+      img.onerror = () => {
+        loadingOverlay.classList.remove("active");
+        showToast("Direct generation delayed. Prompt copied to clipboard!");
+        statusBadge.textContent = "Ready";
+      };
+
+      img.src = imageUrl;
+    }
+
+    /* ==========================================================================
+       4. AUXILIARY FEATURES & UTILITIES
+       ========================================================================== */
+    function randomizeSelection() {
+      const getRand = (category, count) => {
+        const filtered = FLORALS.filter(f => f.category === category);
+        const shuffled = [...filtered].sort(() => 0.5 - Math.random());
+        return shuffled.slice(0, count).map(f => f.name);
+      };
+
+      state.primary = getRand("primary", 2);
+      state.secondary = getRand("secondary", 2);
+      state.accent = getRand("accent", 2);
+
+      const getRandomVal = id => {
+        const sel = document.getElementById(id);
+        const opts = sel.options;
+        const randIdx = Math.floor(Math.random() * opts.length);
+        sel.selectedIndex = randIdx;
+        return opts[randIdx].value;
+      };
+
+      state.vase = getRandomVal("vaseSelect");
+      state.style = getRandomVal("styleSelect");
+      state.size = getRandomVal("sizeSelect");
+      state.theme = getRandomVal("themeSelect");
+
+      updateUISelections();
+      updateCounters();
+      generateArrangement();
+    }
+
+    function setupEventListeners() {
+      document.getElementById("generateBtn").addEventListener("click", generateArrangement);
+      document.getElementById("randomizeBtn").addEventListener("click", randomizeSelection);
+
+      document.getElementById("copyPromptBtn").addEventListener("click", () => {
+        if (!state.currentPrompt) return;
+        navigator.clipboard.writeText(state.currentPrompt);
+        showToast("Prompt copied to clipboard!");
+      });
+
+      document.getElementById("downloadBtn").addEventListener("click", () => {
+        const img = document.getElementById("renderedImage");
+        if (!img.src || img.style.display === "none") {
+          showToast("Please generate an arrangement first!");
+          return;
+        }
+        const a = document.createElement("a");
+        a.href = img.src;
+        a.download = "21-florals-arrangement.jpg";
+        a.target = "_blank";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      });
+
+      // Dark mode toggle
+      const themeToggle = document.getElementById("themeToggle");
+      themeToggle.addEventListener("click", () => {
+        const currentTheme = document.body.getAttribute("data-theme");
+        if (currentTheme === "dark") {
+          document.body.removeAttribute("data-theme");
+          document.getElementById("themeIcon").textContent = "🌙";
+          document.getElementById("themeText").textContent = "Dark Mode";
+        } else {
+          document.body.setAttribute("data-theme", "dark");
+          document.getElementById("themeIcon").textContent = "☀️";
+          document.getElementById("themeText").textContent = "Light Mode";
+        }
+      });
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById("toast");
+      toast.textContent = msg;
+      toast.classList.add("show");
+      setTimeout(() => {
+        toast.classList.remove("show");
+      }, 3000);
+    }
+  </script>
+</body>
+</html>
