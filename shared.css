@@ -112,35 +112,96 @@ h1,h2,h3,h4 { font-family: 'Libre Baskerville', serif; color: var(--ink); line-h
 .petal-divider::before, .petal-divider::after { content: ''; display: block; width: 60px; height: 1.5px; background: linear-gradient(90deg, transparent, var(--rose-light), transparent); }
 .petal-divider span { color: var(--rose-light); font-size: 1rem; animation: bloomPulse 3s ease-in-out infinite; }
 
-/* ---------- NAVIGATION ---------- */
+/* ---------- NAVIGATION (Fancy Bordered + Button Style) ---------- */
 .site-nav {
-  background: rgba(253,242,246,0.97);
+  background: rgba(253,242,246,0.98);
   backdrop-filter: blur(12px);
-  padding: 0 60px;
+  margin: 15px 30px;
+  padding: 0 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: sticky; top: 0; z-index: 500;
-  border-bottom: 2px solid var(--border);
-  height: 72px;
+  position: sticky; top: 15px; z-index: 500;
+  height: 85px;
+  border: 3px solid var(--frame-color);
+  border-radius: 100px;
+  box-shadow: 0 8px 30px var(--pink-glow), inset 0 0 15px rgba(200,120,152,0.05);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-.nav-logo { display: flex; flex-direction: column; }
-.nav-logo .logo-text { font-family: 'Libre Baskerville', serif; font-size: 1.7rem; color: var(--rose); letter-spacing: 1px; line-height: 1; }
-.nav-logo .logo-tag { font-size: 0.62rem; color: var(--rose-light); letter-spacing: 3px; text-transform: uppercase; }
+
+.site-nav::after {
+  content: '🌸';
+  position: absolute;
+  right: 25px;
+  top: -15px;
+  font-size: 1.2rem;
+  animation: bloomPulse 3s ease-in-out infinite;
+}
+
+.nav-logo { display: grid; grid-template-columns: auto 1fr; grid-template-rows: auto auto; align-items: center; column-gap: 12px; text-decoration: none; }
+.nav-logo .logo-svg { grid-row: 1 / span 2; }
+.nav-logo .logo-text { font-family: 'Libre Baskerville', serif; font-size: 1.6rem; color: var(--rose); letter-spacing: 1px; line-height: 1; font-weight: 700; margin-left: 0 !important; }
+.nav-logo .logo-tag { font-size: 0.6rem; color: var(--rose-light); letter-spacing: 3px; text-transform: uppercase; margin-top: 2px; margin-left: 0 !important; }
 
 /* SVG Logo */
-.logo-svg { width: 48px; height: 48px; animation: gentleSway 4s ease-in-out infinite; }
+.logo-svg { width: 42px; height: 42px; animation: gentleSway 4s ease-in-out infinite; }
 
-.nav-links { list-style: none; display: flex; gap: 32px; align-items: center; }
-.nav-links a { font-size: 0.82rem; letter-spacing: 1px; text-transform: uppercase; font-weight: 600; color: #7a6068; transition: color 0.3s; }
-.nav-links a:hover, .nav-links a.active { color: var(--rose); }
-.nav-actions { display: flex; align-items: center; gap: 20px; }
+.nav-links { list-style: none; display: flex; gap: 12px; align-items: center; }
+.nav-links li a {
+  font-size: 0.75rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: var(--rose);
+  padding: 10px 22px;
+  border-radius: 50px;
+  border: 2px solid transparent;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-block;
+}
+
+.nav-links li a:hover {
+  background: var(--rose-pale);
+  border-color: var(--rose-light);
+  transform: translateY(-2px);
+}
+
+.nav-links li a.active {
+  background: var(--rose);
+  color: #fff;
+  border-color: var(--rose);
+  box-shadow: 0 4px 12px rgba(192, 96, 136, 0.3);
+}
+.nav-actions { display: flex; align-items: center; gap: 16px; }
+.nav-actions .btn-outline {
+  padding: 8px 20px;
+  font-size: 0.75rem;
+  border-width: 2px;
+  border-radius: 50px;
+}
+
 .cart-btn {
-  position: relative; background: none; border: none;
-  font-size: 1.4rem; color: var(--rose); cursor: pointer;
-  display: flex; align-items: center; gap: 6px;
-  font-family: 'Raleway', sans-serif; font-size: 0.85rem;
-  font-weight: 600; color: var(--ink);
+  position: relative;
+  background: var(--rose-pale);
+  border: 2px solid var(--rose-light);
+  padding: 10px 18px;
+  border-radius: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--rose);
+  transition: all 0.3s ease;
+}
+
+.cart-btn:hover {
+  background: var(--rose);
+  color: #fff;
+  transform: scale(1.05);
 }
 .cart-count {
   position: absolute; top: -8px; right: -10px;
