@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
@@ -7,67 +6,102 @@
 <title>Shop — 21 Florals</title>
 <link href="shared.css" rel="stylesheet"/>
 <style>
-.shop-layout { display: grid; grid-template-columns: 260px 1fr; gap: 40px; padding: 50px 60px; align-items: start; }
-.sidebar { background: #fff; border-radius: 20px; padding: 32px; border: 1.5px solid var(--border); position: sticky; top: 90px; }
-.sidebar h3 { font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; color: var(--rose); margin-bottom: 16px; margin-top: 24px; }
+.shop-layout { display: grid; grid-template-columns: 280px 1fr; gap: 40px; padding: 50px 60px; align-items: start; }
+.sidebar { background: #fff; border-radius: 20px; padding: 32px; border: 2.5px solid var(--frame-color); position: sticky; top: 90px; box-shadow: 0 4px 16px var(--pink-glow); }
+.sidebar h3 { font-size: 0.72rem; letter-spacing: 3px; text-transform: uppercase; color: var(--rose); margin-bottom: 14px; margin-top: 24px; display: flex; align-items: center; gap: 8px; }
 .sidebar h3:first-child { margin-top: 0; }
-.filter-btn { display: block; width: 100%; text-align: left; background: none; border: none; padding: 10px 14px; border-radius: 10px; font-size: 0.88rem; color: #7a6068; cursor: pointer; transition: all 0.2s; font-family: 'Raleway', sans-serif; font-weight: 500; }
-.filter-btn:hover, .filter-btn.active { background: var(--rose-pale); color: var(--rose); font-weight: 600; }
+.sidebar h3::before { content: ''; display: inline-block; width: 16px; height: 1.5px; background: var(--rose-light); }
+.filter-btn { display: block; width: 100%; text-align: left; background: none; border: none; padding: 10px 14px; border-radius: 10px; font-size: 0.86rem; color: #7a6068; cursor: pointer; transition: all 0.2s; font-family: 'Raleway', sans-serif; font-weight: 500; border-left: 3px solid transparent; }
+.filter-btn:hover { background: var(--rose-pale); color: var(--rose); border-left-color: var(--rose-light); }
+.filter-btn.active { background: var(--rose-pale); color: var(--rose); font-weight: 600; border-left-color: var(--rose); }
 .price-range { display: flex; flex-direction: column; gap: 10px; }
 .price-range input[type=range] { width: 100%; accent-color: var(--rose); }
 .price-label { font-size: 0.85rem; color: var(--muted); display: flex; justify-content: space-between; }
-.sort-select { width: 100%; padding: 10px 14px; border: 1.5px solid var(--border); border-radius: 10px; font-family: 'Raleway', sans-serif; font-size: 0.88rem; color: var(--ink); background: #fff; outline: none; cursor: pointer; }
-.sort-select:focus { border-color: var(--rose-light); }
+.sort-select { width: 100%; padding: 10px 14px; border: 2px solid var(--border); border-radius: 10px; font-family: 'Raleway', sans-serif; font-size: 0.86rem; color: var(--ink); background: #fff; outline: none; cursor: pointer; transition: border-color 0.3s; }
+.sort-select:focus { border-color: var(--rose); }
 
 .shop-main {}
 .shop-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 28px; }
-.shop-header h2 { font-size: 1.6rem; }
-.result-count { font-size: 0.85rem; color: var(--muted); font-weight: 300; }
-.product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.shop-header h2 { font-size: 1.6rem; color: var(--rose-dark); }
+.result-count { font-size: 0.85rem; color: var(--muted); font-weight: 300; background: var(--rose-pale); padding: 6px 14px; border-radius: 20px; border: 1px solid var(--border); }
+.product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
 
 /* PROMO BADGE in shop */
 .promo-inline {
-  background: linear-gradient(135deg, #fde8f0, #fdf0f4);
-  border: 1.5px dashed var(--rose-light);
-  border-radius: 16px; padding: 18px 24px;
+  background: linear-gradient(135deg, #fde0ec, #fde8f0);
+  border: 2.5px solid var(--frame-color) !important;
+  border-radius: 16px; padding: 20px 24px;
   display: flex; align-items: center; gap: 16px;
   margin-bottom: 28px;
+  position: relative;
+  overflow: hidden;
+}
+.promo-inline::before {
+  content: '🌸';
+  position: absolute;
+  right: 20px;
+  top: -5px;
+  font-size: 3rem;
+  opacity: 0.12;
+  animation: bloomPulse 3s ease-in-out infinite;
 }
 .promo-inline .icon { font-size: 2rem; }
-.promo-inline h4 { font-size: 0.95rem; color: var(--ink); margin-bottom: 4px; }
+.promo-inline h4 { font-size: 0.95rem; color: var(--rose-dark); margin-bottom: 4px; }
 .promo-inline p { font-size: 0.82rem; color: var(--muted); font-weight: 300; }
+
+/* CATEGORY DIVIDER */
+.cat-divider { margin: 12px 0 8px; height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent); }
 
 /* EMPTY STATE */
 .empty-state { text-align: center; padding: 80px 20px; color: var(--muted); }
-.empty-state .icon { font-size: 4rem; margin-bottom: 16px; }
+.empty-state .icon { font-size: 4rem; margin-bottom: 16px; animation: bloomPulse 3s ease-in-out infinite; }
 .empty-state h3 { font-size: 1.2rem; margin-bottom: 8px; color: var(--ink); }
 
 /* QUICK VIEW MODAL */
 .modal-overlay { position: fixed; inset: 0; background: rgba(58,40,48,0.6); backdrop-filter: blur(4px); z-index: 1000; display: none; align-items: center; justify-content: center; }
 .modal-overlay.open { display: flex; }
-.modal { background: #fff; border-radius: 24px; max-width: 800px; width: 90%; display: grid; grid-template-columns: 1fr 1fr; overflow: hidden; box-shadow: 0 24px 80px rgba(176,96,128,0.25); }
+.modal { background: #fff; border-radius: 24px; max-width: 800px; width: 90%; display: grid; grid-template-columns: 1fr 1fr; overflow: hidden; box-shadow: 0 24px 80px rgba(192,96,136,0.3); border: 2.5px solid var(--frame-color); }
 .modal-img { height: 100%; min-height: 400px; }
 .modal-img img { width: 100%; height: 100%; object-fit: cover; }
 .modal-info { padding: 40px; display: flex; flex-direction: column; }
-.modal-badge { display: inline-block; background: var(--rose); color: #fff; font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; padding: 5px 12px; border-radius: 20px; margin-bottom: 14px; width: fit-content; }
+.modal-badge { display: inline-block; background: linear-gradient(135deg, #d06898, #c06088); color: #fff; font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; padding: 5px 12px; border-radius: 20px; margin-bottom: 14px; width: fit-content; }
 .modal-info h2 { font-size: 1.6rem; margin-bottom: 10px; }
 .modal-price { font-family: 'Libre Baskerville', serif; font-size: 1.8rem; color: var(--rose); margin-bottom: 16px; }
 .modal-info p { font-size: 0.9rem; color: var(--muted); line-height: 1.8; font-weight: 300; margin-bottom: 24px; flex: 1; }
 .modal-qty { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
-.qty-btn { width: 36px; height: 36px; border-radius: 50%; border: 1.5px solid var(--border); background: none; font-size: 1.1rem; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: center; }
-.qty-btn:hover { border-color: var(--rose); color: var(--rose); }
+.qty-btn { width: 36px; height: 36px; border-radius: 50%; border: 2px solid var(--border); background: none; font-size: 1.1rem; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: center; }
+.qty-btn:hover { border-color: var(--rose); color: var(--rose); background: var(--rose-pale); }
 .qty-num { font-size: 1rem; font-weight: 600; min-width: 24px; text-align: center; }
-.modal-close { position: absolute; top: 16px; right: 16px; background: rgba(255,255,255,0.9); border: none; width: 36px; height: 36px; border-radius: 50%; font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.modal-close { position: absolute; top: 16px; right: 16px; background: rgba(255,255,255,0.95); border: 2px solid var(--border); width: 36px; height: 36px; border-radius: 50%; font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+.modal-close:hover { border-color: var(--rose); color: var(--rose); }
 .modal-wrap { position: relative; }
+
+@media (max-width: 1100px) {
+  .product-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 900px) {
+  .shop-layout { grid-template-columns: 1fr; padding: 24px 20px; }
+  .sidebar { position: static; }
+  .product-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+}
+@media (max-width: 600px) {
+  .product-grid { grid-template-columns: 1fr; }
+}
 </style>
 </head>
 <body>
+
+<!-- FLOATING PETAL DECORATIONS -->
+<div class="petal-float" style="top:-20px;left:25%;animation-delay:2s;font-size:1.2rem;">🌷</div>
+<div class="petal-float" style="top:-20px;left:50%;animation-delay:6s;font-size:1rem;">🌸</div>
+<div class="petal-float" style="top:-20px;left:85%;animation-delay:9s;font-size:1.3rem;">🌺</div>
+
 <div class="promo-banner">
-  🌸 Buy Any 3 Arrangements, Get the 4th FREE!  <span>|</span>  Free Shipping on Orders Over $150
+  🌸 Buy Any 3 Arrangements, Get the 4th FREE!  <span>|</span>  Free Shipping on Orders Over $150
 </div>
 <nav class="site-nav">
 <a class="nav-logo" href="index.html">
-<svg class="logo-svg" fill="none" viewbox="0 0 60 60"><circle cx="30" cy="30" r="28" stroke="#b06080" stroke-width="1.5"></circle><path d="M14 30 C14 24, 20 20, 26 26 C29 29, 31 31, 34 34 C40 40, 46 36, 46 30 C46 24, 40 20, 34 26 C31 29, 29 31, 26 34 C20 40, 14 36, 14 30 Z" fill="none" stroke="#b06080" stroke-width="1.8"></path><line stroke="#b06080" stroke-linecap="round" stroke-width="1.8" x1="30" x2="30" y1="34" y2="46"></line></svg>
+<svg class="logo-svg" fill="none" viewbox="0 0 60 60"><circle cx="30" cy="30" r="28" stroke="#c06088" stroke-width="1.5"></circle><path d="M14 30 C14 24, 20 20, 26 26 C29 29, 31 31, 34 34 C40 40, 46 36, 46 30 C46 24, 40 20, 34 26 C31 29, 29 31, 26 34 C20 40, 14 36, 14 30 Z" fill="none" stroke="#c06088" stroke-width="1.8"></path><line stroke="#c06088" stroke-linecap="round" stroke-width="1.8" x1="30" x2="30" y1="34" y2="46"></line></svg>
 <span class="logo-text" style="margin-left:8px;">21 Florals</span>
 </a>
 <ul class="nav-links">
@@ -94,11 +128,23 @@
 <div class="shop-layout">
 <!-- SIDEBAR -->
 <aside class="sidebar">
-<h3>Category</h3>
+<h3>All Categories</h3>
 <button class="filter-btn active" data-cat="all">🌸 All Arrangements</button>
+
+<div class="cat-divider"></div>
+<h3>By Style</h3>
 <button class="filter-btn" data-cat="home">🏠 Home Decor</button>
 <button class="filter-btn" data-cat="wedding">💍 Wedding</button>
 <button class="filter-btn" data-cat="gift">🎁 Gifts</button>
+
+<div class="cat-divider"></div>
+<h3>By Occasion</h3>
+<button class="filter-btn" data-cat="valentines">💕 Valentine's Day</button>
+<button class="filter-btn" data-cat="mothers-day">💐 Mother's Day</button>
+<button class="filter-btn" data-cat="sympathy">🕊️ Sympathy</button>
+<button class="filter-btn" data-cat="holiday">🎄 Holidays</button>
+
+<div class="cat-divider"></div>
 <h3>Sort By</h3>
 <select class="sort-select" id="sort-select">
 <option value="default">Featured</option>
@@ -106,21 +152,25 @@
 <option value="price-desc">Price: High to Low</option>
 <option value="name">Name A–Z</option>
 </select>
+
 <h3>Price Range</h3>
 <div class="price-range">
 <input id="price-range" max="200" min="0" step="5" type="range" value="200"/>
 <div class="price-label"><span>$0</span><span id="price-max-label">Up to $200</span></div>
 </div>
+
+<div class="cat-divider"></div>
 <h3>Why Silk?</h3>
-<div style="font-size:0.82rem;color:var(--muted);line-height:1.7;font-weight:300;">
-      ✅ Never wilts or fades<br/>
-      ✅ Pet &amp; family safe<br/>
-      ✅ No watering needed<br/>
-      ✅ Allergy friendly<br/>
-      ✅ Lasts for years
-    </div>
+<div style="font-size:0.82rem;color:var(--muted);line-height:1.8;font-weight:300;">
+  ✅ Never wilts or fades<br/>
+  ✅ Pet &amp; family safe<br/>
+  ✅ No watering needed<br/>
+  ✅ Allergy friendly<br/>
+  ✅ Lasts for years
+</div>
 <a href="why-silk.html" style="display:block;margin-top:12px;font-size:0.8rem;color:var(--rose);font-weight:600;">Learn more →</a>
 </aside>
+
 <!-- MAIN -->
 <main class="shop-main">
 <div class="promo-inline">
@@ -132,11 +182,12 @@
 </div>
 <div class="shop-header">
 <h2 id="shop-title">All Arrangements</h2>
-<span class="result-count" id="result-count">Showing 12 items</span>
+<span class="result-count" id="result-count">Showing 26 items</span>
 </div>
 <div class="product-grid" id="shop-grid"></div>
 </main>
 </div>
+
 <!-- QUICK VIEW MODAL -->
 <div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
 <div class="modal-wrap">
@@ -144,6 +195,7 @@
 <div class="modal" id="modal-content"></div>
 </div>
 </div>
+
 <!-- FOOTER -->
 <footer class="site-footer">
 <div class="footer-grid">
@@ -151,12 +203,13 @@
 <span class="logo-text">21 Florals</span>
 <p>Handcrafted silk floral arrangements inspired by the beauty of nature. Made with love in Northridge, CA.</p>
 </div>
-<div><h4>Shop</h4><ul><li><a href="shop.html">All Arrangements</a></li><li><a href="weddings.html">Wedding Florals</a></li><li><a href="contact.html">Custom Orders</a></li></ul></div>
-<div><h4>Company</h4><ul><li><a href="about.html">Our Story</a></li><li><a href="why-silk.html">Why Silk?</a></li><li><a href="gallery.html">Gallery</a></li></ul></div>
-<div><h4>Contact</h4><ul><li><a href="tel:8188560033">📞 (818) 856-0033</a></li><li><a href="#">📍 Northridge, CA 91324</a></li></ul></div>
+<div><h4>Shop</h4><ul><li><a href="shop.html">All Arrangements</a></li><li><a href="shop.html?cat=wedding">Wedding Florals</a></li><li><a href="shop.html?cat=valentines">Valentine's Day</a></li><li><a href="shop.html?cat=mothers-day">Mother's Day</a></li></ul></div>
+<div><h4>Occasions</h4><ul><li><a href="shop.html?cat=sympathy">Sympathy</a></li><li><a href="shop.html?cat=holiday">Holidays</a></li><li><a href="shop.html?cat=gift">Gifts</a></li><li><a href="contact.html">Custom Orders</a></li></ul></div>
+<div><h4>Contact</h4><ul><li><a href="tel:8188560033">📞 (818) 856-0033</a></li><li><a>📍 Northridge, CA 91324</a></li></ul></div>
 </div>
 <div class="footer-bottom"><p>© 2025 21 Florals. All rights reserved.</p></div>
 </footer>
+
 <script src="shared.js"></script>
 <script>
 let currentCat = 'all';
@@ -169,7 +222,7 @@ if (urlParams.get('cat')) currentCat = urlParams.get('cat');
 
 function getFiltered() {
   let items = [...PRODUCTS];
-  if (currentCat !== 'all') items = items.filter(p => p.tags.includes(currentCat));
+  if (currentCat !== 'all') items = items.filter(p => p.category === currentCat || p.tags.includes(currentCat));
   items = items.filter(p => p.price <= maxPrice);
   if (currentSort === 'price-asc') items.sort((a,b) => a.price - b.price);
   else if (currentSort === 'price-desc') items.sort((a,b) => b.price - a.price);
@@ -181,11 +234,21 @@ function renderShop() {
   const items = getFiltered();
   const grid = document.getElementById('shop-grid');
   document.getElementById('result-count').textContent = `Showing ${items.length} item${items.length !== 1 ? 's' : ''}`;
-  const titles = { all: 'All Arrangements', home: 'Home Decor', wedding: 'Wedding Collection', gift: 'Gift Collection' };
+
+  const titles = {
+    all: 'All Arrangements',
+    home: 'Home Decor',
+    wedding: 'Wedding Collection',
+    gift: 'Gift Collection',
+    valentines: "Valentine's Day",
+    'mothers-day': "Mother's Day",
+    sympathy: 'Sympathy & Memorial',
+    holiday: 'Holiday Collection'
+  };
   document.getElementById('shop-title').textContent = titles[currentCat] || 'All Arrangements';
 
   if (items.length === 0) {
-    grid.innerHTML = `<div class="empty-state" style="grid-column:span 3"><div class="icon">🌸</div><h3>No arrangements found</h3><p>Try adjusting your filters</p></div>`;
+    grid.innerHTML = `<div class="empty-state" style="grid-column:span 3"><div class="icon">🌸</div><h3>No arrangements found</h3><p>Try adjusting your filters or price range</p></div>`;
     return;
   }
   grid.innerHTML = items.map(p => `
@@ -200,7 +263,7 @@ function renderShop() {
         <div class="product-footer">
           <span class="product-price">$${p.price}</span>
           <div style="display:flex;gap:8px;">
-            <button class="add-to-cart-btn" style="background:transparent;color:var(--rose);border:1.5px solid var(--rose-light);padding:8px 14px;" onclick="openModal(${p.id})">View</button>
+            <button class="add-to-cart-btn" style="background:transparent;color:var(--rose);border:2px solid var(--rose-light);padding:8px 14px;" onclick="openModal(${p.id})">View</button>
             <button class="add-to-cart-btn" onclick="addToCart(${p.id})">Add</button>
           </div>
         </div>
@@ -211,7 +274,6 @@ function renderShop() {
 function openModal(id) {
   const p = PRODUCTS.find(x => x.id === id);
   if (!p) return;
-  let qty = 1;
   document.getElementById('modal-content').innerHTML = `
     <div class="modal-img"><img src="${p.img}" alt="${p.name}"></div>
     <div class="modal-info">
@@ -225,7 +287,7 @@ function openModal(id) {
         <button class="qty-btn" onclick="changeQty(1)">+</button>
         <span style="font-size:0.82rem;color:var(--muted);">quantity</span>
       </div>
-      <button class="btn btn-primary" style="width:100%;" onclick="addToCart(${p.id}, parseInt(document.getElementById('modal-qty').textContent)); document.getElementById('modal-overlay').classList.remove('open')">Add to Cart — $${p.price}</button>
+      <button class="btn btn-primary" style="width:100%;" onclick="addToCart(${p.id}, parseInt(document.getElementById('modal-qty').textContent)); document.getElementById('modal-overlay').classList.remove('open')">🌸 Add to Cart — $${p.price}</button>
       <div style="margin-top:12px;text-align:center;font-size:0.78rem;color:var(--muted);">🎁 Buy 3, get the 4th FREE!</div>
     </div>`;
   document.getElementById('modal-overlay').classList.add('open');
