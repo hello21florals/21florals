@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>21 Florals AI Designer</title>
+
+<style>
+
+body {
+font-family:Arial;
+background:#faf5ef;
+padding:25px;
+}
+
+.container {
+max-width:900px;
+margin:auto;
+background:white;
+padding:30px;
+border-radius:20px;
+box-shadow:0 5px 25px #bbb;
+}
+
+h1 {
+text-align:center;
+color:#8b4568;
+}
+
+label {
+font-weight:bold;
+display:block;
+margin-top:15px;
+color:#5b3045;
+}
+
+
+select, textarea, button {
+width:100%;
+padding:12px;
+margin-top:8px;
+border-radius:10px;
+border:1px solid #ccc;
+font-size:16px;
+}
+
+
+button {
+background:#8b4568;
+color:white;
+border:none;
+cursor:pointer;
+font-size:18px;
+}
+
+
+button:hover {
+background:#652d4b;
+}
+
+
+.bling {
+margin-top:20px;
+padding:15px;
+background:#f8e7f0;
+border-radius:10px;
+}
+
+
+#preview {
+
+height:500px;
+margin-top:25px;
+border:3px dashed #c59b63;
+display:flex;
+align-items:center;
+justify-content:center;
+overflow:hidden;
+
+}
+
+
+#preview img {
+max-width:100%;
+max-height:100%;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<h1>
+🌸 21 Florals AI Arrangement Studio
+</h1>
+
+
+
+<label>
+Primary Flowers (choose up to 3)
+</label>
+
+<select multiple id="primary">
+
+<option>Silk Roses</option>
+<option>Silk Peonies</option>
+<option>Silk Orchids</option>
+<option>Silk Hydrangeas</option>
+<option>Silk Tulips</option>
+<option>Silk Magnolias</option>
+<option>Silk Dahlias</option>
+<option>Silk Calla Lilies</option>
+
+</select>
+
+
+
+
+<label>
+Secondary Flowers
+</label>
+
+<select multiple id="secondary">
+
+<option>Baby's Breath</option>
+<option>Ranunculus</option>
+<option>Lavender</option>
+<option>Garden Roses</option>
+<option>Cherry Blossoms</option>
+<option>Sweet Peas</option>
+
+</select>
+
+
+
+
+<label>
+Accent Flowers / Greenery
+</label>
+
+<select multiple id="accent">
+
+<option>Eucalyptus</option>
+<option>Fern Leaves</option>
+<option>Pearl Sprays</option>
+<option>Willow Branches</option>
+<option>Crystal Picks</option>
+<option>Decorative Leaves</option>
+
+</select>
+
+
+
+
+<label>
+Vase Type
+</label>
+
+
+<select id="vase">
+
+<option>Crystal Glass Vase</option>
+<option>Vintage Ceramic Vase</option>
+<option>Luxury Gold Vase</option>
+<option>Silver Metallic Vase</option>
+<option>Black Modern Glass Vase</option>
+<option>Antique Porcelain Vase</option>
+<option>Rustic Wooden Planter</option>
+<option>Clear Acrylic Display Vase</option>
+<option>Champagne Colored Vase</option>
+<option>Elegant Tall Cylinder Vase</option>
+
+</select>
+
+
+
+
+<label>
+Vase Accent
+</label>
+
+<select id="vaseAccent">
+
+<option>No Accent</option>
+<option>Pearl Wrap</option>
+<option>Gold Ribbon</option>
+<option>Crystal Band</option>
+<option>Diamond Style Trim</option>
+<option>Satin Bow</option>
+
+</select>
+
+
+
+
+
+<div class="bling">
+
+<label>
+
+<input type="checkbox" id="bling">
+
+✨ Add Bling Upgrade
+</label>
+
+<p>
+Adds sparkling glitter petals, crystal shimmer, and luxury sparkle effects.
+</p>
+
+</div>
+
+
+
+
+
+
+<label>
+Generated AI Prompt
+</label>
+
+
+<textarea id="prompt" rows="8"></textarea>
+
+
+
+
+<button onclick="generateImage()">
+
+🌺 Generate Silk Floral Arrangement
+
+</button>
+
+
+
+
+
+<div id="preview">
+
+Preview Window
+
+</div>
+
+
+
+</div>
+
+
+
+
+<script>
+
+
+function getSelected(id){
+
+let options =
+document.getElementById(id).selectedOptions;
+
+return Array.from(options)
+.map(x=>x.value)
+.join(", ");
+
+}
+
+
+
+function generateImage(){
+
+
+let flowers =
+getSelected("primary");
+
+
+let secondary =
+getSelected("secondary");
+
+
+let accents =
+getSelected("accent");
+
+
+let vase =
+document.getElementById("vase").value;
+
+
+let vaseAccent =
+document.getElementById("vaseAccent").value;
+
+
+
+let sparkle="";
+
+if(document.getElementById("bling").checked){
+
+sparkle=
+" Add luxury bling upgrade with glitter coated petals, crystal sparkle, shimmering accents, and diamond-like highlights.";
+
+}
+
+
+
+
+let prompt =
+
+`
+Create a realistic luxury silk floral arrangement.
+
+Main flowers:
+${flowers}
+
+Secondary flowers:
+${secondary}
+
+Accent details:
+${accents}
+
+Place arrangement in:
+${vase}
+
+Vase decoration:
+${vaseAccent}
+
+Style:
+High-end florist design, wedding centerpiece, premium artificial silk flowers, realistic fabric texture, professional product photography, soft studio lighting.
+${sparkle}
+`;
+
+
+
+
+document.getElementById("prompt").value=prompt;
+
+
+
+let imageURL=
+
+"https://image.pollinations.ai/prompt/"
++
+encodeURIComponent(prompt)
++
+"?width=768&height=768&nologo=true";
+
+
+
+document.getElementById("preview").innerHTML=
+
+`
+<img src="${imageURL}">
+`;
+
+
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
