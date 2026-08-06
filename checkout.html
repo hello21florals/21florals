@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Checkout — 21 Florals</title>
 
-<link href="shared.css" rel="stylesheet"/>
+<link href="shared.css" rel="stylesheet">
 
 <!-- Stripe.js -->
 <script src="https://js.stripe.com/v3/"></script>
+
 
 <style>
 
@@ -22,20 +24,19 @@ align-items:start;
 }
 
 
-/* STEPS */
-
 .checkout-steps {
 display:flex;
 align-items:center;
-gap:0;
 margin-bottom:36px;
 }
+
 
 .step {
 display:flex;
 align-items:center;
 gap:10px;
 }
+
 
 .step-num {
 width:32px;
@@ -44,20 +45,15 @@ border-radius:50%;
 display:flex;
 align-items:center;
 justify-content:center;
-font-size:.82rem;
 font-weight:700;
-transition:.3s;
 }
+
 
 .step.active .step-num {
 background:var(--rose);
-color:#fff;
+color:white;
 }
 
-.step.done .step-num {
-background:#4caf50;
-color:#fff;
-}
 
 .step.inactive .step-num {
 background:var(--border);
@@ -70,81 +66,67 @@ font-size:.82rem;
 font-weight:600;
 }
 
-.step.active .step-label {
-color:var(--rose);
-}
-
-.step.done .step-label {
-color:#4caf50;
-}
-
-.step.inactive .step-label {
-color:var(--muted);
-}
-
 
 .step-line {
-flex:1;
 height:2px;
 background:var(--border);
+width:60px;
 margin:0 12px;
-max-width:60px;
 }
 
 
-/* FORM SECTIONS */
-
 .form-section {
-background:#fff;
+
+background:white;
 border-radius:20px;
 border:1.5px solid var(--border);
 padding:32px;
 margin-bottom:24px;
+
 }
 
+
 .form-section h3 {
+
 font-size:1.1rem;
 margin-bottom:24px;
 padding-bottom:14px;
 border-bottom:1px solid var(--border);
-display:flex;
-align-items:center;
-gap:10px;
+
 }
 
 
-/* PAYMENT METHODS */
-
 .payment-methods {
+
 display:grid;
-grid-template-columns:repeat(2,1fr);
+grid-template-columns:1fr 1fr;
 gap:12px;
 margin-bottom:24px;
+
 }
 
 
 .pay-method {
+
 border:1.5px solid var(--border);
 border-radius:12px;
 padding:14px;
 text-align:center;
 cursor:pointer;
-transition:.2s;
-}
 
-
-.pay-method:hover {
-border-color:var(--rose-light);
 }
 
 
 .pay-method.selected {
+
 border-color:var(--rose);
 background:var(--rose-pale);
+
 }
 
 
-/* STRIPE */
+
+/* STRIPE CARD BOX */
 
 #stripe-card-element {
 
@@ -157,21 +139,19 @@ min-height:44px;
 }
 
 
-/* PAYPAL */
+#stripe-card-errors {
 
-#paypal-button-container {
-
+color:#e53935;
+font-size:.85rem;
 margin-top:8px;
-min-height:50px;
 
 }
 
 
-/* ORDER SIDEBAR */
 
 .order-sidebar {
 
-background:#fff;
+background:white;
 border-radius:20px;
 border:1.5px solid var(--border);
 padding:28px;
@@ -181,34 +161,30 @@ top:90px;
 }
 
 
-/* BUTTON */
 
 .place-order-btn {
 
 width:100%;
 padding:18px;
-background:linear-gradient(135deg,#c07090,#b06080);
-color:#fff;
 border:none;
 border-radius:50px;
-font-size:.9rem;
+background:linear-gradient(135deg,#c07090,#b06080);
+color:white;
 font-weight:700;
-letter-spacing:1.5px;
-text-transform:uppercase;
 cursor:pointer;
 
 }
 
 
-/* SUCCESS */
 
 .success-screen {
 
-text-align:center;
-padding:80px 60px;
 display:none;
+text-align:center;
+padding:80px;
 
 }
+
 
 
 @media(max-width:900px){
@@ -216,7 +192,7 @@ display:none;
 .checkout-layout{
 
 grid-template-columns:1fr;
-padding:24px 20px;
+padding:20px;
 
 }
 
@@ -232,38 +208,26 @@ position:static;
 
 </head>
 
-<body><!-- PROMO -->
+
+<body>
+
+
 <div class="promo-banner">
-🌸 Secure Checkout <span>|</span>
-All Major Payment Methods Accepted <span>|</span>
-Free Shipping on Orders Over $150
+
+🌸 Secure Checkout 
+<span>|</span>
+All Major Payment Methods Accepted
+<span>|</span>
+Free Shipping Over $150
+
 </div>
 
 
-<!-- NAVIGATION -->
+
 <nav class="site-nav">
 
-<a class="nav-logo" href="index.html">
 
-<svg class="logo-svg"
-fill="none"
-viewBox="0 0 60 60">
-
-<circle cx="30" cy="30" r="28"
-stroke="#b06080"
-stroke-width="1.5"></circle>
-
-<path d="M14 30 C14 24,20 20,26 26 C29 29,31 31,34 34 C40 40,46 36,46 30 C46 24,40 20,34 26 C31 29,29 31,26 34 C20 40,14 36,14 30Z"
-fill="none"
-stroke="#b06080"
-stroke-width="1.8"></path>
-
-<line x1="30" y1="34" x2="30" y2="46"
-stroke="#b06080"
-stroke-width="1.8"
-stroke-linecap="round"></line>
-
-</svg>
+<a href="index.html" class="nav-logo">
 
 <span class="logo-text">
 21 Florals
@@ -272,21 +236,17 @@ stroke-linecap="round"></line>
 </a>
 
 
+
 <ul class="nav-links">
 
-<li>
-<a href="index.html">Home</a>
-</li>
+<li><a href="index.html">Home</a></li>
 
-<li>
-<a href="shop.html">Shop</a>
-</li>
+<li><a href="shop.html">Shop</a></li>
 
-<li>
-<a href="cart.html">Cart</a>
-</li>
+<li><a href="cart.html">Cart</a></li>
 
 </ul>
+
 
 
 <div class="nav-actions">
@@ -296,20 +256,14 @@ onclick="window.location='cart.html'">
 
 🛒 Cart
 
-<span class="cart-count"
-style="display:none;">
-0
-</span>
-
 </button>
 
 </div>
 
+
 </nav>
 
 
-
-<!-- BREADCRUMB -->
 
 <div class="breadcrumb">
 
@@ -331,14 +285,7 @@ Checkout
 
 
 
-<!-- SUCCESS SCREEN -->
-
-<div class="success-screen" id="success-screen">
-
-<div class="check">
-🌸
-</div>
-
+<div id="success-screen" class="success-screen">
 
 <h1>
 Thank You!
@@ -346,62 +293,23 @@ Thank You!
 
 
 <p>
-Your order has been placed successfully.
-We're so excited to handcraft your beautiful silk floral arrangements!
-You'll receive a confirmation email shortly.
+Your order has been successfully processed.
 </p>
 
-
-<div class="order-num">
-
-<span>
-Order Number
-</span>
 
 <strong id="order-num-display">
 #21F-00000
 </strong>
 
-</div>
-
-
-<div id="payment-method-badge"
-style="margin-bottom:24px;">
-</div>
-
-
-<div style="
-display:flex;
-gap:16px;
-justify-content:center;
-flex-wrap:wrap;
-">
-
-<a class="btn btn-primary"
-href="shop.html">
-Continue Shopping
-</a>
-
-
-<a class="btn btn-outline"
-href="index.html">
-Back to Home
-</a>
-
-
-</div>
 
 </div>
 
 
-
-
-<!-- CHECKOUT -->
 
 <div id="checkout-main">
 
 
-<div style="padding:32px 60px 0;">
+<div style="padding:32px 60px 0">
 
 
 <div class="checkout-steps">
@@ -461,34 +369,20 @@ Payment
 </div>
 
 
-
-
 <div class="checkout-layout">
-
-
-<!-- LEFT SIDE -->
 
 
 <div>
 
 
-
-<!-- CONTACT -->
+<!-- CONTACT SECTION START -->
 
 <div class="form-section">
 
 
 <h3>
-<span class="icon">
-👤
-</span>
-
-Contact Information
-
+👤 Contact Information
 </h3>
-
-
-<div class="form-row">
 
 
 <div class="form-group">
@@ -497,12 +391,10 @@ Contact Information
 First Name
 </label>
 
-<input id="fname"
-placeholder="Rose"
-type="text"/>
+<input id="fname" placeholder="Rose">
+
 
 </div>
-
 
 
 <div class="form-group">
@@ -511,15 +403,10 @@ type="text"/>
 Last Name
 </label>
 
-<input id="lname"
-placeholder="Johnson"
-type="text"/>
-
-</div>
+<input id="lname" placeholder="Johnson">
 
 
 </div>
-
 
 
 <div class="form-group">
@@ -529,576 +416,14 @@ Email Address
 </label>
 
 <input id="email"
-placeholder="rose@example.com"
-type="email"/>
+type="email"
+placeholder="rose@example.com">
 
 </div>
+<div id="stripe-card-element"></div>
 
-
-
-<div class="form-group">
-
-<label>
-Phone Number
-</label>
-
-<input id="phone"
-placeholder="(818) 555-0000"
-type="tel"/>
-
-</div>
-
-
-</div>
-
-
-
-
-
-<!-- SHIPPING -->
-
-<div class="form-section">
-
-
-<h3>
-
-<span class="icon">
-📦
-</span>
-
-Shipping Address
-
-</h3>
-
-
-
-<div class="form-group">
-
-<label>
-Street Address
-</label>
-
-<input id="address"
-placeholder="123 Blossom Lane"
-type="text"/>
-
-</div>
-
-
-
-<div class="form-group">
-
-<label>
-Apartment / Suite (optional)
-</label>
-
-<input placeholder="Apt 4B"
-type="text"/>
-
-</div>
-
-
-
-<div class="form-row">
-
-
-<div class="form-group">
-
-<label>
-City
-</label>
-
-<input id="city"
-placeholder="Los Angeles"
-type="text"/>
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-State
-</label>
-
-
-<select id="state">
-
-<option>
-California
-</option>
-
-<option>
-New York
-</option>
-
-<option>
-Texas
-</option>
-
-<option>
-Florida
-</option>
-
-<option>
-Other
-</option>
-
-
-</select>
-
-</div>
-
-
-</div><div class="form-row">
-
-<div class="form-group">
-
-<label>
-ZIP Code
-</label>
-
-<input id="zip"
-placeholder="91324"
-type="text"/>
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-Country
-</label>
-
-<select>
-
-<option>
-United States
-</option>
-
-<option>
-Canada
-</option>
-
-</select>
-
-</div>
-
-</div>
-
-
-
-
-<div class="form-group">
-
-<label>
-Shipping Method
-</label>
-
-
-<div style="
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:12px;
-margin-top:4px;
-">
-
-
-<label style="
-display:flex;
-align-items:center;
-gap:10px;
-padding:14px;
-border:1.5px solid var(--rose);
-border-radius:12px;
-cursor:pointer;
-background:var(--rose-pale);
-">
-
-
-<input
-checked
-name="shipping"
-style="accent-color:var(--rose);"
-type="radio"
-value="standard"
-onchange="renderCheckoutSummary()"
-/>
-
-
-<div>
-
-<div style="
-font-size:.85rem;
-font-weight:600;
-">
-Standard (5–7 days)
-</div>
-
-
-<div id="std-price"
-style="
-font-size:.78rem;
-color:var(--muted);
-">
-
-$12.99
-
-</div>
-
-
-</div>
-
-
-</label>
-
-
-
-
-
-<label style="
-display:flex;
-align-items:center;
-gap:10px;
-padding:14px;
-border:1.5px solid var(--border);
-border-radius:12px;
-cursor:pointer;
-">
-
-
-<input
-
-name="shipping"
-
-style="accent-color:var(--rose);"
-
-type="radio"
-
-value="express"
-
-onchange="renderCheckoutSummary()"
-
-/>
-
-
-<div>
-
-
-<div style="
-font-size:.85rem;
-font-weight:600;
-">
-
-Express (2–3 days)
-
-</div>
-
-
-<div style="
-font-size:.78rem;
-color:var(--muted);
-">
-
-$24.99
-
-</div>
-
-
-</div>
-
-
-</label>
-
-
-</div>
-
-</div>
-
-
-
-
-<div class="form-group">
-
-
-<label>
-
-Gift Message (optional)
-
-</label>
-
-
-<textarea
-
-placeholder="Add a personal message to include with your order... 🌸"
-
-style="min-height:80px;">
-
-</textarea>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-<!-- PAYMENT -->
-
-<div class="form-section">
-
-
-<h3>
-
-<span class="icon">
-💳
-</span>
-
-Payment
-
-</h3>
-
-
-
-<div class="payment-methods">
-
-
-<div class="pay-method selected"
-id="tab-stripe"
-onclick="switchPayMethod('stripe')">
-
-
-<div class="icon">
-💳
-</div>
-
-
-<div class="label">
-
-Credit / Debit Card
-
-</div>
-
-
-<div style="
-font-size:.68rem;
-color:var(--muted);
-margin-top:4px;
-">
-
-Powered by Stripe
-
-</div>
-
-
-</div>
-
-
-
-
-
-<div class="pay-method"
-id="tab-paypal"
-onclick="switchPayMethod('paypal')">
-
-
-<div class="icon"
-style="
-font-size:1.4rem;
-font-weight:900;
-letter-spacing:-1px;
-">
-
-<span style="color:#003087;">
-Pay
-</span>
-
-<span style="color:#009cde;">
-Pal
-</span>
-
-
-</div>
-
-
-<div class="label">
-
-PayPal
-
-</div>
-
-
-<div style="
-font-size:.68rem;
-color:var(--muted);
-margin-top:4px;
-">
-
-Fast & secure
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-<!-- STRIPE PANEL -->
-
-
-<div id="stripe-panel">
-
-
-<div class="form-group">
-
-
-<label>
-
-Card Details
-
-</label>
-
-
-<div id="stripe-card-element">
-
-<!-- Stripe injects secure card iframe here -->
-
-</div>
-
-
-<div id="stripe-card-errors"
-role="alert">
-
-</div>
-
-
-</div>
-
-
-
-<div class="form-group">
-
-
-<label>
-
-Name on Card
-
-</label>
-
-
-<input id="card-name"
-placeholder="Rose Johnson"
-type="text"/>
-
-
-</div>
-
-
-
-<div style="
-display:flex;
-align-items:center;
-gap:10px;
-margin-top:8px;
-font-size:.82rem;
-color:var(--muted);
-">
-
-
-🔒 Your payment is encrypted and processed securely by
-
-<strong>
-Stripe
-</strong>.
-
-We never store your card details.
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-<!-- PAYPAL PANEL -->
-
-
-<div id="paypal-panel">
-
-
-<p style="
-font-size:.88rem;
-color:var(--muted);
-margin-bottom:12px;
-">
-
-Click the PayPal button below to complete your purchase securely via PayPal.
-
-</p>
-
-
-
-<div id="paypal-button-container">
-
-<div class="paypal-loading">
-
-Loading PayPal…
-
-</div>
-
-
-</div>
-
-
-
-<div style="
-display:flex;
-align-items:center;
-gap:10px;
-margin-top:12px;
-font-size:.82rem;
-color:var(--muted);
-">
-
-
-🔒 You'll be redirected to PayPal to complete your payment securely.
-
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
+<div id="stripe-card-errors"></div>
 <!-- RIGHT SIDE ORDER SUMMARY -->
-
 
 <div class="order-sidebar">
 
@@ -1113,9 +438,9 @@ Order Summary
 </div>
 
 
-<div class="summary-divider">
 
-</div>
+<hr>
+
 
 
 <div id="checkout-totals">
@@ -1126,11 +451,8 @@ Order Summary
 
 
 <button
-
 class="place-order-btn"
-
 id="stripe-pay-btn"
-
 onclick="placeStripeOrder()">
 
 🌸 Place Order
@@ -1139,21 +461,15 @@ onclick="placeStripeOrder()">
 
 
 
-<div class="trust-row">
 
-<span>
-🔒 SSL Secure
-</span>
+<div style="margin-top:20px;font-size:.8rem;color:var(--muted)">
 
-
-<span>
-🚚 Fast Shipping
-</span>
-
-
-<span>
+🔒 SSL Secure  
+🚚 Fast Shipping  
 ↩️ Easy Returns
-</span>
+
+</div>
+
 
 
 </div>
@@ -1165,21 +481,28 @@ onclick="placeStripeOrder()">
 </div>
 
 
-</div><footer class="site-footer">
+
+<footer class="site-footer">
+
 
 <div class="footer-grid">
 
-<div class="footer-brand">
+
+<div>
 
 <span class="logo-text">
 21 Florals
 </span>
 
+
 <p>
-Handcrafted silk floral arrangements inspired by the beauty of nature.
+Handcrafted silk floral arrangements inspired by nature.
 </p>
 
+
 </div>
+
+
 
 
 <div>
@@ -1188,23 +511,15 @@ Handcrafted silk floral arrangements inspired by the beauty of nature.
 Shop
 </h4>
 
-<ul>
-
-<li>
 <a href="shop.html">
 All Arrangements
 </a>
-</li>
 
-<li>
-<a href="weddings.html">
-Wedding Florals
-</a>
-</li>
-
-</ul>
 
 </div>
+
+
+
 
 
 <div>
@@ -1213,29 +528,14 @@ Wedding Florals
 Support
 </h4>
 
-<ul>
-
-<li>
 <a href="contact.html">
 Contact Us
 </a>
-</li>
 
-<li>
-<a href="#">
-Shipping Policy
-</a>
-</li>
-
-<li>
-<a href="#">
-Returns
-</a>
-</li>
-
-</ul>
 
 </div>
+
+
 
 
 <div>
@@ -1244,113 +544,142 @@ Returns
 Contact
 </h4>
 
-<ul>
 
-<li>
-<a href="tel:8188560033">
+<p>
 📞 (818) 856-0033
-</a>
-</li>
-
-<li>
-📍 Northridge, CA 91324
-</li>
-
-</ul>
-
-</div>
+</p>
 
 
 </div>
+
+
+
+</div>
+
 
 
 <div class="footer-bottom">
 
-<p>
-© 2025 21 Florals. All rights reserved.
-</p>
+© 2025 21 Florals
 
 </div>
 
+
 </footer>
+
+
 
 
 
 <script src="shared.js"></script>
 
 
+
 <script>
 
-// ============================================================
-// CONFIGURATION
-// ============================================================
 
-// STRIPE LIVE PUBLISHABLE KEY
-// Replace only if you generate a new Stripe key.
-// NEVER put your sk_live secret key here.
+// =================================================
+// STRIPE CONFIGURATION
+// =================================================
+
+
+// PUBLIC KEY ONLY
+// Never put sk_live here
 
 const STRIPE_PUBLISHABLE_KEY =
+
 window.__STRIPE_KEY__ ||
-'pk_live_51U0wKwLc4YUrMqm6MzLpK4hGCAmdQjeuHPZw3bwj26XpVpC1TAwxEZEVH4Z7Qhwt09V79SH3YYYhAzLfs8dawOW200KElKtmib';
 
-
-// Backend API URL
-// Example:
-// https://your-api.onrender.com
-
-const SERVER_BASE = ''https://two1florals.onrender.com/shop.html";
+"pk_live_51U0wKwLc4YUrMqm6MzLpK4hGCAmdQjeuHPZw3bwj26XpVpC1TAwxEZEVH4Z7Qhwt09V79SH3YYYhAzLfs8dawOW200KElKtmib";
 
 
 
 
-// ============================================================
+// IMPORTANT:
+// This is your Render backend ONLY.
+// Do NOT add /shop.html
+
+const SERVER_BASE =
+
+"https://two1florals.onrender.com";
+
+
+
+
+
+// BACKEND CONNECTION TEST
+
+fetch(`${SERVER_BASE}/`)
+.then(response => {
+
+console.log(
+"Backend Connected:",
+response.status
+);
+
+})
+
+.catch(error => {
+
+console.error(
+"Backend Error:",
+error
+);
+
+});
+
+
+
+
+
+// =================================================
 // STRIPE INITIALIZATION
-// ============================================================
+// =================================================
+
 
 let stripe;
+
 let cardElement;
+
 
 
 function initStripe(){
 
-try{
 
-
-stripe = Stripe(STRIPE_PUBLISHABLE_KEY);
-
-
-const elements = stripe.elements();
+stripe = Stripe(
+STRIPE_PUBLISHABLE_KEY
+);
 
 
 
-cardElement = elements.create(
-'card',
+const elements =
+stripe.elements();
+
+
+
+
+cardElement =
+elements.create(
+"card",
 {
 
 style:{
 
 base:{
 
-fontFamily:"'Raleway', sans-serif",
+fontSize:"16px",
 
-fontSize:'15px',
+color:"#2c2c2c",
 
-color:'#2c2c2c',
-
-'::placeholder':{
-
-color:'#aaa'
-
-}
+fontFamily:"Arial"
 
 },
 
 invalid:{
 
-color:'#e53935'
+color:"#e53935"
 
 }
-
 
 }
 
@@ -1362,19 +691,28 @@ color:'#e53935'
 
 
 cardElement.mount(
-'#stripe-card-element'
+"#stripe-card-element"
 );
+
+
 
 
 
 cardElement.on(
-'change',
-({error})=>{
+"change",
+event=>{
+
 
 document.getElementById(
-'stripe-card-errors'
+"stripe-card-errors"
 ).textContent =
-error ? error.message : '';
+
+event.error
+?
+event.error.message
+:
+"";
+
 
 }
 
@@ -1384,125 +722,115 @@ error ? error.message : '';
 
 }
 
-catch(e){
-
-console.warn(
-'Stripe failed:',
-e.message
-);
-
-
-document.getElementById(
-'stripe-card-element'
-).innerHTML =
-
-'<p>⚠️ Stripe not configured.</p>';
-
-}
-
-
-}
 
 
 
 
 
-
-
-// ============================================================
+// =================================================
 // PAYMENT METHOD SWITCH
-// ============================================================
+// =================================================
 
-let currentPayMethod='stripe';
+
+let currentPayMethod =
+"stripe";
+
 
 
 function switchPayMethod(method){
 
-currentPayMethod=method;
+
+currentPayMethod = method;
+
 
 
 document
-.getElementById('tab-stripe')
+.getElementById("tab-stripe")
 .classList.toggle(
-'selected',
-method==='stripe'
+"selected",
+method==="stripe"
 );
 
 
 
 document
-.getElementById('tab-paypal')
+.getElementById("tab-paypal")
 .classList.toggle(
-'selected',
-method==='paypal'
+"selected",
+method==="paypal"
 );
 
 
 
-document
-.getElementById('stripe-panel')
-.style.display =
-method==='stripe'
-?'block'
-:'none';
-
 
 
 document
-.getElementById('paypal-panel')
+.getElementById("stripe-panel")
 .style.display =
-method==='paypal'
-?'block'
-:'none';
+
+method==="stripe"
+?
+"block"
+:
+"none";
+
+
 
 
 
 document
-.getElementById('stripe-pay-btn')
+.getElementById("paypal-panel")
 .style.display =
-method==='stripe'
-?'block'
-:'none';
+
+method==="paypal"
+?
+"block"
+:
+"none";
 
 
-if(method==='paypal' &&
-!window._paypalRendered){
 
-renderPayPalButton();
+
+
+document
+.getElementById("stripe-pay-btn")
+.style.display =
+
+method==="stripe"
+?
+"block"
+:
+"none";
+
 
 }
-
-
-}
-
-
-
-
-
-
-// ============================================================
-// STRIPE PAYMENT
-// ============================================================
+// =================================================
+// CREATE STRIPE PAYMENT
+// =================================================
 
 
 async function placeStripeOrder(){
 
 
+
 const email =
-document.getElementById('email')
-.value.trim();
-
-
-const fname =
-document.getElementById('fname')
+document.getElementById("email")
 .value.trim();
 
 
 
-if(!email || !fname){
+const name =
+document.getElementById("card-name")
+.value.trim();
+
+
+
+
+
+if(!email || !name){
 
 alert(
-'Please complete your information.'
+"Please enter your email and card name."
 );
 
 return;
@@ -1512,54 +840,79 @@ return;
 
 
 
-const btn =
+
+const button =
 document.getElementById(
-'stripe-pay-btn'
+"stripe-pay-btn"
 );
 
 
-btn.disabled=true;
 
-btn.innerHTML=
-'Processing...';
+button.disabled = true;
+
+button.innerHTML =
+"Processing...";
 
 
 
-try{
 
+
+try {
+
+
+
+/*
+Get total from your cart system.
+Your shared.js should provide this.
+*/
 
 const totals =
 getOrderTotals();
 
 
+
+
+
+// SEND PRICE TO RENDER BACKEND
+
 const response =
+
 await fetch(
+
 `${SERVER_BASE}/stripe/create-payment-intent`,
+
 {
 
-method:'POST',
+method:"POST",
 
 headers:{
 
-'Content-Type':
-'application/json'
+"Content-Type":
+"application/json"
 
 },
+
 
 body:JSON.stringify({
 
 amount:
+
 Math.round(
-totals.total*100
+totals.total * 100
 ),
 
-currency:'usd'
+currency:"usd"
+
 
 })
+
 
 }
 
 );
+
+
+
 
 
 
@@ -1568,51 +921,95 @@ await response.json();
 
 
 
+
+
+
+if(!data.clientSecret){
+
+throw new Error(
+"Missing Stripe client secret"
+);
+
+}
+
+
+
+
+
+
+
+// CONFIRM PAYMENT
+
 const result =
+
 await stripe.confirmCardPayment(
 
 data.clientSecret,
 
 {
 
+
 payment_method:{
+
 
 card:cardElement,
 
+
 billing_details:{
 
-name:
-document.getElementById(
-'card-name'
-).value,
+
+name:name,
 
 email:email
 
-}
 
 }
 
+
 }
+
+
+}
+
 
 );
+
+
 
 
 
 
 if(result.error){
 
+
 throw result.error;
+
 
 }
 
 
 
-if(result.paymentIntent.status==='succeeded'){
+
+
+
+if(
+
+result.paymentIntent.status
+===
+"succeeded"
+
+){
+
+
 
 showSuccess(
-'stripe',
+
+"stripe",
+
 result.paymentIntent.id
+
 );
+
 
 }
 
@@ -1622,166 +1019,34 @@ result.paymentIntent.id
 
 catch(error){
 
+
+console.error(
+error
+);
+
+
+
 alert(
-'Payment failed: '+
+
+"Payment failed: "
+
++
+
 error.message
-);
-
-
-btn.disabled=false;
-
-btn.innerHTML=
-'🌸 Place Order';
-
-}
-
-
-}
-
-
-
-
-
-
-// ============================================================
-// PAYPAL
-// ============================================================
-
-async function loadPayPalSDK(clientId){
-
-
-return new Promise(
-(resolve,reject)=>{
-
-
-if(window.paypal){
-
-resolve();
-
-return;
-
-}
-
-
-const script =
-document.createElement(
-'script'
-);
-
-
-script.src =
-`https://www.paypal.com/sdk/js?client-id=${clientId}&currency=USD`;
-
-
-
-script.onload=resolve;
-
-
-script.onerror=reject;
-
-
-document.head.appendChild(
-script
-);
-
-
-}
 
 );
 
-}
+
+
+button.disabled = false;
 
 
 
+button.innerHTML =
 
-
-
-async function renderPayPalButton(){
-
-const res =
-await fetch(
-`${SERVER_BASE}/paypal/client-id`
-);
-
-
-const data =
-await res.json();
-
-
-await loadPayPalSDK(
-data.clientId
-);
-
-
-window._paypalRendered=true;
-
-
-
-paypal.Buttons({
-
-createOrder(){
-
-return fetch(
-`${SERVER_BASE}/paypal/create-order`,
-{
-
-method:'POST',
-
-headers:{
-'Content-Type':
-'application/json'
-}
+"🌸 Place Order";
 
 }
-
-)
-
-.then(r=>r.json())
-
-.then(data=>data.id);
-
-},
-
-
-onApprove(data){
-
-return fetch(
-`${SERVER_BASE}/paypal/capture-order`,
-{
-
-method:'POST',
-
-headers:{
-'Content-Type':
-'application/json'
-},
-
-body:JSON.stringify({
-
-orderID:data.orderID
-
-})
-
-}
-
-)
-
-.then(()=>{
-
-showSuccess(
-'paypal',
-data.orderID
-);
-
-});
-
-
-}
-
-
-}).render(
-'#paypal-button-container'
-);
 
 
 }
@@ -1791,38 +1056,52 @@ data.orderID
 
 
 
-// ============================================================
-// SUCCESS
-// ============================================================
+
+
+// =================================================
+// SUCCESS SCREEN
+// =================================================
+
 
 function showSuccess(method,id){
 
 
-document
-.getElementById(
-'checkout-main'
+
+document.getElementById(
+"checkout-main"
 )
-.style.display='none';
+.style.display="none";
 
 
 
-document
-.getElementById(
-'success-screen'
+
+
+document.getElementById(
+"success-screen"
 )
-.style.display='block';
+.style.display="block";
 
 
-document
-.getElementById(
-'order-num-display'
+
+
+
+document.getElementById(
+"order-num-display"
 )
 .textContent =
-'#21F-'+
+
+"#21F-"
+
++
+
 Math.floor(
-10000+
+
+10000 +
+
 Math.random()*90000
+
 );
+
 
 
 }
@@ -1830,11 +1109,23 @@ Math.random()*90000
 
 
 
-// START
+
+
+// =================================================
+// START CHECKOUT
+// =================================================
+
+
+if(typeof renderCheckoutSummary === "function"){
 
 renderCheckoutSummary();
 
+}
+
+
+
 initStripe();
+
 
 
 </script>
@@ -1843,3 +1134,18 @@ initStripe();
 </body>
 
 </html>
+
+<div class="form-group">
+
+<label>
+Phone
+</label>
+
+<input id="phone"
+placeholder="(818)555-0000">
+
+</div>
+
+
+</div>
+
