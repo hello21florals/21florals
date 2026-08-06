@@ -112,30 +112,39 @@ h1,h2,h3,h4 { font-family: 'Libre Baskerville', serif; color: var(--ink); line-h
 .petal-divider::before, .petal-divider::after { content: ''; display: block; width: 60px; height: 1.5px; background: linear-gradient(90deg, transparent, var(--rose-light), transparent); }
 .petal-divider span { color: var(--rose-light); font-size: 1rem; animation: bloomPulse 3s ease-in-out infinite; }
 
-/* ---------- NAVIGATION (Fancy Bordered + Button Style) ---------- */
+/* ---------- NAVIGATION (Distinct Header + Separator + Button Links) ---------- */
 .site-nav {
-  background: rgba(253,242,246,0.98);
+  background: #fff; /* Separate white background for header */
   backdrop-filter: blur(12px);
-  margin: 15px 30px;
-  padding: 0 40px;
+  margin: 0;
+  padding: 0 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: sticky; top: 15px; z-index: 500;
-  height: 85px;
-  border: 3px solid var(--frame-color);
-  border-radius: 100px;
-  box-shadow: 0 8px 30px var(--pink-glow), inset 0 0 15px rgba(200,120,152,0.05);
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: sticky; top: 0; z-index: 500;
+  height: 90px;
+  border-bottom: 3px solid var(--frame-color); /* Horizontal separator */
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
 }
 
 .site-nav::after {
-  content: '🌸';
+  content: '✿';
   position: absolute;
-  right: 25px;
-  top: -15px;
-  font-size: 1.2rem;
-  animation: bloomPulse 3s ease-in-out infinite;
+  left: 50%;
+  bottom: -12px;
+  transform: translateX(-50%);
+  background: #fff;
+  color: var(--rose);
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--frame-color);
+  border-radius: 50%;
+  font-size: 0.8rem;
+  z-index: 10;
 }
 
 .nav-logo { display: grid; grid-template-columns: auto 1fr; grid-template-rows: auto auto; align-items: center; column-gap: 12px; text-decoration: none; }
@@ -148,29 +157,30 @@ h1,h2,h3,h4 { font-family: 'Libre Baskerville', serif; color: var(--ink); line-h
 
 .nav-links { list-style: none; display: flex; gap: 12px; align-items: center; }
 .nav-links li a {
-  font-size: 0.75rem;
-  letter-spacing: 1.5px;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
   text-transform: uppercase;
-  font-weight: 800;
+  font-weight: 900; /* Bolder capital font */
   color: var(--rose);
-  padding: 10px 22px;
-  border-radius: 50px;
-  border: 2px solid transparent;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 12px 28px;
+  border-radius: 8px; /* Square-ish button style */
+  border: 2px solid var(--rose-light);
+  background: transparent;
+  transition: all 0.3s ease;
   display: inline-block;
 }
 
 .nav-links li a:hover {
   background: var(--rose-pale);
-  border-color: var(--rose-light);
-  transform: translateY(-2px);
+  border-color: var(--rose);
+  transform: scale(1.05);
 }
 
 .nav-links li a.active {
   background: var(--rose);
   color: #fff;
   border-color: var(--rose);
-  box-shadow: 0 4px 12px rgba(192, 96, 136, 0.3);
+  box-shadow: 0 4px 15px rgba(192, 96, 136, 0.2);
 }
 .nav-actions { display: flex; align-items: center; gap: 16px; }
 .nav-actions .btn-outline {
@@ -212,17 +222,10 @@ h1,h2,h3,h4 { font-family: 'Libre Baskerville', serif; color: var(--ink); line-h
   animation: bloomPulse 2s ease-in-out infinite;
 }
 
-/* ---------- PROMO BANNER ---------- */
-.promo-banner {
-  background: linear-gradient(135deg, #d06898, #c06088, #a04870);
-  color: #fff;
-  text-align: center;
-  padding: 10px 20px;
-  font-size: 0.82rem;
-  font-weight: 600;
-  letter-spacing: 1px;
+/* ---------- PROMO BANNER (Removed) ---------- */
+.promo-banner, .promo-top-bar {
+  display: none !important;
 }
-.promo-banner span { opacity: 0.85; margin: 0 8px; }
 
 /* ---------- PRODUCT CARDS (Solid Frames) ---------- */
 .product-card {
@@ -383,3 +386,51 @@ h1,h2,h3,h4 { font-family: 'Libre Baskerville', serif; color: var(--ink); line-h
   .footer-grid { grid-template-columns: 1fr; }
   .breadcrumb { padding: 14px 20px; }
 }
+
+/* ---------- WHY SILK SECTION (Moved to Home) ---------- */
+.comparison { padding:90px 60px; background:#fff; }
+.compare-table { width:100%; border-collapse:collapse; margin-top:52px; border-radius:20px; overflow:hidden; box-shadow:0 4px 24px rgba(176,96,128,0.08); border: 1.5px solid var(--border); }
+.compare-table thead tr { background:linear-gradient(135deg,#c07090,#b06080); color:#fff; }
+.compare-table thead th { padding:20px 28px; text-align:left; font-size:0.9rem; font-weight:600; letter-spacing:1px; }
+.compare-table tbody tr { border-bottom:1px solid var(--border); transition:background 0.2s; }
+.compare-table tbody tr:hover { background:var(--cream); }
+.compare-table td { padding:18px 28px; font-size:0.9rem; vertical-align:middle; }
+.compare-table td:first-child { font-weight:600; color:var(--ink); }
+.compare-table td:nth-child(2) { background:rgba(176,96,128,0.04); }
+.check-yes { color:#4caf50; font-size:1.2rem; font-weight:700; }
+.check-no { color:#e06060; font-size:1.2rem; }
+.silk-col { font-weight:600; color:var(--rose); }
+
+.benefits { padding:90px 60px; background:var(--cream); }
+.benefits-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:28px; margin-top:52px; }
+.benefit-card { background:#fff; border-radius:20px; padding:36px; border:1.5px solid var(--border); display:flex; gap:24px; align-items:flex-start; transition:all 0.3s; }
+.benefit-card:hover { border-color:var(--rose-light); transform:translateY(-4px); box-shadow:0 12px 32px rgba(176,96,128,0.1); }
+.benefit-icon { width:56px; height:56px; border-radius:16px; background:linear-gradient(135deg,#fde8f0,#fdf0f4); display:flex; align-items:center; justify-content:center; font-size:1.8rem; flex-shrink:0; }
+.benefit-text h3 { font-size:1.05rem; margin-bottom:10px; }
+.benefit-text p { font-size:0.88rem; color:var(--muted); line-height:1.7; font-weight:300; }
+
+/* ---------- GALLERY SECTION (Moved to Shop) ---------- */
+.gallery-section { padding: 50px 60px 80px; background: var(--cream); }
+.masonry { columns: 4; column-gap: 16px; }
+.masonry-item { break-inside: avoid; margin-bottom: 16px; border-radius: 16px; overflow: hidden; position: relative; cursor: pointer; display: block; }
+.masonry-item img { width: 100%; display: block; transition: transform 0.5s; }
+.masonry-item:hover img { transform: scale(1.04); }
+.masonry-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(176,96,128,0.75) 0%, transparent 50%); opacity: 0; transition: opacity 0.3s; display: flex; flex-direction: column; justify-content: flex-end; padding: 20px; }
+.masonry-item:hover .masonry-overlay { opacity: 1; }
+.masonry-overlay h4 { font-family: 'Libre Baskerville', serif; font-size: 1rem; color: #fff; margin-bottom: 4px; }
+.masonry-overlay p { font-size: 0.75rem; color: rgba(255,255,255,0.85); font-weight: 300; }
+.masonry-overlay .price { font-family: 'Libre Baskerville', serif; font-size: 1rem; color: #fff; margin-top: 8px; }
+
+.lightbox { position: fixed; inset: 0; background: rgba(30,15,20,0.92); backdrop-filter: blur(8px); z-index: 2000; display: none; align-items: center; justify-content: center; }
+.lightbox.open { display: flex; }
+.lightbox-inner { position: relative; max-width: 900px; width: 90%; display: grid; grid-template-columns: 1fr 340px; border-radius: 24px; overflow: hidden; box-shadow: 0 32px 80px rgba(0,0,0,0.5); }
+.lightbox-img { background: #1a0e14; }
+.lightbox-img img { width: 100%; height: 100%; object-fit: cover; min-height: 500px; display: block; }
+.lightbox-info { background: #fff; padding: 40px; display: flex; flex-direction: column; }
+.lightbox-info h2 { font-size: 1.5rem; margin-bottom: 10px; }
+.lightbox-price { font-family: 'Libre Baskerville', serif; font-size: 1.6rem; color: var(--rose); margin-bottom: 14px; }
+.lightbox-info p { font-size: 0.88rem; color: var(--muted); line-height: 1.7; font-weight: 300; flex: 1; margin-bottom: 24px; }
+.lightbox-close { position: absolute; top: 16px; right: 16px; background: rgba(255,255,255,0.15); backdrop-filter: blur(4px); border: none; width: 40px; height: 40px; border-radius: 50%; color: #fff; font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
+.lightbox-nav { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.15); backdrop-filter: blur(4px); border: none; width: 44px; height: 44px; border-radius: 50%; color: #fff; font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
+.lightbox-prev { left: 16px; }
+.lightbox-next { right: 16px; }

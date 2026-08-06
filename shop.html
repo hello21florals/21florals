@@ -107,14 +107,11 @@
 <ul class="nav-links">
 <li><a href="index.html">Home</a></li>
 <li><a class="active" href="shop.html">Shop</a></li>
-<li><a href="weddings.html">Weddings</a></li>
-<li><a href="why-silk.html">Why Silk?</a></li>
-<li><a href="gallery.html">Gallery</a></li>
-<li><a href="about.html">About</a></li>
-<li><a href="contact.html">Contact</a></li>
+<li><a href="contact.html">Custom Order</a></li>
+<li><a href="cart.html">Cart <span class="cart-count" style="display:none;">0</span></a></li>
 </ul>
 <div class="nav-actions">
-<button class="cart-btn" onclick="window.location='cart.html'">🛒 Cart <span class="cart-count" style="display:none;">0</span></button>
+<a class="btn btn-sm btn-outline" href="shop.html">Shop Now</a>
 </div>
 </nav>
 <div class="breadcrumb">
@@ -126,6 +123,24 @@
 <p>Every piece is handcrafted with love using premium silk botanicals — beauty that lasts forever.</p>
 </div>
 <div class="shop-layout">
+<!-- GALLERY (Moved to Shop) -->
+<section class="gallery-section" style="padding: 30px 60px 60px;">
+  <div class="section-header" style="margin-bottom: 30px;">
+    <div class="section-script">~ Inspired by Nature ~</div>
+    <h2>The Gallery</h2>
+    <p>A collection of our most beloved handcrafted silk floral arrangements</p>
+  </div>
+  <div class="masonry" id="gallery-grid"></div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <button class="lightbox-nav lightbox-prev" onclick="navLightbox(-1)">‹</button>
+  <button class="lightbox-nav lightbox-next" onclick="navLightbox(1)">›</button>
+  <div class="lightbox-inner" id="lightbox-inner"></div>
+</div>
+
 <!-- SIDEBAR -->
 <aside class="sidebar">
 <h3>All Categories</h3>
@@ -322,6 +337,55 @@ document.getElementById('price-range').addEventListener('input', e => {
 });
 
 renderShop();
+
+// ---------- GALLERY LOGIC ----------
+const GALLERY = PRODUCTS.map(p => ({ ...p, category: p.tags[0] }));
+let currentLightboxIdx = 0;
+
+function renderGallery() {
+  const grid = document.getElementById('gallery-grid');
+  if (!grid) return;
+  grid.innerHTML = GALLERY.slice(0, 8).map((p, i) => `
+    <div class="masonry-item" onclick="openLightbox(${i})">
+      <img src="${p.img}" alt="${p.name}" loading="lazy">
+      <div class="masonry-overlay">
+        <h4>${p.name}</h4>
+        <p>${p.badge}</p>
+        <div class="price">$${p.price}</div>
+      </div>
+    </div>`).join('');
+}
+
+function openLightbox(idx) {
+  currentLightboxIdx = idx;
+  renderLightbox();
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function navLightbox(dir) {
+  currentLightboxIdx = (currentLightboxIdx + dir + GALLERY.length) % GALLERY.length;
+  renderLightbox();
+}
+function renderLightbox() {
+  const p = GALLERY[currentLightboxIdx];
+  document.getElementById('lightbox-inner').innerHTML = `
+    <div class="lightbox-img"><img src="${p.img}" alt="${p.name}"></div>
+    <div class="lightbox-info">
+      <div class="lightbox-badge">${p.badge}</div>
+      <h2>${p.name}</h2>
+      <div class="lightbox-price">$${p.price}</div>
+      <p>${p.desc}<br><br>✅ Premium silk quality &nbsp; ✅ Handcrafted<br>✅ Pet safe &nbsp; ✅ Never wilts</p>
+      <button class="btn btn-primary" style="width:100%;margin-bottom:10px;" onclick="addToCart(${p.id});closeLightbox();">Add to Cart</button>
+    </div>`;
+}
+
+document.getElementById('lightbox').addEventListener('click', e => { if (e.target === document.getElementById('lightbox')) closeLightbox(); });
+
+renderGallery();
 </script>
 </body>
 </html>
