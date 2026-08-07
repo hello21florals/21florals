@@ -102,6 +102,18 @@ h1,h2,h3,h4 { font-family: 'Libre Baskerville', serif; color: var(--ink); line-h
   display: flex; align-items: center; justify-content: center;
 }
 
+/* ---------- SUBNAV TAGLINE ---------- */
+.subnav-tagline {
+  background: #fdf0f4;
+  text-align: center;
+  padding: 12px 20px;
+  font-family: 'Libre Baskerville', serif;
+  font-style: italic;
+  font-size: 1.15rem;
+  color: #c090a0;
+  border-bottom: 1px solid var(--border);
+}
+
 /* ---------- PROMO BANNER ---------- */
 .promo-banner {
   background: linear-gradient(135deg, #c07090, #b06080);
@@ -213,10 +225,10 @@ h1,h2,h3,h4 { font-family: 'Libre Baskerville', serif; color: var(--ink); line-h
 
 /* ---------- HERO ---------- */
 .hero {
-  min-height: 94vh;
+  min-height: 85vh;
   background: linear-gradient(160deg, #fdf0f4 0%, #fde8f0 45%, #f8e8f4 100%);
   display: flex; align-items: center;
-  padding: 30px 60px 80px; gap: 80px;
+  padding: 40px 60px 80px; gap: 80px;
   position: relative; overflow: hidden;
 }
 .hero::before {
@@ -232,7 +244,6 @@ h1,h2,h3,h4 { font-family: 'Libre Baskerville', serif; color: var(--ink); line-h
   bottom: -80px; left: 300px; pointer-events: none;
 }
 .hero-text { flex: 1; z-index: 1; }
-.hero-script { font-family: 'Libre Baskerville', serif; font-style: italic; font-size: 1.1rem; color: #c090a0; margin-bottom: 18px; }
 .hero h1 { font-size: 4.2rem; line-height: 1.12; margin-bottom: 22px; }
 .hero h1 em { color: #b06080; font-style: italic; }
 .hero-sub { font-size: 1.05rem; color: #7a6068; line-height: 1.9; max-width: 460px; margin-bottom: 36px; font-weight: 300; }
