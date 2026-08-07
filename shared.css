@@ -194,4 +194,4 @@ h1,h2,h3,h4 { font-family: 'Libre Baskerville', serif; color: var(--ink); line-h
 /* ---------- BREADCRUMB ---------- */
 .breadcrumb { padding: 14px 60px; font-size: 0.8rem; color: var(--muted); border-bottom: 1px solid var(--border); background: #fff; }
 .breadcrumb a { color: var(--rose); }
-.breadcrumb span { margin: 0 8px; }
+.breadcrumb span { margin: 0 8px; } 
