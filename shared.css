@@ -69,8 +69,23 @@ h1,h2,h3,h4 { font-family: 'Libre Baskerville', serif; color: var(--ink); line-h
 .logo-svg { width: 48px; height: 48px; }
 
 .nav-links { list-style: none; display: flex; gap: 32px; align-items: center; }
-.nav-links a { font-size: 0.82rem; letter-spacing: 1px; text-transform: uppercase; font-weight: 600; color: #7a6068; transition: color 0.3s; }
+.nav-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink);
+  transition: color 0.3s, transform 0.2s;
+}
+.nav-links a svg {
+  display: inline-block;
+  vertical-align: middle;
+  transition: stroke 0.3s;
+}
 .nav-links a:hover, .nav-links a.active { color: var(--rose); }
+.nav-links a:hover svg, .nav-links a.active svg { stroke: var(--rose); }
+
 .nav-actions { display: flex; align-items: center; gap: 20px; }
 .cart-btn {
   position: relative; background: none; border: none;
@@ -201,7 +216,7 @@ h1,h2,h3,h4 { font-family: 'Libre Baskerville', serif; color: var(--ink); line-h
   min-height: 94vh;
   background: linear-gradient(160deg, #fdf0f4 0%, #fde8f0 45%, #f8e8f4 100%);
   display: flex; align-items: center;
-  padding: 80px 60px; gap: 80px;
+  padding: 30px 60px 80px; gap: 80px;
   position: relative; overflow: hidden;
 }
 .hero::before {
@@ -333,6 +348,7 @@ h1,h2,h3,h4 { font-family: 'Libre Baskerville', serif; color: var(--ink); line-h
 .cta-section .script { font-family: 'Libre Baskerville', serif; font-style: italic; font-size: 1.1rem; opacity: 0.85; margin-bottom: 12px; }
 .cta-section h2 { font-size: 3rem; color: #fff; margin-bottom: 16px; }
 .cta-section p { font-size: 1.05rem; opacity: 0.88; margin-bottom: 40px; font-weight: 300; max-width: 500px; margin-left: auto; margin-right: auto; }
+
 /* ---------- SHOP LAYOUT & SIDEBAR ---------- */
 .shop-layout { display: grid; grid-template-columns: 260px 1fr; gap: 40px; padding: 50px 60px; align-items: start; }
 .shop-layout .product-grid { grid-template-columns: repeat(3, 1fr); }
@@ -442,4 +458,3 @@ h1,h2,h3,h4 { font-family: 'Libre Baskerville', serif; color: var(--ink); line-h
 .suggested h2 { font-size: 1.6rem; margin-bottom: 8px; }
 .suggested p { color: var(--muted); font-size: 0.9rem; margin-bottom: 32px; font-weight: 300; }
 .suggested-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-
