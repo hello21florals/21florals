@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>21 Florals — Luxury Handcrafted Silk Florals</title>
+<title>21 Florals — Handcrafted Silk Floral Arrangements</title>
 <link href="shared.css" rel="stylesheet"/>
 <style>
 /* ---- HERO ---- */
@@ -104,6 +104,15 @@
 .product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
 .view-all-wrap { text-align: center; margin-top: 44px; }
 
+/* ---- WHY SILK ---- */
+.why-silk { padding: 90px 60px; background: linear-gradient(160deg, #fde8f0, #fdf0f4); }
+.why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 52px; }
+.why-card { background: #fff; border-radius: 20px; padding: 36px 24px; text-align: center; border: 1.5px solid var(--border); transition: all 0.3s; }
+.why-card:hover { border-color: var(--rose-light); transform: translateY(-4px); box-shadow: 0 12px 32px rgba(176,96,128,0.1); }
+.why-icon { font-size: 2.6rem; margin-bottom: 16px; }
+.why-card h3 { font-size: 1rem; margin-bottom: 10px; }
+.why-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.7; font-weight: 300; }
+
 /* ---- TESTIMONIALS ---- */
 .testimonials { padding: 90px 60px; background: #fff; }
 .test-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
@@ -147,7 +156,9 @@
 <a class="nav-logo" href="index.html">
 <svg class="logo-svg" fill="none" viewbox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
 <circle cx="30" cy="30" r="28" stroke="#b06080" stroke-width="1.5"></circle>
+<!-- Infinity symbol -->
 <path d="M14 30 C14 24, 20 20, 26 26 C29 29, 31 31, 34 34 C40 40, 46 36, 46 30 C46 24, 40 20, 34 26 C31 29, 29 31, 26 34 C20 40, 14 36, 14 30 Z" fill="none" stroke="#b06080" stroke-width="1.8"></path>
+<!-- The 1 below center -->
 <line stroke="#b06080" stroke-linecap="round" stroke-width="1.8" x1="30" x2="30" y1="34" y2="46"></line>
 </svg>
 <span class="logo-text" style="margin-left:8px;">21 Florals</span>
@@ -156,19 +167,26 @@
 <ul class="nav-links">
 <li><a class="active" href="index.html">Home</a></li>
 <li><a href="shop.html">Shop</a></li>
-<li><a href="contact.html">Custom Order</a></li>
-<li><a href="cart.html">Cart <span class="cart-count" style="display:none;">0</span></a></li>
+<li><a href="weddings.html">Weddings</a></li>
+<li><a href="why-silk.html">Why Silk?</a></li>
+<li><a href="gallery.html">Gallery</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="contact.html">Contact</a></li>
 </ul>
 <div class="nav-actions">
 <a class="btn btn-sm btn-outline" href="shop.html">Shop Now</a>
+<button class="cart-btn" onclick="window.location='cart.html'">
+      🛒 Cart
+      <span class="cart-count" style="display:none;">0</span>
+</button>
 </div>
 </nav>
 <!-- HERO -->
 <section class="hero">
 <div class="hero-text">
 <div class="hero-script">~ Inspired by Nature ~</div>
-<h1>Luxury Florals That Last Beyond the Moment</h1>
-<p class="hero-sub">Elevated silk florals designed to inspire, celebrate, and transform your surroundings with beauty that never fades</p>
+<h1>Where Every<br/>Petal Tells a<br/><em>Love Story</em></h1>
+<p class="hero-sub">Exquisite handcrafted silk floral arrangements that capture the tender beauty of nature — for your home, your wedding, and every cherished moment in between.</p>
 <div class="hero-btns">
 <a class="btn btn-primary" href="shop.html">Explore Collection</a>
 <a class="btn btn-outline" href="about.html">Our Story</a>
@@ -252,25 +270,41 @@
 <a class="btn btn-outline" href="shop.html">View All Arrangements</a>
 </div>
 </section>
-
+<!-- WHY SILK -->
+<section class="why-silk">
+<div class="section-header">
+<div class="section-script">~ The 21 Florals Difference ~</div>
+<h2>Why Choose Silk Florals?</h2>
+<p>Beauty that lasts a lifetime — and beyond</p>
+<div class="petal-divider"><span>✿</span></div>
+</div>
+<div class="why-grid">
+<div class="why-card"><div class="why-icon">♾️</div><h3>Always in Bloom</h3><p>Our silk florals never wilt, fade, or lose their petals — they look freshly arranged every single day.</p></div>
+<div class="why-card"><div class="why-icon">🐾</div><h3>Pet &amp; Family Safe</h3><p>100% non-toxic and non-poisonous — completely safe for pets, children, and sensitive individuals.</p></div>
+<div class="why-card"><div class="why-icon">💧</div><h3>Zero Maintenance</h3><p>No watering, no sunlight, no fertiliser. Just pure, effortless beauty in your space.</p></div>
+<div class="why-card"><div class="why-icon">🌬️</div><h3>Allergy Friendly</h3><p>Perfect for those with allergies, asthma, COPD, or compromised immune systems — breathe easy.</p></div>
+</div>
+<div style="text-align:center;margin-top:36px;">
+<a class="btn btn-outline" href="why-silk.html">Learn More About Silk Florals</a>
+</div>
+</section>
 <!-- TESTIMONIALS -->
 <section class="testimonials">
 <div class="section-header">
-<div class="section-script">~ Real Stories ~</div>
-<h2>What Our Customers Say</h2>
-<p>Beautiful moments, shared by you</p>
+<div class="section-script">~ Kind Words ~</div>
+<h2>From Our Customers</h2>
 <div class="petal-divider"><span>✿</span></div>
 </div>
 <div class="test-grid">
 <div class="test-card">
 <div class="stars">★★★★★</div>
-<p>"I bought the Blush Peony Dream for my dining table and it looks so real! I get compliments from everyone who visits. Highly recommend!"</p>
-<div class="reviewer"><div class="reviewer-avatar">S</div><div><div class="reviewer-name">Sarah M.</div><div class="reviewer-title">Home Decor Enthusiast</div></div></div>
+<p>"The most beautiful arrangement I've ever seen. The blush tones are so soft and romantic — it's completely transformed my living room."</p>
+<div class="reviewer"><div class="reviewer-avatar">S</div><div><div class="reviewer-name">Sarah M.</div><div class="reviewer-title">Home Decor Customer</div></div></div>
 </div>
 <div class="test-card">
 <div class="stars">★★★★★</div>
-<p>"Ordered custom silk bouquets for my wedding and they were perfect. I love that I can keep them forever as a memory of our special day."</p>
-<div class="reviewer"><div class="reviewer-avatar">J</div><div><div class="reviewer-name">Jessica L.</div><div class="reviewer-title">2024 Bride</div></div></div>
+<p>"My bridal bouquet was absolutely dreamy. I still have it displayed in our home and it looks as beautiful as the day I carried it down the aisle."</p>
+<div class="reviewer"><div class="reviewer-avatar">J</div><div><div class="reviewer-name">Jessica L.</div><div class="reviewer-title">Bride</div></div></div>
 </div>
 <div class="test-card">
 <div class="stars">★★★★★</div>
@@ -279,53 +313,6 @@
 </div>
 </div>
 </section>
-
-<!-- WHY SILK COMPARISON -->
-<section class="comparison" id="why-silk">
-<div class="section-header">
-<div class="section-script">~ The Smarter Choice ~</div>
-<h2>Silk Florals vs. Fresh Flowers</h2>
-<p>See exactly why more and more people are choosing silk</p>
-<div class="petal-divider"><span>✿</span></div>
-</div>
-<table class="compare-table">
-<thead>
-<tr>
-<th>Feature</th>
-<th>🌸 21 Florals Silk</th>
-<th>🌷 Fresh Flowers</th>
-</tr>
-</thead>
-<tbody>
-<tr><td>Lifespan</td><td class="silk-col">✅ Years — even decades</td><td><span class="check-no">✗</span> 5–10 days</td></tr>
-<tr><td>Always in Bloom</td><td class="silk-col">✅ Every single day</td><td><span class="check-no">✗</span> Wilts quickly</td></tr>
-<tr><td>Watering Required</td><td class="silk-col">✅ None — ever</td><td><span class="check-no">✗</span> Daily</td></tr>
-<tr><td>Maintenance</td><td class="silk-col">✅ Zero maintenance</td><td><span class="check-no">✗</span> Trimming, feeding, water changes</td></tr>
-<tr><td>Pet Safe</td><td class="silk-col">✅ 100% non-toxic</td><td><span class="check-no">✗</span> Many flowers are toxic to pets</td></tr>
-<tr><td>Allergy Friendly</td><td class="silk-col">✅ No pollen, no fragrance</td><td><span class="check-no">✗</span> Pollen & fragrance triggers</td></tr>
-<tr><td>Safe for Respiratory Conditions</td><td class="silk-col">✅ COPD, asthma, Lyme disease safe</td><td><span class="check-no">✗</span> Can trigger symptoms</td></tr>
-<tr><td>Environmental Impact</td><td class="silk-col">✅ Reusable, no waste</td><td><span class="check-no">✗</span> Discarded weekly</td></tr>
-<tr><td>Cost Over Time</td><td class="silk-col">✅ One-time investment</td><td><span class="check-no">✗</span> Recurring weekly cost</td></tr>
-</tbody>
-</table>
-</section>
-
-<!-- BENEFITS DEEP DIVE -->
-<section class="benefits">
-<div class="section-header">
-<div class="section-script">~ The Details ~</div>
-<h2>Every Reason to Love Silk Florals</h2>
-<p>A deeper look at what makes our arrangements so special</p>
-<div class="petal-divider"><span>✿</span></div>
-</div>
-<div class="benefits-grid">
-<div class="benefit-card"><div class="benefit-icon">♾️</div><div class="benefit-text"><h3>Permanently in Bloom</h3><p>Our silk florals are designed to remain in full, beautiful bloom indefinitely. No wilting, no browning, no dropping petals.</p></div></div>
-<div class="benefit-card"><div class="benefit-icon">💧</div><div class="benefit-text"><h3>Zero Maintenance</h3><p>No watering. No trimming. No feeding. Simply place your arrangement and enjoy it — forever.</p></div></div>
-<div class="benefit-card"><div class="benefit-icon">🐾</div><div class="benefit-text"><h3>Safe for Your Pets</h3><p>100% non-toxic and non-poisonous, giving you complete peace of mind for your cats and dogs.</p></div></div>
-<div class="benefit-card"><div class="benefit-icon">🌬️</div><div class="benefit-text"><h3>Allergy & Respiratory Safe</h3><p>No pollen. No fragrance. The perfect choice for those with hay fever, asthma, or compromised immune systems.</p></div></div>
-</div>
-</section>
-
 <!-- INSTAGRAM -->
 <section class="insta-strip">
 <div class="section-header">
@@ -375,8 +362,8 @@
 <h4>Company</h4>
 <ul>
 <li><a href="about.html">Our Story</a></li>
-<li><a href="index.html#why-silk">Why Silk?</a></li>
-<li><a href="shop.html#gallery">Gallery</a></li>
+<li><a href="why-silk.html">Why Silk?</a></li>
+<li><a href="gallery.html">Gallery</a></li>
 <li><a href="contact.html">Contact Us</a></li>
 </ul>
 </div>
