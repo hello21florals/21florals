@@ -1,87 +1,104 @@
-
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Shop — 21 Florals</title>
 <link href="shared.css" rel="stylesheet"/>
+<style>
+.shop-layout { display: grid; grid-template-columns: 260px 1fr; gap: 40px; padding: 50px 60px; align-items: start; }
+.sidebar { background: #fff; border-radius: 20px; padding: 32px; border: 1.5px solid var(--border); position: sticky; top: 90px; }
+.sidebar h3 { font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; color: var(--rose); margin-bottom: 16px; margin-top: 24px; }
+.sidebar h3:first-child { margin-top: 0; }
+.filter-btn { display: block; width: 100%; text-align: left; background: none; border: none; padding: 10px 14px; border-radius: 10px; font-size: 0.88rem; color: #7a6068; cursor: pointer; transition: all 0.2s; font-family: 'Raleway', sans-serif; font-weight: 500; }
+.filter-btn:hover, .filter-btn.active { background: var(--rose-pale); color: var(--rose); font-weight: 600; }
+.price-range { display: flex; flex-direction: column; gap: 10px; }
+.price-range input[type=range] { width: 100%; accent-color: var(--rose); }
+.price-label { font-size: 0.85rem; color: var(--muted); display: flex; justify-content: space-between; }
+.sort-select { width: 100%; padding: 10px 14px; border: 1.5px solid var(--border); border-radius: 10px; font-family: 'Raleway', sans-serif; font-size: 0.88rem; color: var(--ink); background: #fff; outline: none; cursor: pointer; }
+.sort-select:focus { border-color: var(--rose-light); }
+
+.shop-main {}
+.shop-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 28px; }
+.shop-header h2 { font-size: 1.6rem; }
+.result-count { font-size: 0.85rem; color: var(--muted); font-weight: 300; }
+.product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+
+/* PROMO BADGE in shop */
+.promo-inline {
+  background: linear-gradient(135deg, #fde8f0, #fdf0f4);
+  border: 1.5px dashed var(--rose-light);
+  border-radius: 16px; padding: 18px 24px;
+  display: flex; align-items: center; gap: 16px;
+  margin-bottom: 28px;
+}
+.promo-inline .icon { font-size: 2rem; }
+.promo-inline h4 { font-size: 0.95rem; color: var(--ink); margin-bottom: 4px; }
+.promo-inline p { font-size: 0.82rem; color: var(--muted); font-weight: 300; }
+
+/* EMPTY STATE */
+.empty-state { text-align: center; padding: 80px 20px; color: var(--muted); }
+.empty-state .icon { font-size: 4rem; margin-bottom: 16px; }
+.empty-state h3 { font-size: 1.2rem; margin-bottom: 8px; color: var(--ink); }
+
+/* QUICK VIEW MODAL */
+.modal-overlay { position: fixed; inset: 0; background: rgba(58,40,48,0.6); backdrop-filter: blur(4px); z-index: 1000; display: none; align-items: center; justify-content: center; }
+.modal-overlay.open { display: flex; }
+.modal { background: #fff; border-radius: 24px; max-width: 800px; width: 90%; display: grid; grid-template-columns: 1fr 1fr; overflow: hidden; box-shadow: 0 24px 80px rgba(176,96,128,0.25); }
+.modal-img { height: 100%; min-height: 400px; }
+.modal-img img { width: 100%; height: 100%; object-fit: cover; }
+.modal-info { padding: 40px; display: flex; flex-direction: column; }
+.modal-badge { display: inline-block; background: var(--rose); color: #fff; font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; padding: 5px 12px; border-radius: 20px; margin-bottom: 14px; width: fit-content; }
+.modal-info h2 { font-size: 1.6rem; margin-bottom: 10px; }
+.modal-price { font-family: 'Libre Baskerville', serif; font-size: 1.8rem; color: var(--rose); margin-bottom: 16px; }
+.modal-info p { font-size: 0.9rem; color: var(--muted); line-height: 1.8; font-weight: 300; margin-bottom: 24px; flex: 1; }
+.modal-qty { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+.qty-btn { width: 36px; height: 36px; border-radius: 50%; border: 1.5px solid var(--border); background: none; font-size: 1.1rem; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: center; }
+.qty-btn:hover { border-color: var(--rose); color: var(--rose); }
+.qty-num { font-size: 1rem; font-weight: 600; min-width: 24px; text-align: center; }
+.modal-close { position: absolute; top: 16px; right: 16px; background: rgba(255,255,255,0.9); border: none; width: 36px; height: 36px; border-radius: 50%; font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.modal-wrap { position: relative; }
+</style>
 </head>
 <body>
-
 <div class="promo-banner">
-  🌸 Buy Any 3 Arrangements, Get the 4th FREE!  <span>|</span>  Free Shipping on Orders Over $150
+  🌸 Buy Any 3 Arrangements, Get the 4th FREE!  <span>|</span>  Free Shipping on Orders Over $150
 </div>
-
-<!-- NAV -->
 <nav class="site-nav">
 <a class="nav-logo" href="index.html">
-<svg class="logo-svg" fill="none" viewbox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
-<circle cx="30" cy="30" r="28" stroke="#b06080" stroke-width="1.5"></circle>
-<!-- Infinity symbol -->
-<path d="M14 30 C14 24, 20 20, 26 26 C29 29, 31 31, 34 34 C40 40, 46 36, 46 30 C46 24, 40 20, 34 26 C31 29, 29 31, 26 34 C20 40, 14 36, 14 30 Z" fill="none" stroke="#b06080" stroke-width="1.8"></path>
-<!-- The 1 below center -->
-<line stroke="#b06080" stroke-linecap="round" stroke-width="1.8" x1="30" x2="30" y1="34" y2="46"></line>
-</svg>
+<svg class="logo-svg" fill="none" viewbox="0 0 60 60"><circle cx="30" cy="30" r="28" stroke="#b06080" stroke-width="1.5"></circle><path d="M14 30 C14 24, 20 20, 26 26 C29 29, 31 31, 34 34 C40 40, 46 36, 46 30 C46 24, 40 20, 34 26 C31 29, 29 31, 26 34 C20 40, 14 36, 14 30 Z" fill="none" stroke="#b06080" stroke-width="1.8"></path><line stroke="#b06080" stroke-linecap="round" stroke-width="1.8" x1="30" x2="30" y1="34" y2="46"></line></svg>
 <span class="logo-text" style="margin-left:8px;">21 Florals</span>
-<span class="logo-tag" style="margin-left:8px;">Inspired by Nature</span>
 </a>
 <ul class="nav-links">
-<li>
-  <a href="index.html">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-    Home
-  </a>
-</li>
-<li>
-  <a class="active" href="shop.html">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-    Shop Florals
-  </a>
-</li>
-<li>
-  <a href="contact.html">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/><circle cx="12" cy="12" r="3"/></svg>
-    Custom Order
-  </a>
-</li>
-<li>
-  <a href="about.html">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
-    About Us
-  </a>
-</li>
-<li>
-  <a href="cart.html">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
-    Shopping Cart
-  </a>
-</li>
+<li><a href="index.html">Home</a></li>
+<li><a class="active" href="shop.html">Shop</a></li>
+<li><a href="weddings.html">Weddings</a></li>
+<li><a href="why-silk.html">Why Silk?</a></li>
+<li><a href="gallery.html">Gallery</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="contact.html">Contact</a></li>
 </ul>
+<div class="nav-actions">
+<button class="cart-btn" onclick="window.location='cart.html'">🛒 Cart <span class="cart-count" style="display:none;">0</span></button>
+</div>
 </nav>
-
 <div class="breadcrumb">
 <a href="index.html">Home</a><span>›</span> Shop
 </div>
-
 <div class="page-hero" style="padding:50px 60px;">
 <div class="script">~ Our Collection ~</div>
 <h1>Shop All Arrangements</h1>
 <p>Every piece is handcrafted with love using premium silk botanicals — beauty that lasts forever.</p>
 </div>
-
 <div class="shop-layout">
 <!-- SIDEBAR -->
 <aside class="sidebar">
 <h3>Category</h3>
 <button class="filter-btn active" data-cat="all">🌸 All Arrangements</button>
 <button class="filter-btn" data-cat="home">🏠 Home Decor</button>
-<button class="filter-btn" data-cat="wedding">💍 Wedding & Events</button>
-<button class="filter-btn" data-cat="gift">🎁 Gift Sets</button>
-<button class="filter-btn" data-cat="centerpieces">🕯️ Luxury Centerpieces</button>
-<button class="filter-btn" data-cat="stems">🌿 Stems & Greenery</button>
-<button class="filter-btn" data-cat="seasonal">🍁 Seasonal & Holiday</button>
-
+<button class="filter-btn" data-cat="wedding">💍 Wedding</button>
+<button class="filter-btn" data-cat="gift">🎁 Gifts</button>
 <h3>Sort By</h3>
 <select class="sort-select" id="sort-select">
 <option value="default">Featured</option>
@@ -89,24 +106,21 @@
 <option value="price-desc">Price: High to Low</option>
 <option value="name">Name A–Z</option>
 </select>
-
 <h3>Price Range</h3>
 <div class="price-range">
 <input id="price-range" max="200" min="0" step="5" type="range" value="200"/>
 <div class="price-label"><span>$0</span><span id="price-max-label">Up to $200</span></div>
 </div>
-
 <h3>Why Silk?</h3>
 <div style="font-size:0.82rem;color:var(--muted);line-height:1.7;font-weight:300;">
       ✅ Never wilts or fades<br/>
-      ✅ Pet & family safe<br/>
+      ✅ Pet &amp; family safe<br/>
       ✅ No watering needed<br/>
       ✅ Allergy friendly<br/>
       ✅ Lasts for years
-</div>
+    </div>
 <a href="why-silk.html" style="display:block;margin-top:12px;font-size:0.8rem;color:var(--rose);font-weight:600;">Learn more →</a>
 </aside>
-
 <!-- MAIN -->
 <main class="shop-main">
 <div class="promo-inline">
@@ -123,7 +137,6 @@
 <div class="product-grid" id="shop-grid"></div>
 </main>
 </div>
-
 <!-- QUICK VIEW MODAL -->
 <div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
 <div class="modal-wrap">
@@ -131,7 +144,6 @@
 <div class="modal" id="modal-content"></div>
 </div>
 </div>
-
 <!-- FOOTER -->
 <footer class="site-footer">
 <div class="footer-grid">
@@ -145,7 +157,6 @@
 </div>
 <div class="footer-bottom"><p>© 2025 21 Florals. All rights reserved.</p></div>
 </footer>
-
 <script src="shared.js"></script>
 <script>
 let currentCat = 'all';
@@ -170,7 +181,7 @@ function renderShop() {
   const items = getFiltered();
   const grid = document.getElementById('shop-grid');
   document.getElementById('result-count').textContent = `Showing ${items.length} item${items.length !== 1 ? 's' : ''}`;
-  const titles = { all: 'All Arrangements', home: 'Home Decor', wedding: 'Wedding Collection', gift: 'Gift Collection', centerpieces: 'Luxury Centerpieces', stems: 'Stems & Greenery', seasonal: 'Seasonal & Holiday' };
+  const titles = { all: 'All Arrangements', home: 'Home Decor', wedding: 'Wedding Collection', gift: 'Gift Collection' };
   document.getElementById('shop-title').textContent = titles[currentCat] || 'All Arrangements';
 
   if (items.length === 0) {
@@ -252,4 +263,3 @@ renderShop();
 </script>
 </body>
 </html>
-
