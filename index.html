@@ -3,21 +3,30 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Shop — 21 Florals</title>
+<title>21 Florals — Handcrafted Silk Floral Arrangements</title>
 <link href="shared.css" rel="stylesheet"/>
 </head>
 <body>
+<!-- PROMO TOP BAR -->
 <div class="promo-banner">
-  🌸 Buy Any 3 Arrangements, Get the 4th FREE!  <span>|</span>  Free Shipping on Orders Over $150
+  🌸 Buy Any 3 Arrangements, Get the 4th FREE!  <span>|</span>  Free Shipping on Orders Over $150  <span>|</span>  Handcrafted with Love in Northridge, CA
 </div>
+<!-- NAV -->
 <nav class="site-nav">
 <a class="nav-logo" href="index.html">
-<svg class="logo-svg" fill="none" viewbox="0 0 60 60"><circle cx="30" cy="30" r="28" stroke="#b06080" stroke-width="1.5"></circle><path d="M14 30 C14 24, 20 20, 26 26 C29 29, 31 31, 34 34 C40 40, 46 36, 46 30 C46 24, 40 20, 34 26 C31 29, 29 31, 26 34 C20 40, 14 36, 14 30 Z" fill="none" stroke="#b06080" stroke-width="1.8"></path><line stroke="#b06080" stroke-linecap="round" stroke-width="1.8" x1="30" x2="30" y1="34" y2="46"></line></svg>
+<svg class="logo-svg" fill="none" viewbox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+<circle cx="30" cy="30" r="28" stroke="#b06080" stroke-width="1.5"></circle>
+<!-- Infinity symbol -->
+<path d="M14 30 C14 24, 20 20, 26 26 C29 29, 31 31, 34 34 C40 40, 46 36, 46 30 C46 24, 40 20, 34 26 C31 29, 29 31, 26 34 C20 40, 14 36, 14 30 Z" fill="none" stroke="#b06080" stroke-width="1.8"></path>
+<!-- The 1 below center -->
+<line stroke="#b06080" stroke-linecap="round" stroke-width="1.8" x1="30" x2="30" y1="34" y2="46"></line>
+</svg>
 <span class="logo-text" style="margin-left:8px;">21 Florals</span>
+<span class="logo-tag" style="margin-left:8px;">Inspired by Nature</span>
 </a>
 <ul class="nav-links">
-<li><a href="index.html">Home</a></li>
-<li><a class="active" href="shop.html">Shop</a></li>
+<li><a class="active" href="index.html">Home</a></li>
+<li><a href="shop.html">Shop</a></li>
 <li><a href="weddings.html">Weddings</a></li>
 <li><a href="why-silk.html">Why Silk?</a></li>
 <li><a href="gallery.html">Gallery</a></li>
@@ -25,115 +34,219 @@
 <li><a href="contact.html">Contact</a></li>
 </ul>
 <div class="nav-actions">
-<button class="cart-btn" onclick="window.location='cart.html'">🛒 Cart <span class="cart-count" style="display:none;">0</span></button>
+<a class="btn btn-sm btn-outline" href="shop.html">Shop Now</a>
+<button class="cart-btn" onclick="window.location='cart.html'">
+      🛒 Cart
+      <span class="cart-count" style="display:none;">0</span>
+</button>
 </div>
 </nav>
-<div class="breadcrumb">
-<a href="index.html">Home</a><span>›</span> Shop
+<!-- HERO -->
+<section class="hero">
+<div class="hero-text">
+<div class="hero-script">~ Inspired by Nature ~</div>
+<h1>Where Every<br/>Petal Tells a<br/><em>Love Story</em></h1>
+<p class="hero-sub">Exquisite handcrafted silk floral arrangements that capture the tender beauty of nature — for your home, your wedding, and every cherished moment in between.</p>
+<div class="hero-btns">
+<a class="btn btn-primary" href="shop.html">Explore Collection</a>
+<a class="btn btn-outline" href="about.html">Our Story</a>
 </div>
-<div class="page-hero" style="padding:50px 60px;">
-<div class="script">~ Our Collection ~</div>
-<h1>Shop All Arrangements</h1>
-<p>Every piece is handcrafted with love using premium silk botanicals — beauty that lasts forever.</p>
-</div>
-<div class="shop-layout">
-<!-- SIDEBAR -->
-<aside class="sidebar">
-<h3>Category</h3>
-<button class="filter-btn active" data-cat="all">🌸 All Arrangements</button>
-<button class="filter-btn" data-cat="home">🏠 Home Decor</button>
-<button class="filter-btn" data-cat="wedding">💍 Wedding</button>
-<button class="filter-btn" data-cat="gift">🎁 Gifts</button>
-<h3>Sort By</h3>
-<select class="sort-select" id="sort-select">
-<option value="default">Featured</option>
-<option value="price-asc">Price: Low to High</option>
-<option value="price-desc">Price: High to Low</option>
-<option value="name">Name A–Z</option>
-</select>
-<h3>Price Range</h3>
-<div class="price-range">
-<input id="price-range" max="200" min="0" step="5" type="range" value="200"/>
-<div class="price-label"><span>$0</span><span id="price-max-label">Up to $200</span></div>
-</div>
-<h3>Why Silk?</h3>
-<div style="font-size:0.82rem;color:var(--muted);line-height:1.7;font-weight:300;">
-      ✅ Never wilts or fades<br/>
-      ✅ Pet & family safe<br/>
-      ✅ No watering needed<br/>
-      ✅ Allergy friendly<br/>
-      ✅ Lasts for years
-    </div>
-<a href="why-silk.html" style="display:block;margin-top:12px;font-size:0.8rem;color:var(--rose);font-weight:600;">Learn more →</a>
-</aside>
-<!-- MAIN -->
-<main class="shop-main">
-<div class="promo-inline">
-<div class="icon">🎁</div>
-<div>
-<h4>Buy 3, Get the 4th FREE!</h4>
-<p>Add 4 or more arrangements to your cart — the lowest-priced item is automatically free at checkout.</p>
+<div class="hero-trust">
+<div class="trust-item"><span class="trust-icon">🌸</span> Premium Silk Quality</div>
+<div class="trust-item"><span class="trust-icon">✂️</span> Handcrafted</div>
+<div class="trust-item"><span class="trust-icon">🐾</span> Pet Safe</div>
+<div class="trust-item"><span class="trust-icon">♾️</span> Lasts Forever</div>
 </div>
 </div>
-<div class="shop-header">
-<h2 id="shop-title">All Arrangements</h2>
-<span class="result-count" id="result-count">Showing 12 items</span>
+<div class="hero-images">
+<img alt="Blush Florals" src="https://weddingfrontier.com/wp-content/uploads/2024/02/floral-arrangements-with-blush-pink-flowers.jpg"/>
+<img alt="Pink Arrangement" src="https://mariedumas.com/cdn/shop/files/l546_600x.jpg?v=1746052731"/>
 </div>
-<div class="product-grid" id="shop-grid"></div>
-</main>
-</div>
-<!-- QUICK VIEW MODAL -->
-<div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
-<div class="modal-wrap">
-<button class="modal-close" onclick="document.getElementById('modal-overlay').classList.remove('open')">✕</button>
-<div class="modal" id="modal-content"></div>
+</section>
+<!-- MARQUEE -->
+<div class="marquee-strip">
+<div class="marquee-inner">
+<span>Handcrafted Silk Florals</span><span>Pet Safe & Non-Toxic</span><span>Lasts for Years</span><span>Wedding Specialists</span><span>Custom Orders Welcome</span><span>No Watering Required</span><span>Always in Bloom</span><span>Northridge, CA</span>
+<span>Handcrafted Silk Florals</span><span>Pet Safe & Non-Toxic</span><span>Lasts for Years</span><span>Wedding Specialists</span><span>Custom Orders Welcome</span><span>No Watering Required</span><span>Always in Bloom</span><span>Northridge, CA</span>
 </div>
 </div>
+<!-- CATEGORIES -->
+<section class="categories">
+<div class="section-header">
+<div class="section-script">~ Shop by Occasion ~</div>
+<h2>Find Your Perfect Arrangement</h2>
+<p>Lovingly crafted for every beautiful moment</p>
+<div class="petal-divider"><span>✿</span></div>
+</div>
+<div class="cat-grid">
+<a class="cat-card" href="shop.html?cat=home">
+<img alt="Home Decor" src="https://floralhomedecor.net/catalog/images/AR356.jpg"/>
+<div class="cat-overlay"><h3>Home Decor</h3><p>Soften every space</p></div>
+<div class="cat-arrow">→</div>
+</a>
+<a class="cat-card" href="weddings.html">
+<img alt="Weddings" src="https://www.elegantwedding.ca/wp-content/uploads/2024/01/DECOR-AND-MORE-SILK-FLOWER-DECOR-810x1046.jpg"/>
+<div class="cat-overlay"><h3>Weddings</h3><p>Your dream day</p></div>
+<div class="cat-arrow">→</div>
+</a>
+<a class="cat-card" href="shop.html?cat=gift">
+<img alt="Gifts" src="https://i.etsystatic.com/26456938/r/il/62c8ec/3509310965/il_fullxfull.3509310965_7vui.jpg"/>
+<div class="cat-overlay"><h3>Gifts</h3><p>Give lasting beauty</p></div>
+<div class="cat-arrow">→</div>
+</a>
+<a class="cat-card" href="contact.html">
+<img alt="Custom Orders" src="https://botanicblossoms.com/wp-content/uploads/2025/05/Silk-flower-centerpieces-1.webp"/>
+<div class="cat-overlay"><h3>Custom Orders</h3><p>Your vision, our craft</p></div>
+<div class="cat-arrow">→</div>
+</a>
+</div>
+</section>
+<!-- PROMO SECTION -->
+<section class="promo-section">
+<div class="promo-card">
+<div class="promo-tag">✨ Limited Time Offer</div>
+<h2>Buy 3, Get the <em>4th Free!</em></h2>
+<p>Mix and match any arrangements from our collection. The lowest-priced item is automatically applied as your free gift at checkout.</p>
+<div class="promo-steps">
+<div class="promo-step"><div class="num">01</div><div class="label">Choose 3 arrangements</div></div>
+<div class="promo-step"><div class="num">+</div><div class="label"></div></div>
+<div class="promo-step"><div class="num">02</div><div class="label">Add a 4th to cart</div></div>
+<div class="promo-step"><div class="num">=</div><div class="label"></div></div>
+<div class="promo-step"><div class="num">🎁</div><div class="label">4th one is FREE!</div></div>
+</div>
+<a class="btn btn-primary" href="shop.html">Shop the Offer</a>
+</div>
+</section>
+<!-- FEATURED PRODUCTS -->
+<section class="featured">
+<div class="section-header">
+<div class="section-script">~ Our Favourites ~</div>
+<h2>Featured Arrangements</h2>
+<p>Handpicked pieces our customers adore</p>
+<div class="petal-divider"><span>✿</span></div>
+</div>
+<div class="product-grid" id="featured-grid"></div>
+<div class="view-all-wrap">
+<a class="btn btn-outline" href="shop.html">View All Arrangements</a>
+</div>
+</section>
+<!-- WHY SILK -->
+<section class="why-silk">
+<div class="section-header">
+<div class="section-script">~ The 21 Florals Difference ~</div>
+<h2>Why Choose Silk Florals?</h2>
+<p>Beauty that lasts a lifetime — and beyond</p>
+<div class="petal-divider"><span>✿</span></div>
+</div>
+<div class="why-grid">
+<div class="why-card"><div class="why-icon">♾️</div><h3>Always in Bloom</h3><p>Our silk florals never wilt, fade, or lose their petals — they look freshly arranged every single day.</p></div>
+<div class="why-card"><div class="why-icon">🐾</div><h3>Pet & Family Safe</h3><p>100% non-toxic and non-poisonous — completely safe for pets, children, and sensitive individuals.</p></div>
+<div class="why-card"><div class="why-icon">💧</div><h3>Zero Maintenance</h3><p>No watering, no sunlight, no fertiliser. Just pure, effortless beauty in your space.</p></div>
+<div class="why-card"><div class="why-icon">🌬️</div><h3>Allergy Friendly</h3><p>Perfect for those with allergies, asthma, COPD, or compromised immune systems — breathe easy.</p></div>
+</div>
+<div style="text-align:center;margin-top:36px;">
+<a class="btn btn-outline" href="why-silk.html">Learn More About Silk Florals</a>
+</div>
+</section>
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+<div class="section-header">
+<div class="section-script">~ Kind Words ~</div>
+<h2>From Our Customers</h2>
+<div class="petal-divider"><span>✿</span></div>
+</div>
+<div class="test-grid">
+<div class="test-card">
+<div class="stars">★★★★★</div>
+<p>"The most beautiful arrangement I've ever seen. The blush tones are so soft and romantic — it's completely transformed my living room."</p>
+<div class="reviewer"><div class="reviewer-avatar">S</div><div><div class="reviewer-name">Sarah M.</div><div class="reviewer-title">Home Decor Customer</div></div></div>
+</div>
+<div class="test-card">
+<div class="stars">★★★★★</div>
+<p>"My bridal bouquet was absolutely dreamy. I still have it displayed in our home and it looks as beautiful as the day I carried it down the aisle."</p>
+<div class="reviewer"><div class="reviewer-avatar">J</div><div><div class="reviewer-name">Jessica L.</div><div class="reviewer-title">Bride</div></div></div>
+</div>
+<div class="test-card">
+<div class="stars">★★★★★</div>
+<p>"I have severe allergies and could never enjoy fresh flowers. These silk arrangements are absolutely stunning and I can finally have florals in my home!"</p>
+<div class="reviewer"><div class="reviewer-avatar">A</div><div><div class="reviewer-name">Amanda K.</div><div class="reviewer-title">Gift Customer</div></div></div>
+</div>
+</div>
+</section>
+<!-- INSTAGRAM -->
+<section class="insta-strip">
+<div class="section-header">
+<div class="section-script">~ Follow Our Journey ~</div>
+<h2>@21florals</h2>
+<p>Tag us in your photos for a chance to be featured</p>
+</div>
+<div class="insta-grid">
+<div class="insta-item"><img alt="" src="https://i.etsystatic.com/22099876/r/il/fd4fb2/3728140963/il_1080xN.3728140963_ksgn.jpg"/><div class="insta-overlay">📷</div></div>
+<div class="insta-item"><img alt="" src="https://i.etsystatic.com/10317049/r/il/d80ce4/6288303210/il_1080xN.6288303210_toni.jpg"/><div class="insta-overlay">📷</div></div>
+<div class="insta-item"><img alt="" src="https://silksareforever.com/cdn/shop/files/LFM756-WH_bcdf3a2b-51c7-446d-86b8-a21db04c78c7_1200x1200.jpg?v=1730501871"/><div class="insta-overlay">📷</div></div>
+<div class="insta-item"><img alt="" src="https://assets.wfcdn.com/im/92720297/resize-h800-w800^compr-r85/1130/113009886/Silk+Tulip+Arrangement+in+Vase%2C+Cream.jpg"/><div class="insta-overlay">📷</div></div>
+<div class="insta-item"><img alt="" src="https://images.squarespace-cdn.com/content/v1/552d50f2e4b0ef77163cfc0f/1578333818811-99BRWK5212MSBQOFSP32/custom-silk-bridal-bouquet-centerpieces-wedding-flowers.jpg"/><div class="insta-overlay">📷</div></div>
+</div>
+</section>
+<!-- CTA -->
+<section class="cta-section">
+<div class="script">~ Begin Your Journey ~</div>
+<h2>Find Your Perfect Bloom</h2>
+<p>Explore our full collection of handcrafted silk floral arrangements, each one made with love and inspired by nature.</p>
+<div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+<a class="btn btn-white" href="shop.html">Shop the Collection</a>
+<a class="btn btn-outline" href="contact.html" style="border-color:rgba(255,255,255,0.5);color:#fff;">Custom Order</a>
+</div>
+</section>
 <!-- FOOTER -->
 <footer class="site-footer">
 <div class="footer-grid">
 <div class="footer-brand">
 <span class="logo-text">21 Florals</span>
-<p>Handcrafted silk floral arrangements inspired by the beauty of nature. Made with love in Northridge, CA.</p>
+<p>Handcrafted silk floral arrangements inspired by the beauty of nature. Made with love in Northridge, CA — for your home, your events, and your most cherished moments.</p>
+<div class="footer-social">
+<a href="#">📘</a><a href="#">📸</a><a href="#">📌</a><a href="#">🎵</a>
 </div>
-<div><h4>Shop</h4><ul><li><a href="shop.html">All Arrangements</a></li><li><a href="weddings.html">Wedding Florals</a></li><li><a href="contact.html">Custom Orders</a></li></ul></div>
-<div><h4>Company</h4><ul><li><a href="about.html">Our Story</a></li><li><a href="why-silk.html">Why Silk?</a></li><li><a href="gallery.html">Gallery</a></li></ul></div>
-<div><h4>Contact</h4><ul><li><a href="tel:8188560033">📞 (818) 856-0033</a></li><li><a href="#">📍 Northridge, CA 91324</a></li></ul></div>
 </div>
-<div class="footer-bottom"><p>© 2025 21 Florals. All rights reserved.</p></div>
+<div>
+<h4>Shop</h4>
+<ul>
+<li><a href="shop.html">All Arrangements</a></li>
+<li><a href="shop.html?cat=home">Home Decor</a></li>
+<li><a href="weddings.html">Wedding Florals</a></li>
+<li><a href="shop.html?cat=gift">Gift Sets</a></li>
+<li><a href="contact.html">Custom Orders</a></li>
+</ul>
+</div>
+<div>
+<h4>Company</h4>
+<ul>
+<li><a href="about.html">Our Story</a></li>
+<li><a href="why-silk.html">Why Silk?</a></li>
+<li><a href="gallery.html">Gallery</a></li>
+<li><a href="contact.html">Contact Us</a></li>
+</ul>
+</div>
+<div>
+<h4>Contact</h4>
+<ul>
+<li><a href="tel:8188560033">📞 (818) 856-0033</a></li>
+<li><a href="#">📍 18543 Devonshire St<br/>    Suite 1008<br/>    Northridge, CA 91324</a></li>
+<li><a href="contact.html">✉️ Send a Message</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2025 21 Florals. All rights reserved. | Inspired by Nature 🌸</p>
+<p><a href="#">Privacy Policy</a>  ·  <a href="#">Terms of Service</a>  ·  <a href="#">Shipping Policy</a></p>
+</div>
 </footer>
 <script src="shared.js"></script>
 <script>
-let currentCat = 'all';
-let currentSort = 'default';
-let maxPrice = 200;
-
-// Read URL param
-const urlParams = new URLSearchParams(window.location.search);
-if (urlParams.get('cat')) currentCat = urlParams.get('cat');
-
-function getFiltered() {
-  let items = [...PRODUCTS];
-  if (currentCat !== 'all') items = items.filter(p => p.tags.includes(currentCat));
-  items = items.filter(p => p.price <= maxPrice);
-  if (currentSort === 'price-asc') items.sort((a,b) => a.price - b.price);
-  else if (currentSort === 'price-desc') items.sort((a,b) => b.price - a.price);
-  else if (currentSort === 'name') items.sort((a,b) => a.name.localeCompare(b.name));
-  return items;
-}
-
-function renderShop() {
-  const items = getFiltered();
-  const grid = document.getElementById('shop-grid');
-  document.getElementById('result-count').textContent = `Showing ${items.length} item${items.length !== 1 ? 's' : ''}`;
-  const titles = { all: 'All Arrangements', home: 'Home Decor', wedding: 'Wedding Collection', gift: 'Gift Collection' };
-  document.getElementById('shop-title').textContent = titles[currentCat] || 'All Arrangements';
-
-  if (items.length === 0) {
-    grid.innerHTML = `<div class="empty-state" style="grid-column:span 3"><div class="icon">🌸</div><h3>No arrangements found</h3><p>Try adjusting your filters</p></div>`;
-    return;
-  }
-  grid.innerHTML = items.map(p => `
+// Render featured products (first 4)
+const grid = document.getElementById('featured-grid');
+PRODUCTS.slice(0, 4).forEach(p => {
+  grid.innerHTML += `
     <div class="product-card">
       <div class="product-img-wrap">
         <img src="${p.img}" alt="${p.name}" loading="lazy">
@@ -144,67 +257,11 @@ function renderShop() {
         <p>${p.desc}</p>
         <div class="product-footer">
           <span class="product-price">$${p.price}</span>
-          <div style="display:flex;gap:8px;">
-            <button class="add-to-cart-btn" style="background:transparent;color:var(--rose);border:1.5px solid var(--rose-light);padding:8px 14px;" onclick="openModal(${p.id})">View</button>
-            <button class="add-to-cart-btn" onclick="addToCart(${p.id})">Add</button>
-          </div>
+          <button class="add-to-cart-btn" onclick="addToCart(${p.id})">Add to Cart</button>
         </div>
       </div>
-    </div>`).join('');
-}
-
-function openModal(id) {
-  const p = PRODUCTS.find(x => x.id === id);
-  if (!p) return;
-  let qty = 1;
-  document.getElementById('modal-content').innerHTML = `
-    <div class="modal-img"><img src="${p.img}" alt="${p.name}"></div>
-    <div class="modal-info">
-      <div class="modal-badge">${p.badge}</div>
-      <h2>${p.name}</h2>
-      <div class="modal-price">$${p.price}</div>
-      <p>${p.desc}<br><br>✅ Premium silk quality &nbsp; ✅ Handcrafted &nbsp; ✅ Pet safe<br>✅ Never wilts &nbsp; ✅ No maintenance required</p>
-      <div class="modal-qty">
-        <button class="qty-btn" onclick="changeQty(-1)">−</button>
-        <span class="qty-num" id="modal-qty">1</span>
-        <button class="qty-btn" onclick="changeQty(1)">+</button>
-        <span style="font-size:0.82rem;color:var(--muted);">quantity</span>
-      </div>
-      <button class="btn btn-primary" style="width:100%;" onclick="addToCart(${p.id}, parseInt(document.getElementById('modal-qty').textContent)); document.getElementById('modal-overlay').classList.remove('open')">Add to Cart — $${p.price}</button>
-      <div style="margin-top:12px;text-align:center;font-size:0.78rem;color:var(--muted);">🎁 Buy 3, get the 4th FREE!</div>
     </div>`;
-  document.getElementById('modal-overlay').classList.add('open');
-}
-function changeQty(d) {
-  const el = document.getElementById('modal-qty');
-  let v = parseInt(el.textContent) + d;
-  if (v < 1) v = 1;
-  el.textContent = v;
-}
-function closeModal(e) {
-  if (e.target === document.getElementById('modal-overlay')) document.getElementById('modal-overlay').classList.remove('open');
-}
-
-// Filter buttons
-document.querySelectorAll('.filter-btn').forEach(btn => {
-  if (btn.dataset.cat === currentCat) btn.classList.add('active');
-  else btn.classList.remove('active');
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    currentCat = btn.dataset.cat;
-    renderShop();
-  });
 });
-
-document.getElementById('sort-select').addEventListener('change', e => { currentSort = e.target.value; renderShop(); });
-document.getElementById('price-range').addEventListener('input', e => {
-  maxPrice = parseInt(e.target.value);
-  document.getElementById('price-max-label').textContent = `Up to $${maxPrice}`;
-  renderShop();
-});
-
-renderShop();
 </script>
 </body>
 </html>
