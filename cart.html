@@ -1,108 +1,85 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Your Cart — 21 Florals</title>
 <link href="shared.css" rel="stylesheet"/>
-<style>
-.cart-layout { display: grid; grid-template-columns: 1fr 380px; gap: 36px; padding: 50px 60px; align-items: start; }
-
-/* CART ITEMS */
-.cart-items { background: #fff; border-radius: 20px; border: 1.5px solid var(--border); overflow: hidden; }
-.cart-items-header { padding: 24px 28px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
-.cart-items-header h2 { font-size: 1.3rem; }
-.cart-item { display: grid; grid-template-columns: 100px 1fr auto; gap: 20px; padding: 24px 28px; border-bottom: 1px solid var(--border); align-items: center; transition: background 0.2s; }
-.cart-item:last-child { border-bottom: none; }
-.cart-item:hover { background: var(--cream); }
-.cart-item img { width: 100px; height: 100px; object-fit: cover; border-radius: 12px; }
-.cart-item-info h3 { font-size: 1rem; margin-bottom: 4px; }
-.cart-item-info .badge { font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; color: var(--rose); font-weight: 600; margin-bottom: 8px; display: block; }
-.cart-item-info .unit-price { font-size: 0.85rem; color: var(--muted); font-weight: 300; }
-.cart-item-actions { display: flex; flex-direction: column; align-items: flex-end; gap: 12px; }
-.item-price { font-family: 'Libre Baskerville', serif; font-size: 1.2rem; color: var(--rose); }
-.qty-control { display: flex; align-items: center; gap: 10px; }
-.qty-btn { width: 32px; height: 32px; border-radius: 50%; border: 1.5px solid var(--border); background: none; font-size: 1rem; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: center; }
-.qty-btn:hover { border-color: var(--rose); color: var(--rose); }
-.qty-num { font-size: 0.95rem; font-weight: 600; min-width: 20px; text-align: center; }
-.remove-btn { background: none; border: none; color: #ccc; font-size: 0.8rem; cursor: pointer; transition: color 0.2s; letter-spacing: 1px; text-transform: uppercase; }
-.remove-btn:hover { color: #e06060; }
-
-/* PROMO APPLIED */
-.promo-applied { margin: 0 28px 0; background: linear-gradient(135deg, #fde8f0, #fdf0f4); border-radius: 12px; padding: 16px 20px; display: flex; align-items: center; gap: 12px; margin-bottom: 0; }
-.promo-applied .icon { font-size: 1.5rem; }
-.promo-applied h4 { font-size: 0.88rem; color: var(--ink); margin-bottom: 2px; }
-.promo-applied p { font-size: 0.78rem; color: var(--muted); font-weight: 300; }
-.promo-applied .savings { font-family: 'Libre Baskerville', serif; font-size: 1.1rem; color: var(--rose); font-weight: 700; margin-left: auto; }
-
-/* ORDER SUMMARY */
-.order-summary { background: #fff; border-radius: 20px; border: 1.5px solid var(--border); padding: 28px; position: sticky; top: 90px; }
-.order-summary h2 { font-size: 1.2rem; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
-.summary-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; font-size: 0.9rem; }
-.summary-row .label { color: var(--muted); font-weight: 300; }
-.summary-row .value { font-weight: 600; color: var(--ink); }
-.summary-row.discount .value { color: #4caf50; }
-.summary-row.total { font-size: 1.1rem; padding-top: 16px; border-top: 1px solid var(--border); margin-top: 8px; }
-.summary-row.total .label { font-weight: 700; color: var(--ink); }
-.summary-row.total .value { font-family: 'Libre Baskerville', serif; font-size: 1.4rem; color: var(--rose); }
-.checkout-btn { width: 100%; padding: 18px; background: linear-gradient(135deg, #c07090, #b06080); color: #fff; border: none; border-radius: 50px; font-size: 0.9rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; margin-top: 20px; transition: all 0.3s; box-shadow: 0 6px 20px rgba(176,96,128,0.3); }
-.checkout-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(176,96,128,0.4); }
-.secure-badges { display: flex; justify-content: center; gap: 16px; margin-top: 16px; font-size: 0.75rem; color: var(--muted); }
-.promo-progress { margin-top: 20px; padding: 16px; background: var(--cream); border-radius: 12px; border: 1px solid var(--border); }
-.promo-progress p { font-size: 0.82rem; color: var(--muted); margin-bottom: 8px; font-weight: 300; }
-.progress-bar { height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; }
-.progress-fill { height: 100%; background: linear-gradient(90deg, #d4a0b0, #b06080); border-radius: 3px; transition: width 0.5s; }
-
-/* EMPTY CART */
-.empty-cart { text-align: center; padding: 80px 40px; }
-.empty-cart .icon { font-size: 5rem; margin-bottom: 20px; }
-.empty-cart h2 { font-size: 1.8rem; margin-bottom: 12px; }
-.empty-cart p { color: var(--muted); font-weight: 300; margin-bottom: 28px; }
-
-/* SUGGESTED */
-.suggested { padding: 60px; background: var(--cream); }
-.suggested h2 { font-size: 1.6rem; margin-bottom: 8px; }
-.suggested p { color: var(--muted); font-size: 0.9rem; margin-bottom: 32px; font-weight: 300; }
-.suggested-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-</style>
 </head>
 <body>
 <div class="promo-banner">
-  🌸 Buy Any 3 Arrangements, Get the 4th FREE!  <span>|</span>  Free Shipping on Orders Over $150
+  🌸 Buy Any 3 Arrangements, Get the 4th FREE!  <span>|</span>  Free Shipping on Orders Over $150
 </div>
+
+<!-- NAV -->
 <nav class="site-nav">
 <a class="nav-logo" href="index.html">
-<svg class="logo-svg" fill="none" viewbox="0 0 60 60"><circle cx="30" cy="30" r="28" stroke="#b06080" stroke-width="1.5"></circle><path d="M14 30 C14 24, 20 20, 26 26 C29 29, 31 31, 34 34 C40 40, 46 36, 46 30 C46 24, 40 20, 34 26 C31 29, 29 31, 26 34 C20 40, 14 36, 14 30 Z" fill="none" stroke="#b06080" stroke-width="1.8"></path><line stroke="#b06080" stroke-linecap="round" stroke-width="1.8" x1="30" x2="30" y1="34" y2="46"></line></svg>
-<span class="logo-text" style="margin-left:8px;">21 Florals</span>
+  <img src="1000204363.png" alt="21 Florals Logo" class="nav-logo-img"/>
+  <div class="logo-text-wrap">
+    <span class="logo-text">21 Florals</span>
+    <span class="logo-tag">Inspired by Nature</span>
+  </div>
 </a>
 <ul class="nav-links">
-<li><a href="index.html">Home</a></li>
-<li><a href="shop.html">Shop</a></li>
-<li><a href="contact.html">Custom Order</a></li>
-<li><a class="active" href="cart.html">Cart <span class="cart-count" style="display:none;">0</span></a></li>
+  <li><a href="index.html">Home</a></li>
+  
+  <!-- SHOP DROPDOWN -->
+  <li class="has-dropdown">
+    <a href="shop.html">Shop All <span class="arrow">▾</span></a>
+    <div class="dropdown-menu">
+      <div class="dropdown-column">
+        <h4>By Occasion & Space</h4>
+        <a href="shop.html?cat=home">🏠 Home Decor & Accents</a>
+        <a href="shop.html?cat=wedding">💍 Wedding & Event Florals</a>
+        <a href="shop.html?cat=gift">🎁 Gift Sets & Bundles</a>
+        <a href="shop.html?cat=centerpieces">🕯️ Luxury Centerpieces</a>
+      </div>
+      <div class="dropdown-column">
+        <h4>By Botanical Type</h4>
+        <a href="shop.html?cat=stems">🌿 Loose Stems & Greenery</a>
+        <a href="shop.html?cat=orchids">🌺 Orchids & Tropicals</a>
+        <a href="shop.html?cat=peonies">🌸 Classic Roses & Peonies</a>
+        <a href="shop.html?cat=seasonal">🍁 Seasonal & Holiday</a>
+      </div>
+      <div class="dropdown-column highlight-box">
+        <h4>Bespoke Design</h4>
+        <p>Looking for something tailored to your exact vessel or color scheme?</p>
+        <a href="contact.html" class="dropdown-btn">Custom Order →</a>
+      </div>
+    </div>
+  </li>
+
+  <li><a href="weddings.html">Weddings</a></li>
+  <li><a href="why-silk.html">Why Silk?</a></li>
+  <li><a href="gallery.html">Gallery</a></li>
+  <li><a href="about.html">About</a></li>
+  <li><a href="contact.html">Contact</a></li>
 </ul>
 <div class="nav-actions">
-<a class="btn btn-sm btn-outline" href="shop.html">Shop Now</a>
+<button class="cart-btn" onclick="window.location='cart.html'">🛒 Cart <span class="cart-count" style="display:none;">0</span></button>
 </div>
 </nav>
+
 <div class="breadcrumb"><a href="index.html">Home</a><span>›</span><a href="shop.html">Shop</a><span>›</span> Your Cart</div>
 <div id="cart-page"></div>
+
 <!-- SUGGESTED -->
 <section class="suggested" id="suggested-section" style="display:none;">
 <h2>You Might Also Love</h2>
 <p>Add more to unlock the Buy 3 Get 4th Free offer!</p>
 <div class="suggested-grid" id="suggested-grid"></div>
 </section>
+
 <footer class="site-footer">
 <div class="footer-grid">
 <div class="footer-brand"><span class="logo-text">21 Florals</span><p>Handcrafted silk floral arrangements inspired by the beauty of nature.</p></div>
 <div><h4>Shop</h4><ul><li><a href="shop.html">All Arrangements</a></li><li><a href="weddings.html">Wedding Florals</a></li><li><a href="contact.html">Custom Orders</a></li></ul></div>
-<div><h4>Company</h4><ul><li><a href="about.html">Our Story</a></li><li><a href="index.html#why-silk">Why Silk?</a></li><li><a href="shop.html#gallery">Gallery</a></li></ul></div>
+<div><h4>Company</h4><ul><li><a href="about.html">Our Story</a></li><li><a href="why-silk.html">Why Silk?</a></li><li><a href="gallery.html">Gallery</a></li></ul></div>
 <div><h4>Contact</h4><ul><li><a href="tel:8188560033">📞 (818) 856-0033</a></li><li><a>📍 Northridge, CA 91324</a></li></ul></div>
 </div>
 <div class="footer-bottom"><p>© 2025 21 Florals. All rights reserved.</p></div>
 </footer>
+
 <script src="shared.js"></script>
 <script>
 function renderCart() {
