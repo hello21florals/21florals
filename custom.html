@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Custom 3-5-8 Studio | 21 Florals</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="brand-container">
+      <span class="sub-heading">PERMANENT BOTANICAL STUDIO</span>
+      <h1 class="brand-logo">21 Florals</h1>
+      <p class="brand-tagline">The Lasting Artistry of Silk Perfection</p>
+    </div>
+
+    <nav class="main-nav">
+      <div class="nav-grid">
+        <a href="index.html" class="nav-btn">
+          <i class="fa-solid fa-house-chimney"></i>
+          <span>Home</span>
+        </a>
+        <a href="shop.html" class="nav-btn">
+          <i class="fa-solid fa-spa"></i>
+          <span>Shop Florals</span>
+        </a>
+        <a href="custom.html" class="nav-btn active">
+          <i class="fa-solid fa-wand-magic-sparkles"></i>
+          <span>Custom Order</span>
+        </a>
+        <a href="about.html" class="nav-btn">
+          <i class="fa-solid fa-book-open"></i>
+          <span>About Us</span>
+        </a>
+        <button class="nav-btn cart-nav-btn" id="open-cart-btn">
+          <i class="fa-solid fa-basket-shopping"></i>
+          <span>Cart (<span id="cart-count">0</span>)</span>
+        </button>
+      </div>
+    </nav>
+
+    <div class="botanical-divider">
+      <span class="line"></span>
+      <span class="divider-icon">❧</span>
+      <span class="line"></span>
+    </div>
+  </header>
+
+  <main class="content-container">
+    <div class="custom-builder-header">
+      <h2>The 3-5-8 Custom Studio</h2>
+      <p>Design a bespoke permanent centerpiece adhering to the classical 3-5-8 botanical balance rule.</p>
+    </div>
+
+    <div class="custom-studio-grid">
+      <!-- FORM CONTROLS -->
+      <div class="builder-controls">
+        <form id="custom-floral-form">
+          <div class="studio-block">
+            <h3>1. Select Your 21 Florals Ingredients</h3>
+            <div class="input-group">
+              <label>Primary Focal Blooms (Select 3 Stems - $45)</label>
+              <select id="select-primary" class="form-control" required></select>
+            </div>
+            <div class="input-group">
+              <label>Secondary Accent Blooms (Select 5 Stems - $35)</label>
+              <select id="select-secondary" class="form-control" required></select>
+            </div>
+            <div class="input-group">
+              <label>Supporting Foliage & Stems (Select 8 Stems - $25)</label>
+              <select id="select-supporting" class="form-control" required></select>
+            </div>
+          </div>
+
+          <div class="studio-block">
+            <h3>2. Color Palette & Vessel</h3>
+            <div class="input-group">
+              <label>Color Theme</label>
+              <select id="select-color" class="form-control">
+                <option value="Classic White & Cream">Monochromatic White & Linen Cream</option>
+                <option value="Blush & Dusty Rose">Blush, Dusty Rose & Champagne</option>
+                <option value="Deep Jewel Tones">Burgundy, Plum & Deep Gold</option>
+                <option value="Sunset Crimson">Sunset Crimson & Warm Ochre</option>
+                <option value="Botanical Sage">Verdant Sage & Crisp White</option>
+              </select>
+            </div>
+            <div class="input-group">
+              <label>Vase Style</label>
+              <select id="select-vase" class="form-control">
+                <option value="Fluted Crystal Urn (+$40)" data-price="40">Fluted Lead-Free Crystal Urn (+ $40)</option>
+                <option value="Matte Ceramic Cylinder (+$30)" data-price="30">Matte Ceramic Cylinder (+ $30)</option>
+                <option value="Hammered Brass Vessel (+$45)" data-price="45">Hammered Vintage Brass Vessel (+ $45)</option>
+                <option value="Rustic Birch Box (+$25)" data-price="25">Rustic Hand-Carved Birch Box (+ $25)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="studio-block">
+            <h3>3. Fine Finishing Touches</h3>
+            <div class="input-group">
+              <label>Base Accent Filling</label>
+              <select id="select-accent" class="form-control">
+                <option value="Faux Water Acrylic Gel (+$15)" data-price="15">Clear Faux Water Acrylic Gel (+ $15)</option>
+                <option value="Polished River Stones (+$10)" data-price="10">Polished River Stones (+ $10)</option>
+                <option value="Preserved Spanish Moss (+$8)" data-price="8">Preserved Spanish Moss (+ $8)</option>
+                <option value="Double Satin Ribbon Wrap (+$12)" data-price="12">Double-Satin Ribbon Wrap (+ $12)</option>
+              </select>
+            </div>
+            <div class="checkbox-group">
+              <label class="checkbox-label">
+                <input type="checkbox" id="check-bling" data-price="25" />
+                <span class="check-text">✨ <strong>Bling Upgrade (+ $25)</strong>: Hand-applied microscopic crystalline dew glitter along outer petal tips.</span>
+              </label>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- LIVE SUMMARY -->
+      <div class="builder-summary-card">
+        <h3>Design Specification Summary</h3>
+        <div class="summary-details" id="custom-summary-box"></div>
+        <div class="price-calculator">
+          <span>Arrangement Price:</span>
+          <span class="total-price" id="custom-total-price">$160.00</span>
+        </div>
+        <button type="button" class="btn-primary full-width" id="add-custom-to-cart">
+          <i class="fa-solid fa-plus"></i> Add Custom Arrangement to Cart
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <div id="cart-drawer" class="cart-drawer-overlay">
+    <div class="cart-container">
+      <div class="cart-header">
+        <h3><i class="fa-solid fa-basket-shopping"></i> Your Shopping Cart</h3>
+        <button class="cart-close-btn" id="close-cart-btn">&times;</button>
+      </div>
+      <div class="cart-items" id="cart-items-list"></div>
+      <div class="cart-footer">
+        <div class="cart-subtotal">
+          <span>Subtotal</span>
+          <span id="cart-total-amount">$0.00</span>
+        </div>
+        <p class="tax-note">Taxes & shipping calculated at checkout.</p>
+        <div class="checkout-actions">
+          <button class="btn-checkout stripe-btn" id="stripe-checkout-btn">
+            <i class="fa-brands fa-stripe"></i> Checkout with Credit Card / Stripe
+          </button>
+          <div class="payment-or">- OR -</div>
+          <div id="paypal-button-container"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <h4>21 Florals</h4>
+        <p>Everlasting Botanical Design Studio</p>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="custom.html">Custom Studio</a>
+        <a href="about.html">About Us</a>
+      </div>
+      <div class="footer-copy">
+        <p>&copy; 2026 21 Florals. All rights reserved. Hosted on GitHub Pages.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
