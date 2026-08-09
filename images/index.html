@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="21 Florals creates lasting, artfully arranged silk floral designs for every celebration and space."
+  />
+  <title>21 Florals | Everlasting Beauty</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=DM+Sans:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="21 Florals home">
+      <span>21</span> Florals
+    </a>
+
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="#collections">Shop</a>
+      <a href="#why-silk">Why Silk</a>
+      <a href="#custom">Custom Order</a>
+      <button class="cart-button" id="cartOpen" type="button">
+        Bag <b id="cartCount">0</b>
+      </button>
+    </nav>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">ARTFULLY EVERLASTING</p>
+        <h1>
+          Flowers that hold<br />
+          <em>the moment.</em>
+        </h1>
+
+        <p class="lede">
+          Sculptural silk arrangements, thoughtfully composed to make every
+          room—and every occasion—feel beautifully remembered.
+        </p>
+
+        <div class="hero-actions">
+          <a class="button" href="#collections">Explore arrangements</a>
+          <a class="text-link" href="#custom">Design your own →</a>
+        </div>
+      </div>
+
+      <div class="hero-art" aria-label="Decorative silk floral illustration">
+        <div class="sun"></div>
+        <div class="flower flower-one">✿</div>
+        <div class="flower flower-two">❀</div>
+        <div class="flower flower-three">✿</div>
+        <div class="stem"></div>
+        <p>Forever in bloom</p>
+      </div>
+    </section>
+
+    <section class="intro">
+      <p class="eyebrow">THE 21 FLORALS EDIT</p>
+      <h2>
+        Made to be admired<br />
+        long after the occasion.
+      </h2>
+      <p>
+        Each arrangement is composed by hand with lifelike botanicals,
+        considered texture, and a little everyday grandeur.
+      </p>
+    </section>
+
+    <section class="products-section" id="collections">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">SHOP THE COLLECTION</p>
+          <h2>Exquisite arrangements</h2>
+        </div>
+
+        <button class="text-link" id="showAll" type="button">
+          View all collections →
+        </button>
+      </div>
+
+      <div class="filters" id="filters" aria-label="Product categories"></div>
+
+      <div class="product-grid" id="productGrid"></div>
+    </section>
+
+    <section class="silk-section" id="why-silk">
+      <div class="silk-copy">
+        <p class="eyebrow">THE SILK ADVANTAGE</p>
+
+        <h2>
+          All the romance.<br />
+          None of the <em>routine.</em>
+        </h2>
+
+        <p>
+          Our botanicals stay as composed as the day they arrive—designed for
+          full lives, sensitive spaces, and lasting beauty.
+        </p>
+
+        <div class="benefits-grid">
+          <article>
+            <b>01</b>
+            <h3>Never wilts</h3>
+            <p>Perfectly in season, every single day.</p>
+          </article>
+
+          <article>
+            <b>02</b>
+            <h3>No watering</h3>
+            <p>Beauty that asks for nothing back.</p>
+          </article>
+
+          <article>
+            <b>03</b>
+            <h3>Allergy safe</h3>
+            <p>Enjoy the look of flowers without pollen.</p>
+          </article>
+
+          <article>
+            <b>04</b>
+            <h3>Maintenance free</h3>
+            <p>A gentle dust is all they need.</p>
+          </article>
+
+          <article>
+            <b>05</b>
+            <h3>Travel-ready</h3>
+            <p>Celebrate anywhere, without the rush.</p>
+          </article>
+
+          <article>
+            <b>06</b>
+            <h3>Long-lasting luxury</h3>
+            <p>A beautiful alternative to weekly fresh stems.</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="silk-art" aria-label="Decorative floral artwork">
+        <span>❁</span>
+        <span>✿</span>
+        <span>❀</span>
+        <div class="arch"></div>
+      </div>
+    </section>
+
+    <section class="occasions-section">
+      <p class="eyebrow">FOR EVERY MOMENT</p>
+      <h2>Designed for the life you’re celebrating.</h2>
+
+      <div class="occasion-row">
+        <button data-filter="Mother’s Day" type="button">Mother’s Day</button>
+        <button data-filter="Valentine’s Day" type="button">Valentine’s Day</button>
+        <button data-filter="Birthdays" type="button">Birthdays</button>
+        <button data-filter="Weddings" type="button">Weddings</button>
+        <button data-filter="Corporate" type="button">Corporate</button>
+        <button data-filter="Public Spaces" type="button">Hotels & Lobbies</button>
+        <button data-filter="Home Decor" type="button">Home Decor</button>
+        <button data-filter="Holidays" type="button">Holidays</button>
+      </div>
+    </section>
+
+    <section class="custom-section" id="custom">
+      <div class="custom-copy">
+        <p class="eyebrow">ATELIER SERVICE</p>
+
+        <h2>
+          Your story,<br />
+          <em>in bloom.</em>
+        </h2>
+
+        <p>
+          Create a one-of-one arrangement through our digital floral bar.
+          Choose a palette, build with our signature 3–5–8 method, and finish
+          it with details that make it yours.
+        </p>
+
+        <button class="button" id="customStart" type="button">
+          Start your custom order
+        </button>
+      </div>
+
+      <div class="method-card">
+        <p class="eyebrow">THE 3–5–8 METHOD</p>
+
+        <div class="method-row">
+          <b>3</b>
+          <span>
+            <strong>Primary florals</strong>
+            <small>Your focal, statement blooms</small>
+          </span>
+        </div>
+
+        <div class="method-row">
+          <b>5</b>
+          <span>
+            <strong>Secondary florals</strong>
+            <small>Shape, movement, and color</small>
+          </span>
+        </div>
+
+        <div class="method-row">
+          <b>8</b>
+          <span>
+            <strong>Supporting stems</strong>
+            <small>Texture and a natural finish</small>
+          </span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand" href="#home"><span>21</span> Florals</a>
+    <p>Everlasting beauty, artfully arranged.</p>
+    <p>© 2026 21 Florals</p>
+  </footer>
+
+  <aside class="cart-panel" id="cart" aria-label="Shopping cart">
+    <div class="cart-heading">
+      <h2>Your bag</h2>
+      <button class="close-button" id="cartClose" type="button" aria-label="Close cart">
+        ×
+      </button>
+    </div>
+
+    <div id="cartItems">
+      <p class="empty-cart">
+        Your bag is waiting for something beautiful.
+      </p>
+    </div>
+
+    <div class="cart-footer">
+      <p>Subtotal <strong id="subtotal">$0</strong></p>
+
+      <button class="button full-button" id="checkout" type="button">
+        Checkout
+      </button>
+
+      <small>
+        Payments are configured after you connect Stripe or PayPal.
+      </small>
+    </div>
+  </aside>
+
+  <div class="overlay" id="overlay"></div>
+
+  <dialog id="customModal">
+    <button
+      class="close-button modal-close"
+      type="button"
+      aria-label="Close custom arrangement form"
+    >
+      ×
+    </button>
+
+    <p class="eyebrow">CUSTOM FLORAL BAR</p>
+    <h2>Compose your arrangement</h2>
+
+    <p class="modal-note">
+      Select exactly 3 primary, 5 secondary, and 8 supporting stems from our
+      21 silk botanicals.
+    </p>
+
+    <form id="customForm">
+      <div class="builder-grid">
+        <fieldset>
+          <legend>Color theme</legend>
+          <select name="palette">
+            <option>Blush & Cream</option>
+            <option>Wildflower Garden</option>
+            <option>Moody Merlot</option>
+            <option>Coastal Neutrals</option>
+            <option>Verdant Green</option>
+            <option>Custom Palette</option>
+          </select>
+        </fieldset>
+
+        <fieldset>
+          <legend>Vase</legend>
+          <select name="vase">
+            <option>Ribbed ceramic</option>
+            <option>Clear glass compote</option>
+            <option>Matte stoneware</option>
+            <option>Antique brass urn</option>
+            <option>Woven basket</option>
+          </select>
+        </fieldset>
+
+        <fieldset>
+          <legend>Accents</legend>
+          <select name="accent">
+            <option>None</option>
+            <option>Velvet ribbon</option>
+            <option>Trailing ivy</option>
+            <option>Preserved moss</option>
+            <option>Gold leaf</option>
+          </select>
+        </fieldset>
+
+        <label class="bling-option">
+          <input type="checkbox" name="bling" />
+          Add the Bling Upgrade — hand-applied petal glitter (+$18)
+        </label>
+      </div>
+
+      <div class="flower-picks" id="flowerPicks"></div>
+
+      <p class="selection-status" id="selection">
+        Choose 3 / 5 / 8 stems to continue.
+      </p>
+
+      <button class="button" type="submit">
+        Add custom arrangement — $185
+      </button>
+    </form>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
