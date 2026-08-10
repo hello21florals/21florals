@@ -1,144 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>21 Florals | Luxury Silk Floral Arrangements</title>
-  <meta name="description" content="Luxury silk floral arrangements designed to bring lasting, maintenance-free beauty to every space and occasion.">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>21 Florals | Everlasting Silk Floral Artistry</title>
+  
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <!-- Navigation -->
-  <header class="header">
-    <div class="container nav-container">
-      <a href="index.html" class="logo">21 <span>Florals</span></a>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="index.html" class="nav-link active">Home</a></li>
-        <li><a href="shop.html" class="nav-link">Shop</a></li>
-        <li><a href="custom-order.html" class="nav-link">Custom Designer</a></li>
-        <li><a href="about.html" class="nav-link">About Us</a></li>
-        <li><a href="contact.html" class="nav-link">Contact</a></li>
-      </ul>
-      <div class="nav-actions">
-        <a href="cart.html" class="cart-icon-wrapper" aria-label="Cart">
-          🛒 <span class="cart-badge" id="cartBadge">0</span>
+  <!-- TOP BRAND HEADER -->
+  <header class="site-header">
+    <div class="brand-container">
+      <span class="sub-heading">PERMANENT BOTANICAL STUDIO</span>
+      <h1 class="brand-logo">21 Florals</h1>
+      <p class="brand-tagline">The Lasting Artistry of Silk Perfection</p>
+    </div>
+
+    <!-- NAVIGATION MENU -->
+    <nav class="main-nav">
+      <div class="nav-grid">
+        <a href="index.html" class="nav-btn active">
+          <i class="fa-solid fa-house-chimney"></i>
+          <span>Home</span>
         </a>
-        <button class="hamburger" id="hamburgerBtn" aria-label="Toggle Menu">☰</button>
+        <a href="shop.html" class="nav-btn">
+          <i class="fa-solid fa-spa"></i>
+          <span>Shop Florals</span>
+        </a>
+        <a href="custom.html" class="nav-btn">
+          <i class="fa-solid fa-wand-magic-sparkles"></i>
+          <span>Custom Order</span>
+        </a>
+        <a href="about.html" class="nav-btn">
+          <i class="fa-solid fa-book-open"></i>
+          <span>About Us</span>
+        </a>
+        <button class="nav-btn cart-nav-btn" id="open-cart-btn">
+          <i class="fa-solid fa-basket-shopping"></i>
+          <span>Cart (<span id="cart-count">0</span>)</span>
+        </button>
       </div>
+    </nav>
+
+    <!-- DECORATIVE HORIZONTAL DIVIDER -->
+    <div class="botanical-divider">
+      <span class="line"></span>
+      <span class="divider-icon">❧</span>
+      <span class="line"></span>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="section" style="padding-top:2rem;">
-    <div class="container" style="display:grid; grid-template-columns: 1fr 1fr; gap:3rem; align-items:center;">
-      <div>
-        <span style="letter-spacing:0.15em; text-transform:uppercase; font-size:0.85rem; color:var(--clr-accent-dark); font-weight:700;">Everlasting Elegance</span>
-        <h1 style="font-size:3.5rem; line-height:1.15; margin:1rem 0;">Beauty That Never Wilts.</h1>
-        <p style="font-size:1.15rem; color:var(--clr-text-muted); margin-bottom:2rem;">
-          Luxury silk floral arrangements designed to bring lasting beauty, unmatched craftsmanship, and timeless elegance to every space and occasion.
-        </p>
-        <div style="display:flex; gap:1rem; flex-wrap:wrap;">
-          <a href="shop.html" class="btn btn-primary">Shop Florals</a>
-          <a href="custom-order.html" class="btn btn-outline">Create Your Own</a>
+  <!-- HOME CONTENT -->
+  <main class="content-container">
+    <section class="hero-banner">
+      <div class="hero-text">
+        <h2>Timeless Elegance, Zero Compromise</h2>
+        <p>Hand-crafted silk botanical arrangements designed to capture nature's peak beauty indefinitely.</p>
+        <a href="shop.html" class="btn-primary">Explore Collections</a>
+      </div>
+    </section>
+
+    <!-- ELEGANT STATEMENTS SECTION -->
+    <section class="artistry-quotes">
+      <div class="quote-card">
+        <p class="quote-body">"Nature paints in moments; silk sculpting captures those moments for a lifetime."</p>
+        <span class="quote-author">— 21 Florals Design Philosophy</span>
+      </div>
+    </section>
+
+    <!-- FEATURED GALLERY -->
+    <section class="home-gallery-section">
+      <div class="section-title">
+        <h3>Exquisite Masterpieces</h3>
+        <p>Click any arrangement to inspect close-up botanical details</p>
+      </div>
+      <div class="gallery-grid" id="home-gallery">
+        <!-- Rendered by JS -->
+      </div>
+    </section>
+
+    <!-- BENEFITS SECTION -->
+    <section class="benefits-section">
+      <div class="section-title">
+        <h3>Why Premium Silk Surpasses Fresh Cut</h3>
+        <p>The refined choice for luxury homes, corporate suites, and memorable celebrations.</p>
+      </div>
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <i class="fa-solid fa-infinity benefit-icon"></i>
+          <h4>Never Wilts or Fades</h4>
+          <p>Stays perpetually in peak blossom year after year without petal drop or brown edges.</p>
+        </div>
+        <div class="benefit-card">
+          <i class="fa-solid fa-droplet-slash benefit-icon"></i>
+          <h4>Zero Maintenance</h4>
+          <p>No daily watering, flower food, stem trimming, or muddy vase water replacement ever needed.</p>
+        </div>
+        <div class="benefit-card">
+          <i class="fa-solid fa-shield-cat benefit-icon"></i>
+          <h4>Allergy & Pet Safe</h4>
+          <p>100% hypoallergenic with zero pollen or toxic sap risks to cherished pets and sensitive guests.</p>
+        </div>
+        <div class="benefit-card">
+          <i class="fa-solid fa-piggy-bank benefit-icon"></i>
+          <h4>Enduring Value</h4>
+          <p>Eliminates recurring weekly fresh-flower replacement costs while offering timeless heirloom beauty.</p>
+        </div>
+        <div class="benefit-card">
+          <i class="fa-solid fa-calendar-check benefit-icon"></i>
+          <h4>All-Season Availability</h4>
+          <p>Enjoy peak spring peonies or rare garden roses year-round regardless of season or climate.</p>
+        </div>
+        <div class="benefit-card">
+          <i class="fa-solid fa-award benefit-icon"></i>
+          <h4>Museum-Grade Realism</h4>
+          <p>Hand-dyed real-touch silk polymers replicate natural leaf veins, dew, and delicate petal textures.</p>
         </div>
       </div>
-      <div style="position:relative;">
-        <img src="https://images.unsplash.com/photo-1563241527-3004b7be0ffd?auto=format&fit=crop&w=1000&q=80" alt="Luxury Pink Peony Silk Arrangement" style="border-radius:var(--radius-lg); width:100%; box-shadow:0 20px 40px rgba(0,0,0,0.1);">
+    </section>
+  </main>
+
+  <!-- LIGHTBOX MODAL -->
+  <div id="lightbox-modal" class="lightbox-overlay">
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightbox-close">&times;</button>
+      <img id="lightbox-img" src="" alt="Enlarged floral view" />
+      <div class="lightbox-caption">
+        <h4 id="lightbox-title"></h4>
+        <p id="lightbox-desc"></p>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- Featured Arrangements -->
-  <section class="section" style="background:#FFF;">
-    <div class="container">
-      <h2 class="section-title text-center">Featured Arrangements</h2>
-      <p class="section-subtitle text-center">Handcrafted designs curated by our master floral artists.</p>
-      
-      <div class="product-grid" id="featuredGrid">
-        <!-- Injected via main.js -->
+  <!-- SHOPPING CART DRAWER -->
+  <div id="cart-drawer" class="cart-drawer-overlay">
+    <div class="cart-container">
+      <div class="cart-header">
+        <h3><i class="fa-solid fa-basket-shopping"></i> Your Shopping Cart</h3>
+        <button class="cart-close-btn" id="close-cart-btn">&times;</button>
       </div>
-    </div>
-  </section>
-
-  <!-- Why Silk Florals? -->
-  <section class="section">
-    <div class="container">
-      <h2 class="section-title text-center">Why Silk Florals?</h2>
-      <p class="section-subtitle text-center">The contemporary luxury alternative to fresh cut flowers.</p>
-      
-      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:2rem;">
-        <div style="background:var(--clr-card); padding:2rem; border-radius:var(--radius-md); border:1px solid var(--clr-border);">
-          <div style="font-size:2rem; margin-bottom:0.5rem;">🌸</div>
-          <h3 style="font-size:1.2rem; margin-bottom:0.5rem;">Never Wilts</h3>
-          <p style="font-size:0.9rem; color:var(--clr-text-muted);">Maintains peak bloom permanently without fading or loss of petals.</p>
+      <div class="cart-items" id="cart-items-list">
+        <!-- Rendered by JS -->
+      </div>
+      <div class="cart-footer">
+        <div class="cart-subtotal">
+          <span>Subtotal</span>
+          <span id="cart-total-amount">$0.00</span>
         </div>
-        <div style="background:var(--clr-card); padding:2rem; border-radius:var(--radius-md); border:1px solid var(--clr-border);">
-          <div style="font-size:2rem; margin-bottom:0.5rem;">💧</div>
-          <h3 style="font-size:1.2rem; margin-bottom:0.5rem;">Zero Maintenance</h3>
-          <p style="font-size:0.9rem; color:var(--clr-text-muted);">No watering, stem trimming, or sunlight required. Completely effortless.</p>
-        </div>
-        <div style="background:var(--clr-card); padding:2rem; border-radius:var(--radius-md); border:1px solid var(--clr-border);">
-          <div style="font-size:2rem; margin-bottom:0.5rem;">🌿</div>
-          <h3 style="font-size:1.2rem; margin-bottom:0.5rem;">Allergy Friendly</h3>
-          <p style="font-size:0.9rem; color:var(--clr-text-muted);">Hypoallergenic materials means no pollen or strong fragrance triggers.</p>
-        </div>
-        <div style="background:var(--clr-card); padding:2rem; border-radius:var(--radius-md); border:1px solid var(--clr-border);">
-          <div style="font-size:2rem; margin-bottom:0.5rem;">💎</div>
-          <h3 style="font-size:1.2rem; margin-bottom:0.5rem;">Cost Effective</h3>
-          <p style="font-size:0.9rem; color:var(--clr-text-muted);">A single investment yields years of architectural and interior elegance.</p>
+        <p class="tax-note">Taxes & shipping calculated at checkout.</p>
+        <div class="checkout-actions">
+          <button class="btn-checkout stripe-btn" id="stripe-checkout-btn">
+            <i class="fa-brands fa-stripe"></i> Checkout with Credit Card / Stripe
+          </button>
+          <div class="payment-or">- OR -</div>
+          <div id="paypal-button-container"></div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- CTA Custom -->
-  <section class="section" style="background: linear-gradient(135deg, #E8C5C8 0%, #FAF6F0 100%); text-align:center;">
-    <div class="container" style="max-width:800px;">
-      <h2 style="font-size:2.8rem; margin-bottom:1rem;">Create Something Uniquely Yours</h2>
-      <p style="font-size:1.1rem; color:var(--clr-text-muted); margin-bottom:2rem;">
-        Use our interactive 3-5-8 Floral Design System and AI Generator to assemble a bespoke centerpiece customized to your vase, color palette, and occasion.
-      </p>
-      <a href="custom-order.html" class="btn btn-primary">Launch Custom Designer</a>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <div class="logo" style="color:#FFF; margin-bottom:1rem;">21 <span>Florals</span></div>
-          <p style="color:#B5AAA2; font-size:0.9rem;">Elevating spaces with artisan-crafted luxury silk florals.</p>
-        </div>
-        <div>
-          <h4 class="footer-title">Navigation</h4>
-          <ul class="footer-links">
-            <li><a href="shop.html">Shop Catalog</a></li>
-            <li><a href="custom-order.html">Custom Designer</a></li>
-            <li><a href="about.html">Our Story</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="footer-title">Customer Care</h4>
-          <ul class="footer-links">
-            <li><a href="cart.html">View Cart</a></li>
-            <li><a href="checkout.html">Checkout</a></li>
-            <li><a href="PAYMENTS-SETUP.md" target="_blank">Payment Info</a></li>
-          </ul>
-        </div>
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <h4>21 Florals</h4>
+        <p>Everlasting Botanical Design Studio</p>
       </div>
-      <div class="footer-bottom">
-        <p>&copy; 2026 21 FLORALS. All rights reserved.</p>
-        <p>Built for static GitHub Pages hosting & dynamic API scaling.</p>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="custom.html">Custom Studio</a>
+        <a href="about.html">About Us</a>
+      </div>
+      <div class="footer-copy">
+        <p>&copy; 2026 21 Florals. All rights reserved. Hosted on GitHub Pages.</p>
       </div>
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>

@@ -1,80 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shop Silk Flowers | 21 Florals</title>
-  <meta name="description" content="Browse our luxury silk floral catalog featuring arrangements for holidays, events, interior decor, and commercial spaces.">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop Florals | 21 Florals</title>
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <!-- Navigation -->
-  <header class="header">
-    <div class="container nav-container">
-      <a href="index.html" class="logo">21 <span>Florals</span></a>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="index.html" class="nav-link">Home</a></li>
-        <li><a href="shop.html" class="nav-link active">Shop</a></li>
-        <li><a href="custom-order.html" class="nav-link">Custom Designer</a></li>
-        <li><a href="about.html" class="nav-link">About Us</a></li>
-        <li><a href="contact.html" class="nav-link">Contact</a></li>
-      </ul>
-      <div class="nav-actions">
-        <a href="cart.html" class="cart-icon-wrapper" aria-label="Cart">
-          🛒 <span class="cart-badge" id="cartBadge">0</span>
+  <header class="site-header">
+    <div class="brand-container">
+      <span class="sub-heading">PERMANENT BOTANICAL STUDIO</span>
+      <h1 class="brand-logo">21 Florals</h1>
+      <p class="brand-tagline">The Lasting Artistry of Silk Perfection</p>
+    </div>
+
+    <nav class="main-nav">
+      <div class="nav-grid">
+        <a href="index.html" class="nav-btn">
+          <i class="fa-solid fa-house-chimney"></i>
+          <span>Home</span>
         </a>
-        <button class="hamburger" id="hamburgerBtn" aria-label="Toggle Menu">☰</button>
+        <a href="shop.html" class="nav-btn active">
+          <i class="fa-solid fa-spa"></i>
+          <span>Shop Florals</span>
+        </a>
+        <a href="custom.html" class="nav-btn">
+          <i class="fa-solid fa-wand-magic-sparkles"></i>
+          <span>Custom Order</span>
+        </a>
+        <a href="about.html" class="nav-btn">
+          <i class="fa-solid fa-book-open"></i>
+          <span>About Us</span>
+        </a>
+        <button class="nav-btn cart-nav-btn" id="open-cart-btn">
+          <i class="fa-solid fa-basket-shopping"></i>
+          <span>Cart (<span id="cart-count">0</span>)</span>
+        </button>
       </div>
+    </nav>
+
+    <div class="botanical-divider">
+      <span class="line"></span>
+      <span class="divider-icon">❧</span>
+      <span class="line"></span>
     </div>
   </header>
 
-  <section class="section">
-    <div class="container">
-      <h1 class="section-title text-center">The Floral Collection</h1>
-      <p class="section-subtitle text-center">Filter by occasion, commercial decor, or floral variety.</p>
+  <main class="content-container">
+    <div class="shop-header">
+      <h2>Curated Floral Collections</h2>
+      <p>Explore distinct collections crafted for every space, milestone, and seasonal celebration.</p>
+    </div>
 
-      <!-- Search & Filters -->
-      <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:1rem; margin-bottom:2.5rem; background:#FFF; padding:1.5rem; border-radius:var(--radius-md); border:1px solid var(--clr-border);">
-        <input type="text" id="searchInput" placeholder="Search arrangements or flowers..." style="padding:0.75rem 1.25rem; border:1px solid var(--clr-border); border-radius:50px; outline:none; width:100%; max-width:320px;">
-        
-        <div style="display:flex; gap:1rem; flex-wrap:wrap;">
-          <select id="categoryFilter" style="padding:0.75rem 1rem; border:1px solid var(--clr-border); border-radius:var(--radius-sm); background:#FFF;">
-            <option value="all">All Categories</option>
-            <option value="holidays">Holidays & Occasions</option>
-            <option value="events">Events & Weddings</option>
-            <option value="commercial">Commercial & Hotel</option>
-            <option value="home">Home & Interior Decor</option>
-          </select>
+    <div id="category-sections-container">
+      <!-- Dynamically rendered category sections by JS -->
+    </div>
+  </main>
 
-          <select id="sortSelect" style="padding:0.75rem 1rem; border:1px solid var(--clr-border); border-radius:var(--radius-sm); background:#FFF;">
-            <option value="featured">Featured</option>
-            <option value="price-low">Price: Low to High</option>
-            <option value="price-high">Price: High to Low</option>
-          </select>
-        </div>
-      </div>
-
-      <!-- Catalog Grid -->
-      <div class="product-grid" id="shopGrid">
-        <!-- Rendered via shop.js -->
+  <div id="lightbox-modal" class="lightbox-overlay">
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightbox-close">&times;</button>
+      <img id="lightbox-img" src="" alt="Enlarged floral view" />
+      <div class="lightbox-caption">
+        <h4 id="lightbox-title"></h4>
+        <p id="lightbox-desc"></p>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-bottom">
-        <p>&copy; 2026 21 FLORALS. All rights reserved.</p>
+  <div id="cart-drawer" class="cart-drawer-overlay">
+    <div class="cart-container">
+      <div class="cart-header">
+        <h3><i class="fa-solid fa-basket-shopping"></i> Your Shopping Cart</h3>
+        <button class="cart-close-btn" id="close-cart-btn">&times;</button>
+      </div>
+      <div class="cart-items" id="cart-items-list"></div>
+      <div class="cart-footer">
+        <div class="cart-subtotal">
+          <span>Subtotal</span>
+          <span id="cart-total-amount">$0.00</span>
+        </div>
+        <p class="tax-note">Taxes & shipping calculated at checkout.</p>
+        <div class="checkout-actions">
+          <button class="btn-checkout stripe-btn" id="stripe-checkout-btn">
+            <i class="fa-brands fa-stripe"></i> Checkout with Credit Card / Stripe
+          </button>
+          <div class="payment-or">- OR -</div>
+          <div id="paypal-button-container"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <h4>21 Florals</h4>
+        <p>Everlasting Botanical Design Studio</p>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="custom.html">Custom Studio</a>
+        <a href="about.html">About Us</a>
+      </div>
+      <div class="footer-copy">
+        <p>&copy; 2026 21 Florals. All rights reserved. Hosted on GitHub Pages.</p>
       </div>
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
-  <script src="js/shop.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
