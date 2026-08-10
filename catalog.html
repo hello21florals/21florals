@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Shop lasting silk floral arrangements from 21 Florals."
+  />
+  <title>Catalog | 21 Florals</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=DM+Sans:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="site-header">
+    <a class="logo-link" href="index.html" aria-label="21 Florals home">
+      <img
+        class="site-logo"
+        src="logo.jpeg"
+        alt="21 Florals"
+        width="120"
+        height="120"
+      />
+    </a>
+
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a class="active-nav" href="catalog.html">Catalog</a>
+      <a href="index.html#why-silk">Why Silk</a>
+      <a href="custom-order.html">Custom Design</a>
+      <a class="nav-cta" href="cart.html">
+        Cart <span id="headerCartCount">0</span>
+      </a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <p class="eyebrow">THE 21 FLORALS COLLECTION</p>
+      <h1>
+        Find your forever<br />
+        <em>flowers.</em>
+      </h1>
+      <p>
+        Lifelike silk arrangements composed for gifting, celebration,
+        home décor, hospitality, and the meaningful moments in between.
+      </p>
+    </section>
+
+    <section class="shop-section">
+      <div class="catalog-filter-row">
+        <div>
+          <p class="eyebrow">SHOP BY OCCASION</p>
+          <h2>Made for every moment.</h2>
+        </div>
+
+        <a class="button button-light" href="custom-order.html">
+          Create Something Custom
+        </a>
+      </div>
+
+      <div class="filters" id="filters"></div>
+
+      <div class="product-grid" id="productGrid"></div>
+    </section>
+
+    <section class="catalog-cta">
+      <p class="eyebrow">CAN’T FIND THE PERFECT PIECE?</p>
+      <h2>Let us create it for you.</h2>
+      <p>
+        Choose your colors, favorite botanicals, vessel, accents, and
+        optional glittering Bling Upgrade in our custom floral atelier.
+      </p>
+      <a class="button button-dark" href="custom-order.html">
+        Design Your Arrangement
+      </a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="logo-link" href="index.html" aria-label="21 Florals home">
+      <img
+        class="footer-logo"
+        src="logo.jpeg"
+        alt="21 Florals"
+        width="120"
+        height="120"
+      />
+    </a>
+
+    <div>
+      <strong>21 Florals</strong>
+      <p>Everlasting beauty, artfully arranged.</p>
+    </div>
+
+    <p class="footer-copy">© 2026 21 Florals. All rights reserved.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
