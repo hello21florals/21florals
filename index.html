@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>21 Florals | Everlasting Silk Floral Artistry</title>
   
-  <!-- Fonts -->
+  <!-- Open Sans, Lato, and Montserrat Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@600;700;800&family=Open+Sans:wght@800&display=swap" rel="stylesheet">
   
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -25,7 +25,7 @@
       <p class="brand-tagline">The Lasting Artistry of Silk Perfection</p>
     </div>
 
-    <!-- ELEGANT BOLD NAVIGATION MENU (THIN, SQUARE, TAHOMA/VERDANA) -->
+    <!-- NAVIGATION MENU -->
     <nav class="main-nav">
       <div class="nav-grid">
         <a href="index.html" class="nav-btn active">
@@ -40,9 +40,9 @@
           <i class="fa-solid fa-wand-magic-sparkles"></i>
           <span>Custom Order</span>
         </a>
-        <a href="about.html" class="nav-btn">
-          <i class="fa-solid fa-book-open"></i>
-          <span>About Us</span>
+        <a href="contact.html" class="nav-btn">
+          <i class="fa-solid fa-envelope"></i>
+          <span>Contact Us</span>
         </a>
         <button class="nav-btn cart-nav-btn" id="open-cart-btn">
           <i class="fa-solid fa-basket-shopping"></i>
@@ -72,14 +72,34 @@
       </div>
     </section>
 
-    <!-- FEATURED GALLERY -->
-    <section class="home-gallery-section">
+    <!-- INTEGRATED ABOUT US / STUDIO STORY SECTION -->
+    <section class="home-about-section">
       <div class="section-title">
-        <h3>Exquisite Masterpieces</h3>
-        <p>Click any arrangement to inspect close-up botanical details</p>
+        <h3>Crafting Forever in Bloom</h3>
+        <p>Where traditional botanical floral design meets everlasting material innovation</p>
       </div>
-      <div class="gallery-grid" id="home-gallery">
-        <!-- Rendered dynamically by app.js -->
+
+      <div class="about-content-grid">
+        <div class="about-text-box">
+          <h4>Our Story</h4>
+          <p>Founded on the belief that floral beauty shouldn't fade after a week, <strong>21 Florals</strong> curates and designs museum-quality silk flower arrangements. Every stem in our collection is hand-selected from master botanical artisans who utilize silk polymers, real-touch coatings, and botanical precision.</p>
+          
+          <h4>The Master 21 Palette</h4>
+          <p>We restrict our studio palette to a curated master list of exactly 21 premium floral species. This ensures every leaf, petal, and stem across our shop, custom orders, and installations maintains an uncompromising standard of realism, color harmony, and texture.</p>
+          
+          <h4>Sustainable Beauty</h4>
+          <p>By replacing short-lived fresh flowers with permanent botanicals, our arrangements eliminate the environmental footprint of refrigeration, transatlantic cold-chain shipping, and weekly landfill floral waste.</p>
+        </div>
+
+        <div class="about-highlight-card">
+          <h4>The 21 Florals Commitment</h4>
+          <ul>
+            <li><i class="fa-solid fa-check"></i> 100% Real-Touch Silk Botanicals</li>
+            <li><i class="fa-solid fa-check"></i> Hand-arranged in California</li>
+            <li><i class="fa-solid fa-check"></i> Secure White-Glove Shipping</li>
+            <li><i class="fa-solid fa-check"></i> Lifetime Shape & Color Guarantee</li>
+          </ul>
+        </div>
       </div>
     </section>
 
@@ -143,9 +163,7 @@
         <h3><i class="fa-solid fa-basket-shopping"></i> Your Shopping Cart</h3>
         <button class="cart-close-btn" id="close-cart-btn">&times;</button>
       </div>
-      <div class="cart-items" id="cart-items-list">
-        <!-- Rendered dynamically by app.js -->
-      </div>
+      <div class="cart-items" id="cart-items-list"></div>
       <div class="cart-footer">
         <div class="cart-subtotal">
           <span>Subtotal</span>
@@ -163,7 +181,7 @@
     </div>
   </div>
 
-  <!-- FOOTER WITH CONTACT INFO AND SOCIAL MEDIA -->
+  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="footer-content">
       <div class="footer-brand">
@@ -171,7 +189,6 @@
         <p>Everlasting Botanical Design Studio</p>
       </div>
 
-      <!-- CONTACT INFO -->
       <div class="footer-contact-info">
         <div class="contact-item">
           <i class="fa-solid fa-envelope"></i>
@@ -183,7 +200,6 @@
         </div>
       </div>
 
-      <!-- SOCIAL MEDIA LINKS -->
       <div class="footer-social-links">
         <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
         <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>

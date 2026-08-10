@@ -5,14 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shop Florals | 21 Florals</title>
   
+  <!-- Open Sans, Lato, and Montserrat Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@600;700;800&family=Open+Sans:wght@800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
+  <!-- TOP BRAND HEADER -->
   <header class="site-header">
     <div class="brand-container">
       <span class="sub-heading">PERMANENT BOTANICAL STUDIO</span>
@@ -20,6 +24,7 @@
       <p class="brand-tagline">The Lasting Artistry of Silk Perfection</p>
     </div>
 
+    <!-- NAVIGATION MENU -->
     <nav class="main-nav">
       <div class="nav-grid">
         <a href="index.html" class="nav-btn">
@@ -34,9 +39,9 @@
           <i class="fa-solid fa-wand-magic-sparkles"></i>
           <span>Custom Order</span>
         </a>
-        <a href="about.html" class="nav-btn">
-          <i class="fa-solid fa-book-open"></i>
-          <span>About Us</span>
+        <a href="contact.html" class="nav-btn">
+          <i class="fa-solid fa-envelope"></i>
+          <span>Contact Us</span>
         </a>
         <button class="nav-btn cart-nav-btn" id="open-cart-btn">
           <i class="fa-solid fa-basket-shopping"></i>
@@ -45,13 +50,15 @@
       </div>
     </nav>
 
+    <!-- DECORATIVE DIVIDER -->
     <div class="botanical-divider">
       <span class="line"></span>
-      <span class="divider-icon">🌸</span>
+      <span class="divider-icon">❧</span>
       <span class="line"></span>
     </div>
   </header>
 
+  <!-- SHOP CONTENT -->
   <main class="content-container">
     <div class="shop-header">
       <h2>Curated Floral Collections</h2>
@@ -59,10 +66,11 @@
     </div>
 
     <div id="category-sections-container">
-      <!-- Dynamically rendered category sections -->
+      <!-- Dynamically rendered category sections by app.js -->
     </div>
   </main>
 
+  <!-- LIGHTBOX MODAL -->
   <div id="lightbox-modal" class="lightbox-overlay">
     <div class="lightbox-content">
       <button class="lightbox-close" id="lightbox-close">&times;</button>
@@ -74,6 +82,7 @@
     </div>
   </div>
 
+  <!-- SHOPPING CART DRAWER -->
   <div id="cart-drawer" class="cart-drawer-overlay">
     <div class="cart-container">
       <div class="cart-header">
@@ -98,17 +107,28 @@
     </div>
   </div>
 
+  <!-- FOOTER WITH CONTACT INFO AND SOCIAL MEDIA -->
   <footer class="site-footer">
     <div class="footer-content">
       <div class="footer-brand">
         <h4>21 Florals</h4>
         <p>Everlasting Botanical Design Studio</p>
       </div>
-      <div class="footer-links">
-        <a href="index.html">Home</a>
-        <a href="shop.html">Shop</a>
-        <a href="custom.html">Custom Studio</a>
-        <a href="about.html">About Us</a>
+      <div class="footer-contact-info">
+        <div class="contact-item">
+          <i class="fa-solid fa-envelope"></i>
+          <a href="mailto:contact@21florals.com">contact@21florals.com</a>
+        </div>
+        <div class="contact-item">
+          <i class="fa-solid fa-phone"></i>
+          <a href="tel:+18005552121">(800) 555-2121</a>
+        </div>
+      </div>
+      <div class="footer-social-links">
+        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#" aria-label="Pinterest"><i class="fa-brands fa-pinterest"></i></a>
+        <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
       </div>
       <div class="footer-copy">
         <p>&copy; 2026 21 Florals. All rights reserved. Hosted on GitHub Pages.</p>
