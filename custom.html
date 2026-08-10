@@ -7,7 +7,7 @@
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -47,7 +47,7 @@
 
     <div class="botanical-divider">
       <span class="line"></span>
-      <span class="divider-icon">❧</span>
+      <span class="divider-icon">🌸</span>
       <span class="line"></span>
     </div>
   </header>
@@ -65,15 +65,15 @@
           <div class="studio-block">
             <h3>1. Select Your 21 Florals Ingredients</h3>
             <div class="input-group">
-              <label>Primary Focal Blooms (Select 3 Stems - $45)</label>
+              <label for="select-primary">Primary Focal Blooms (Select 3 Stems - $45)</label>
               <select id="select-primary" class="form-control" required></select>
             </div>
             <div class="input-group">
-              <label>Secondary Accent Blooms (Select 5 Stems - $35)</label>
+              <label for="select-secondary">Secondary Accent Blooms (Select 5 Stems - $35)</label>
               <select id="select-secondary" class="form-control" required></select>
             </div>
             <div class="input-group">
-              <label>Supporting Foliage & Stems (Select 8 Stems - $25)</label>
+              <label for="select-supporting">Supporting Foliage & Stems (Select 8 Stems - $25)</label>
               <select id="select-supporting" class="form-control" required></select>
             </div>
           </div>
@@ -81,7 +81,7 @@
           <div class="studio-block">
             <h3>2. Color Palette & Vessel</h3>
             <div class="input-group">
-              <label>Color Theme</label>
+              <label for="select-color">Color Theme</label>
               <select id="select-color" class="form-control">
                 <option value="Classic White & Cream">Monochromatic White & Linen Cream</option>
                 <option value="Blush & Dusty Rose">Blush, Dusty Rose & Champagne</option>
@@ -91,7 +91,7 @@
               </select>
             </div>
             <div class="input-group">
-              <label>Vase Style</label>
+              <label for="select-vase">Vase Style</label>
               <select id="select-vase" class="form-control">
                 <option value="Fluted Crystal Urn (+$40)" data-price="40">Fluted Lead-Free Crystal Urn (+ $40)</option>
                 <option value="Matte Ceramic Cylinder (+$30)" data-price="30">Matte Ceramic Cylinder (+ $30)</option>
@@ -104,7 +104,7 @@
           <div class="studio-block">
             <h3>3. Fine Finishing Touches</h3>
             <div class="input-group">
-              <label>Base Accent Filling</label>
+              <label for="select-accent">Base Accent Filling</label>
               <select id="select-accent" class="form-control">
                 <option value="Faux Water Acrylic Gel (+$15)" data-price="15">Clear Faux Water Acrylic Gel (+ $15)</option>
                 <option value="Polished River Stones (+$10)" data-price="10">Polished River Stones (+ $10)</option>
