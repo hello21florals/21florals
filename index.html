@@ -1,227 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>21 Florals | Everlasting Silk Floral Artistry</title>
-  
-  <!-- Open Sans, Noto Sans, and Montserrat Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Open+Sans:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
-  
-  <!-- Font Awesome Icons -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>21 Florals - Home</title>
+  <!-- Font Awesome CDN for Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- TOP BRAND HEADER -->
-  <header class="site-header">
-    <div class="brand-container">
-      <span class="sub-heading">PERMANENT BOTANICAL STUDIO</span>
-      
-      <!-- EMBLEM LOGO IMAGE -->
-      <a href="index.html" class="logo-link">
-        <img src="1000341364.png" alt="21 Florals Emblem Logo" class="site-logo-img" />
-      </a>
-      
-      <p class="brand-tagline">The Lasting Artistry of Silk Perfection</p>
-    </div>
-
-    <!-- CAPITALIZED NAVIGATION MENU -->
-    <nav class="main-nav">
-      <div class="nav-grid">
-        <a href="index.html" class="nav-btn active">
-          <i class="fa-solid fa-house-chimney"></i>
-          <span>Home</span>
-        </a>
-        <a href="shop.html" class="nav-btn">
-          <i class="fa-solid fa-spa"></i>
-          <span>Shop Florals</span>
-        </a>
-        <a href="custom.html" class="nav-btn">
-          <i class="fa-solid fa-wand-magic-sparkles"></i>
-          <span>Custom Order</span>
-        </a>
-        <a href="contact.html" class="nav-btn">
-          <i class="fa-solid fa-envelope"></i>
-          <span>Contact Us</span>
-        </a>
-        <button class="nav-btn cart-nav-btn" id="open-cart-btn">
-          <i class="fa-solid fa-basket-shopping"></i>
-          <span>Cart (<span id="cart-count">0</span>)</span>
-        </button>
-      </div>
+  <!-- Shared Header -->
+  <header>
+    <h1 class="site-title">Welcome to 21 Florals</h1>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active"><i class="fa-solid fa-house"></i> Home</a></li>
+        <li><a href="shop.html"><i class="fa-solid fa-store"></i> Shop Florals</a></li>
+        <li><a href="custom.html"><i class="fa-solid fa-wand-magic-sparkles"></i> Custom Order</a></li>
+        <li><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact Us</a></li>
+        <li><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i> Cart</a></li>
+      </ul>
     </nav>
-
-    <!-- DECORATIVE DIVIDER -->
-    <div class="botanical-divider">
-      <span class="line"></span>
-      <span class="divider-icon">❧</span>
-      <span class="line"></span>
+    <div class="floral-divider">
+      <i class="fa-solid fa-seedling floral-icon"></i>
+      <div class="line"></div>
+      <i class="fa-solid fa-seedling floral-icon"></i>
     </div>
   </header>
 
-  <!-- HOME CONTENT -->
-  <main class="content-container">
-    <section class="hero-banner">
-      <div class="hero-text">
-        <h2>Timeless Elegance, Everlasting Beauty</h2>
-        <p>Breathe vibrant color and lasting life into your home or office with hand-crafted silk botanical arrangements designed to blossom indefinitely.</p>
-        <div class="hero-buttons">
-          <a href="shop.html" class="btn-primary">Explore Collections</a>
-          <a href="custom.html" class="btn-primary btn-secondary-hero">Custom Design</a>
+  <main class="main-content">
+
+    <!-- About 21 Florals Section -->
+    <section class="content-box">
+      <h2 class="section-heading">About 21 Florals</h2>
+      <div class="about-section">
+        <div class="about-text">
+          <p>
+            <strong>21 Florals</strong> was founded by a passionate Northridge girl with a vision to revolutionize botanical decor. Born out of a love for timeless aesthetics and effortless beauty, 21 Florals crafts premium floral arrangements designed to elevate any space.
+          </p>
+          <p>
+            <em>[Insert custom description here: Share your story, inspiration, personal journey in Northridge, or unique design process that sets your silk arrangements apart.]</em>
+          </p>
+        </div>
+        <div>
+          <img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&w=500&q=80" alt="21 Florals Arrangement" class="bordered-img">
         </div>
       </div>
     </section>
 
-    <!-- INTEGRATED ABOUT US / STUDIO STORY SECTION -->
-    <section class="home-about-section">
-      <div class="section-title">
-        <h3>Crafting Forever in Bloom</h3>
-        <p>Where traditional botanical floral design meets everlasting material innovation</p>
-      </div>
+    <!-- Horizontal Bar with Floral Divider Icon -->
+    <div class="floral-divider">
+      <i class="fa-solid fa-seedling floral-icon"></i>
+      <div class="line"></div>
+      <i class="fa-solid fa-seedling floral-icon"></i>
+    </div>
 
-      <div class="about-content-grid">
-        <div class="about-text-box">
-          <h4>Our Story</h4>
-          <p>Founded on the belief that floral beauty shouldn't fade after a week, <strong>21 Florals</strong> curates and designs museum-quality silk flower arrangements. Every stem in our collection is hand-selected from master botanical artisans who utilize silk polymers, real-touch coatings, and botanical precision.</p>
-          
-          <h4>The Master 21 Palette</h4>
-          <p>We restrict our studio palette to a curated master list of exactly 21 premium floral species. This ensures every leaf, petal, and stem across our shop, custom orders, and installations maintains an uncompromising standard of realism, color harmony, and texture.</p>
-          
-          <h4>Sustainable Beauty</h4>
-          <p>By replacing short-lived fresh flowers with permanent botanicals, our arrangements eliminate the environmental footprint of refrigeration, transatlantic cold-chain shipping, and weekly landfill floral waste.</p>
-        </div>
+    <!-- Silk Florals vs Real Flowers Section -->
+    <section class="content-box">
+      <h2 class="section-heading">Silk Florals vs. Real Flowers</h2>
+      <p style="text-align: center; margin-bottom: 20px;">
+        While real flowers die within days, premium silk florals remain everlasting. Discover why switching to high-quality silk florals is a smarter, stress-free choice for your home or events.
+      </p>
 
-        <div class="about-highlight-card">
-          <h4>The 21 Florals Commitment</h4>
-          <ul>
-            <li><i class="fa-solid fa-check"></i> 100% Real-Touch Silk Botanicals</li>
-            <li><i class="fa-solid fa-check"></i> Hand-arranged in California</li>
-            <li><i class="fa-solid fa-check"></i> Secure White-Glove Shipping</li>
-            <li><i class="fa-solid fa-check"></i> Lifetime Shape & Color Guarantee</li>
-          </ul>
-        </div>
+      <!-- Comparison Chart -->
+      <div class="table-responsive">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Feature / Benefit</th>
+              <th>Silk Florals</th>
+              <th>Real Flowers</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Lifespan</strong></td>
+              <td><i class="fa-solid fa-circle-check check-icon"></i> Everlasting &amp; Permanent</td>
+              <td><i class="fa-solid fa-circle-xmark cross-icon"></i> Dies in 5–7 days</td>
+            </tr>
+            <tr>
+              <td><strong>Maintenance &amp; Care</strong></td>
+              <td><i class="fa-solid fa-circle-check check-icon"></i> No watering, no pruning</td>
+              <td><i class="fa-solid fa-circle-xmark cross-icon"></i> Requires daily water &amp; care</td>
+            </tr>
+            <tr>
+              <td><strong>Fresh Appearance</strong></td>
+              <td><i class="fa-solid fa-circle-check check-icon"></i> No wilting or fading</td>
+              <td><i class="fa-solid fa-circle-xmark cross-icon"></i> Wilts &amp; drops petals quickly</td>
+            </tr>
+            <tr>
+              <td><strong>Pet &amp; Allergy Safety</strong></td>
+              <td><i class="fa-solid fa-circle-check check-icon"></i> 100% Allergy-Free &amp; Pet-Safe</td>
+              <td><i class="fa-solid fa-circle-xmark cross-icon"></i> Can trigger allergies &amp; toxic to pets</td>
+            </tr>
+            <tr>
+              <td><strong>Value over Time</strong></td>
+              <td><i class="fa-solid fa-circle-check check-icon"></i> Highly Cost-Effective</td>
+              <td><i class="fa-solid fa-circle-xmark cross-icon"></i> Expensive recurring cost</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </section>
 
-    <!-- BENEFITS SECTION -->
-    <section class="benefits-section">
-      <div class="section-title">
-        <h3>Why Premium Silk Surpasses Fresh Cut</h3>
-        <p>The refined choice for luxury homes, corporate suites, and memorable celebrations.</p>
-      </div>
-      <div class="benefits-grid">
-        <div class="benefit-card">
-          <i class="fa-solid fa-infinity benefit-icon"></i>
-          <h4>Never Wilts or Fades</h4>
-          <p>Stays perpetually in peak blossom year after year without petal drop or brown edges.</p>
-        </div>
-        <div class="benefit-card">
-          <i class="fa-solid fa-droplet-slash benefit-icon"></i>
-          <h4>Zero Maintenance</h4>
-          <p>No daily watering, flower food, stem trimming, or muddy vase water replacement ever needed.</p>
-        </div>
-        <div class="benefit-card">
-          <i class="fa-solid fa-shield-cat benefit-icon"></i>
-          <h4>Allergy & Pet Safe</h4>
-          <p>100% hypoallergenic with zero pollen or toxic sap risks to cherished pets and sensitive guests.</p>
-        </div>
-        <div class="benefit-card">
-          <i class="fa-solid fa-piggy-bank benefit-icon"></i>
-          <h4>Enduring Value</h4>
-          <p>Eliminates recurring weekly fresh-flower replacement costs while offering timeless heirloom beauty.</p>
-        </div>
-        <div class="benefit-card">
-          <i class="fa-solid fa-calendar-check benefit-icon"></i>
-          <h4>All-Season Availability</h4>
-          <p>Enjoy peak spring peonies or rare garden roses year-round regardless of season or climate.</p>
-        </div>
-        <div class="benefit-card">
-          <i class="fa-solid fa-award benefit-icon"></i>
-          <h4>Museum-Grade Realism</h4>
-          <p>Hand-dyed real-touch silk polymers replicate natural leaf veins, dew, and delicate petal textures.</p>
-        </div>
-      </div>
-    </section>
   </main>
 
-  <!-- LIGHTBOX MODAL -->
-  <div id="lightbox-modal" class="lightbox-overlay">
-    <div class="lightbox-content">
-      <button class="lightbox-close" id="lightbox-close">&times;</button>
-      <img id="lightbox-img" src="" alt="Enlarged floral view" />
-      <div class="lightbox-caption">
-        <h4 id="lightbox-title"></h4>
-        <p id="lightbox-desc"></p>
-      </div>
-    </div>
-  </div>
-
-  <!-- SHOPPING CART DRAWER -->
-  <div id="cart-drawer" class="cart-drawer-overlay">
-    <div class="cart-container">
-      <div class="cart-header">
-        <h3><i class="fa-solid fa-basket-shopping"></i> Your Shopping Cart</h3>
-        <button class="cart-close-btn" id="close-cart-btn">&times;</button>
-      </div>
-      <div class="cart-items" id="cart-items-list">
-        <!-- Rendered dynamically by app.js -->
-      </div>
-      <div class="cart-footer">
-        <div class="cart-subtotal">
-          <span>Subtotal</span>
-          <span id="cart-total-amount">$0.00</span>
-        </div>
-        <p class="tax-note">Taxes & shipping calculated at checkout.</p>
-        <div class="checkout-actions">
-          <button class="btn-checkout stripe-btn" id="stripe-checkout-btn">
-            <i class="fa-brands fa-stripe"></i> Checkout with Credit Card / Stripe
-          </button>
-          <div class="payment-or">- OR -</div>
-          <div id="paypal-button-container"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- FOOTER -->
-  <footer class="site-footer">
+  <!-- Dark Centered Footer -->
+  <footer>
     <div class="footer-content">
-      <div class="footer-brand">
-        <h4>21 Florals</h4>
-        <p>Everlasting Botanical Design Studio</p>
+      <div class="footer-info">
+        <p><i class="fa-solid fa-phone"></i> <a href="tel:8185550121">(818) 555-0121</a></p>
+        <p><i class="fa-solid fa-envelope"></i> <a href="mailto:contact@21florals.com">contact@21florals.com</a></p>
       </div>
-
-      <!-- CORRECTED CONTACT INFO -->
-      <div class="footer-contact-info">
-        <div class="contact-item">
-          <i class="fa-solid fa-envelope"></i>
-          <a href="mailto:hello@21florals.com">hello@21florals.com</a>
-        </div>
-        <div class="contact-item">
-          <i class="fa-solid fa-phone"></i>
-          <a href="tel:+18184195401">818-419-5401</a>
-        </div>
-      </div>
-
-      <!-- SOCIAL MEDIA LINKS -->
-      <div class="footer-social-links">
+      
+      <div class="social-links">
         <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
-        <a href="#" aria-label="Pinterest"><i class="fa-brands fa-pinterest"></i></a>
+        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
         <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
       </div>
 
-      <div class="footer-copy">
-        <p>&copy; 2026 21 Florals. All rights reserved. Hosted on GitHub Pages.</p>
-      </div>
+      <p class="footer-copyright">&copy; 2026 21 Florals. Designed with love in Northridge.</p>
     </div>
   </footer>
 
-  <script src="app.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

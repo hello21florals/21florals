@@ -1,205 +1,394 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Custom 3-5-8 Studio | 21 Florals</title>
-  
-  <!-- Open Sans, Noto Sans, and Montserrat Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Open+Sans:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
-  
-  <!-- Font Awesome Icons -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>21 Florals - Custom Order Builder</title>
+  <!-- Font Awesome CDN for Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- TOP BRAND HEADER -->
-  <header class="site-header">
-    <div class="brand-container">
-      <span class="sub-heading">PERMANENT BOTANICAL STUDIO</span>
-      <a href="index.html" class="logo-link">
-        <img src="1000341364.png" alt="21 Florals Emblem Logo" class="site-logo-img" />
-      </a>
-      <p class="brand-tagline">The Lasting Artistry of Silk Perfection</p>
-    </div>
-
-    <!-- CAPITALIZED NAVIGATION MENU -->
-    <nav class="main-nav">
-      <div class="nav-grid">
-        <a href="index.html" class="nav-btn">
-          <i class="fa-solid fa-house-chimney"></i>
-          <span>Home</span>
-        </a>
-        <a href="shop.html" class="nav-btn">
-          <i class="fa-solid fa-spa"></i>
-          <span>Shop Florals</span>
-        </a>
-        <a href="custom.html" class="nav-btn active">
-          <i class="fa-solid fa-wand-magic-sparkles"></i>
-          <span>Custom Order</span>
-        </a>
-        <a href="contact.html" class="nav-btn">
-          <i class="fa-solid fa-envelope"></i>
-          <span>Contact Us</span>
-        </a>
-        <button class="nav-btn cart-nav-btn" id="open-cart-btn">
-          <i class="fa-solid fa-basket-shopping"></i>
-          <span>Cart (<span id="cart-count">0</span>)</span>
-        </button>
-      </div>
+  <!-- Shared Header -->
+  <header>
+    <h1 class="site-title">Welcome to 21 Florals</h1>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+        <li><a href="shop.html"><i class="fa-solid fa-store"></i> Shop Florals</a></li>
+        <li><a href="custom.html" class="active"><i class="fa-solid fa-wand-magic-sparkles"></i> Custom Order</a></li>
+        <li><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact Us</a></li>
+        <li><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i> Cart</a></li>
+      </ul>
     </nav>
-
-    <!-- DECORATIVE DIVIDER -->
-    <div class="botanical-divider">
-      <span class="line"></span>
-      <span class="divider-icon">❧</span>
-      <span class="line"></span>
+    <div class="floral-divider">
+      <i class="fa-solid fa-seedling floral-icon"></i>
+      <div class="line"></div>
+      <i class="fa-solid fa-seedling floral-icon"></i>
     </div>
   </header>
 
-  <!-- CUSTOM STUDIO CONTENT -->
-  <main class="content-container">
-    <div class="custom-builder-header">
-      <h2>The 3-5-8 Custom Studio</h2>
-      <p>Design a bespoke permanent centerpiece adhering to the classical 3-5-8 botanical balance rule.</p>
+  <main class="main-content">
+
+    <!-- Live Stem Tracker Banner -->
+    <div class="stem-tracker-box">
+      <div class="tracker-info">
+        <h3><i class="fa-solid fa-scissors"></i> Custom Arrangement Builder</h3>
+        <p>Select your favorite blooms below. Choose any combination of Primary, Secondary, and Accent florals up to <strong>21 stems total</strong>.</p>
+      </div>
+      <div class="tracker-counter">
+        <span class="counter-label">Selected Stems</span>
+        <div class="counter-number"><span id="total-stem-count">0</span> / 21</div>
+        <div class="progress-bar-bg">
+          <div id="stem-progress-bar" class="progress-bar-fill" style="width: 0%;"></div>
+        </div>
+      </div>
     </div>
 
-    <div class="custom-studio-grid">
-      <!-- FORM CONTROLS -->
-      <div class="builder-controls">
-        <form id="custom-floral-form">
-          <div class="studio-block">
-            <h3>1. Select Your 21 Florals Ingredients</h3>
-            <div class="input-group">
-              <label for="select-primary">Primary Focal Blooms (Select 3 Stems - $45)</label>
-              <select id="select-primary" class="form-control" required></select>
-            </div>
-            <div class="input-group">
-              <label for="select-secondary">Secondary Accent Blooms (Select 5 Stems - $35)</label>
-              <select id="select-secondary" class="form-control" required></select>
-            </div>
-            <div class="input-group">
-              <label for="select-supporting">Supporting Foliage & Stems (Select 8 Stems - $25)</label>
-              <select id="select-supporting" class="form-control" required></select>
-            </div>
-          </div>
+    <!-- SECTION 1: PRIMARY FLOWERS (7 Choices) -->
+    <section class="content-box">
+      <h2 class="section-heading"><i class="fa-solid fa-crown"></i> 1. Primary Flowers (Focal Blooms)</h2>
+      <p style="text-align: center; margin-bottom: 20px;">The main stars of your arrangement. Pick statement silk stems.</p>
 
-          <div class="studio-block">
-            <h3>2. Color Palette & Vessel</h3>
-            <div class="input-group">
-              <label for="select-color">Color Theme</label>
-              <select id="select-color" class="form-control">
-                <option value="Classic White & Cream">Monochromatic White & Linen Cream</option>
-                <option value="Blush & Dusty Rose">Blush, Dusty Rose & Champagne</option>
-                <option value="Deep Jewel Tones">Burgundy, Plum & Deep Gold</option>
-                <option value="Sunset Crimson">Sunset Crimson & Warm Ochre</option>
-                <option value="Botanical Sage">Verdant Sage & Crisp White</option>
-              </select>
-            </div>
-            <div class="input-group">
-              <label for="select-vase">Vase Style</label>
-              <select id="select-vase" class="form-control">
-                <option value="Fluted Crystal Urn (+$40)" data-price="40">Fluted Lead-Free Crystal Urn (+ $40)</option>
-                <option value="Matte Ceramic Cylinder (+$30)" data-price="30">Matte Ceramic Cylinder (+ $30)</option>
-                <option value="Hammered Brass Vessel (+$45)" data-price="45">Hammered Vintage Brass Vessel (+ $45)</option>
-                <option value="Rustic Birch Box (+$25)" data-price="25">Rustic Hand-Carved Birch Box (+ $25)</option>
-              </select>
-            </div>
-          </div>
+      <div class="custom-floral-grid">
 
-          <div class="studio-block">
-            <h3>3. Fine Finishing Touches</h3>
-            <div class="input-group">
-              <label for="select-accent">Base Accent Filling</label>
-              <select id="select-accent" class="form-control">
-                <option value="Faux Water Acrylic Gel (+$15)" data-price="15">Clear Faux Water Acrylic Gel (+ $15)</option>
-                <option value="Polished River Stones (+$10)" data-price="10">Polished River Stones (+ $10)</option>
-                <option value="Preserved Spanish Moss (+$8)" data-price="8">Preserved Spanish Moss (+ $8)</option>
-                <option value="Double Satin Ribbon Wrap (+$12)" data-price="12">Double-Satin Ribbon Wrap (+ $12)</option>
-              </select>
-            </div>
-            <div class="checkbox-group">
-              <label class="checkbox-label">
-                <input type="checkbox" id="check-bling" data-price="25" />
-                <span class="check-text">✨ <strong>Bling Upgrade (+ $25)</strong>: Hand-applied microscopic crystalline dew glitter along outer petal tips.</span>
-              </label>
-            </div>
+        <div class="flower-item-card" data-id="rose" data-name="Grand Velvet Rose" data-type="Primary">
+          <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=400&q=80" alt="Grand Velvet Rose" class="flower-thumb">
+          <div class="flower-info">
+            <h4>1. Grand Velvet Rose</h4>
+            <span class="category-badge">Primary</span>
           </div>
-        </form>
+          <div class="quantity-controls">
+            <button class="qty-btn minus" onclick="updateQty('rose', -1)">-</button>
+            <span class="qty-count" id="qty-rose">0</span>
+            <button class="qty-btn plus" onclick="updateQty('rose', 1)">+</button>
+          </div>
+        </div>
+
+        <div class="flower-item-card" data-id="peony" data-name="Blooming Silk Peony" data-type="Primary">
+          <img src="https://images.unsplash.com/photo-1561181286-d3fee7d55364?auto=format&fit=crop&w=400&q=80" alt="Blooming Silk Peony" class="flower-thumb">
+          <div class="flower-info">
+            <h4>2. Blooming Silk Peony</h4>
+            <span class="category-badge">Primary</span>
+          </div>
+          <div class="quantity-controls">
+            <button class="qty-btn minus" onclick="updateQty('peony', -1)">-</button>
+            <span class="qty-count" id="qty-peony">0</span>
+            <button class="qty-btn plus" onclick="updateQty('peony', 1)">+</button>
+          </div>
+        </div>
+
+        <div class="flower-item-card" data-id="garden-rose" data-name="Real-Touch Garden Rose" data-type="Primary">
+          <img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&w=400&q=80" alt="Real-Touch Garden Rose" class="flower-thumb">
+          <div class="flower-info">
+            <h4>3. Real-Touch Garden Rose</h4>
+            <span class="category-badge">Primary</span>
+          </div>
+          <div class="quantity-controls">
+            <button class="qty-btn minus" onclick="updateQty('garden-rose', -1)">-</button>
+            <span class="qty-count" id="qty-garden-rose">0</span>
+            <button class="qty-btn plus" onclick="updateQty('garden-rose', 1)">+</button>
+          </div>
+        </div>
+
+        <div class="flower-item-card" data-id="hydrangea" data-name="Jumbo Silk Hydrangea" data-type="Primary">
+          <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=400&q=80" alt="Jumbo Silk Hydrangea" class="flower-thumb">
+          <div class="flower-info">
+            <h4>4. Jumbo Silk Hydrangea</h4>
+            <span class="category-badge">Primary</span>
+          </div>
+          <div class="quantity-controls">
+            <button class="qty-btn minus" onclick="updateQty('hydrangea', -1)">-</button>
+            <span class="qty-count" id="qty-hydrangea">0</span>
+            <button class="qty-btn plus" onclick="updateQty('hydrangea', 1)">+</button>
+          </div>
+        </div>
+
+        <div class="flower-item-card" data-id="dahlia" data-name="Café au Lait Dahlia" data-type="Primary">
+          <img src="https://images.unsplash.com/photo-1508610048659-a06b669e3321?auto=format&fit=crop&w=400&q=80" alt="Café au Lait Dahlia" class="flower-thumb">
+          <div class="flower-info">
+            <h4>5. Café au Lait Dahlia</h4>
+            <span class="category-badge">Primary</span>
+          </div>
+          <div class="quantity-controls">
+            <button class="qty-btn minus" onclick="updateQty('dahlia', -1)">-</button>
+            <span class="qty-count" id="qty-dahlia">0</span>
+            <button class="qty-btn plus" onclick="updateQty('dahlia', 1)">+</button>
+          </div>
+        </div>
+
+        <div class="flower-item-card" data-id="orchid" data-name="Imperial Phalaenopsis Orchid" data-type="Primary">
+          <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=400&q=80" alt="Imperial Phalaenopsis Orchid" class="flower-thumb">
+          <div class="flower-info">
+            <h4>6. Imperial Orchid Stem</h4>
+            <span class="category-badge">Primary</span>
+          </div>
+          <div class="quantity-controls">
+            <button class="qty-btn minus" onclick="updateQty('orchid', -1)">-</button>
+            <span class="qty-count" id="qty-orchid">0</span>
+            <button class="qty-btn plus" onclick="updateQty('orchid', 1)">+</button>
+          </div>
+        </div>
+
+        <div class="flower-item-card" data-id="lily" data-name="Casablanca White Lily" data-type="Primary">
+          <img src="https://images.unsplash.com/photo-1582794543139-8ac9cb0f7b11?auto=format&fit=crop&w=400&q=80" alt="Casablanca White Lily" class="flower-thumb">
+          <div class="flower-info">
+            <h4>7. Casablanca White Lily</h4>
+            <span class="category-badge">Primary</span>
+          </div>
+          <div class="quantity-controls">
+            <button class="qty-btn minus" onclick="updateQty('lily', -1)">-</button>
+            <span class="qty-count" id="qty-lily">0</span>
+            <button class="qty-btn plus" onclick="updateQty('lily', 1)">+</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 2: SECONDARY FLOWERS (7 Choices) -->
+    <section class="content-box">
+      <h2 class="section-heading"><i class="fa-solid fa-layer-group"></i> 2. Secondary Flowers (Support Blooms)</h2>
+      <p style="text-align: center; margin-bottom: 20px;">Medium-sized flowers that complement your focal blooms with rich color and texture.</p>
+
+      <div class="custom-floral-grid">
+
+        <div class="flower-item-card" data-id="anemone" data-name="Black-Eyed French Anemone" data-type="Secondary">
+          <img src="https://images.unsplash.com/photo-1533616688419-b7a585564566?auto=format&fit=crop&w=400&q=80" alt="French Anemone" class="flower-thumb">
+          <div class="flower-info">
+            <h4>8. French Anemone</h4>
+            <span class="category-badge sec">Secondary</span>
+          </div>
+          <div class="quantity-controls">
+            <button class="qty-btn minus" onclick="updateQty('anemone', -1)">-</button>
+            <span class="qty-count" id="qty-anemone">0</span>
+            <button class="qty-btn plus" onclick="updateQty('anemone', 1)">+</button>
+          </div>
+        </div>
+
+        <div class="flower-item-card" data-id="ranunculus" data-name="Multi-Layered Ranunculus" data-type="Secondary">
+          <img src="https://images.unsplash.com/photo-1558350315-8aa00e8e4590?auto=format&fit=crop&w=400&q=80" alt="Ranunculus" class="flower-thumb">
+          <div class="flower-info">
+            <h4>9. Layered Ranunculus</h4>
+            <span class="category-badge sec">Secondary</span>
+          </div>
+          <div class="quantity-controls">
+            <button class="qty-btn minus" onclick="updateQty('ranunculus', -1)">-</button>
+            <span class="qty-count" id="qty-ranunculus">0</span>
+            <button class="qty-btn plus" onclick="updateQty('ranunculus', 1)">+</button>
+          </div>
+        </div>
+
+        <div class="flower-item-card" data-id="tulip" data-name="Soft Touch Dutch Tulip" data-type="Secondary">
+          <img src="https://images.unsplash.com/photo-1520763185298-1b434c919102?auto=format&fit=crop&w=400&q=80" alt="Dutch Tulip" class="flower-thumb">
+          <div class="flower-info">
+            <h4>10. Soft Dutch Tulip</h4>
+            <span class="category-badge sec">Secondary</span>
+          </div>
+          <div class="quantity-controls">
+            <button class="qty-btn minus" onclick="updateQty('tulip', -1)">-</button>
+            <span class="qty-count" id="qty-tulip">0</span>
+            <button class="qty-btn plus" onclick="updateQty('tulip', 1)">+</button>
+          </div>
+        </div>
+
+        <div class="flower-item-card" data-id="carnation" data-name="Heirloom Double Carnation" data-type="Secondary">
+          <img src="https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=400&q=80" alt="Double Carnation" class="flower-thumb">
+          <div class="flower-info">
+            <h4>11. Double Carnation</h4>
+            <span class="category-badge sec">Secondary</span>
+          </div>
+          <div class="quantity-controls">
+            <button class="qty-btn minus" onclick="updateQty('carnation', -1)">-</button>
+            <span class="qty-count" id="qty-carnation">0</span>
+            <button class="qty-btn plus" onclick="updateQty('carnation', 1)">+</button>
+          </div>
+        </div>
+
+        <div class="flower-item-card" data-id="delphinium" data-name="Tall Sky Delphinium" data-type="Secondary">
+          <img src="https://images.unsplash.com/photo-1567684014761-b65e2e59b9eb?auto=format&fit=crop&w=400&q=80" alt="Delphinium" class="flower-thumb">
+          <div class="flower-info">
+            <h4>12. Sky Delphinium</h4>
+            <span class="category-badge sec">Secondary</span>
+          </div>
+          <div class="quantity-controls">
+            <button class="qty-btn minus" onclick="updateQty('delphinium', -1)">-</button>
+            <span class="qty-count" id="qty-delphinium">0</span>
+            <button class="qty-btn plus" onclick="updateQty('delphinium', 1)">+</button>
+          </div>
+        </div>
+
+        <div class="flower-item-card" data-id="lisianthus" data-name="Gentle Silk Lisianthus" data-type="Secondary">
+          <img src="https://images.unsplash.com/photo-1591886960571-74d43a9d4166?auto=format&fit=crop&w=400&q=80" alt="Lisianthus" class="flower-thumb">
+          <div class="flower-info">
+            <h4>13. Silk Lisianthus</h4>
+            <span class="category-badge sec">Secondary</span>
+          </div>
+          <div class="quantity-controls">
+            <button class="qty-btn minus" onclick="updateQty('lisianthus', -1)">-</button>
+            <span class="qty-count" id="qty-lisianthus">0</span>
+            <button class="qty-btn plus" onclick="updateQty('lisianthus', 1)">+</button>
+          </div>
+        </div>
+
+        <div class="flower-item-card" data-id="chrysanthemum" data-name="Spider Chrysanthemum" data-type="Secondary">
+          <img src="https://images.unsplash.com/photo-1508610048659-a06b669e3321?auto=format&fit=crop&w=400&q=80" alt="Chrysanthemum" class="flower-thumb">
+          <div class="flower-info">
+            <h4>14. Chrysanthemum</h4>
+            <span class="category-badge sec">Secondary</span>
+          </div>
+          <div class="quantity-controls">
+            <button class="qty-btn minus" onclick="updateQty('chrysanthemum', -1)">-</button>
+            <span class="qty-count" id="qty-chrysanthemum">0</span>
+            <button class="qty-btn plus" onclick="updateQty('chrysanthemum', 1)">+</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 3: ACCENT & GREENERY (7 Choices) -->
+    <section class="content-box">
+      <h2 class="section-heading"><i class="fa-solid fa-leaf"></i> 3. Accent Flowers &amp; Greenery</h2>
+      <p style="text-align: center; margin-bottom: 20px;">Textured accents, delicate sprays, and lush greenery to frame your arrangement.</p>
+
+      <div class="custom-floral-grid">
+
+        <div class="flower-item-card" data-id="babys-breath" data-name="Cloud Baby's Breath (Gypsophila)" data-type="Accent">
+          <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=400&q=80" alt="Baby's Breath" class="flower-thumb">
+          <div class="flower-info">
+            <h4>15. Cloud Baby's Breath</h4>
+            <span class="category-badge acc">Accent</span>
+          </div>
+          <div class="quantity-controls">
+            <button class="qty-btn minus" onclick="updateQty('babys-breath', -1)">-</button>
+            <span class="qty-count" id="qty-babys-breath">0</span>
+            <button class="qty-btn plus" onclick="updateQty('babys-breath', 1)">+</button>
+          </div>
+        </div>
+
+        <div class="flower-item-card" data-id="eucalyptus" data-name="Silver Dollar Eucalyptus Stems" data-type="Accent">
+          <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=400&q=80" alt="Eucalyptus" class="flower-thumb">
+          <div class="flower-info">
+            <h4>16. Silver Dollar Eucalyptus</h4>
+            <span class="category-badge acc">Accent</span>
+          </div>
+          <div class="quantity-controls">
+            <button class="qty-btn minus" onclick="updateQty('eucalyptus', -1)">-</button>
+            <span class="qty-count" id="qty-eucalyptus">0</span>
+            <button class="qty-btn plus" onclick="updateQty('eucalyptus', 1)">+</button>
+          </div>
+        </div>
+
+        <div class="flower-item-card" data-id="lavender" data-name="Provençal Lavender Sprigs" data-type="Accent">
+          <img src="https://images.unsplash.com/photo-1528722828814-77b9b83aafb2?auto=format&fit=crop&w=400&q=80" alt="Lavender" class="flower-thumb">
+          <div class="flower-info">
+            <h4>17. Lavender Sprigs</h4>
+            <span class="category-badge acc">Accent</span>
+          </div>
+          <div class="quantity-controls">
+            <button class="qty-btn minus" onclick="updateQty('lavender', -1)">-</button>
+            <span class="qty-count" id="qty-lavender">0</span>
+            <button class="qty-btn plus" onclick="updateQty('lavender', 1)">+</button>
+          </div>
+        </div>
+
+        <div class="flower-item-card" data-id="waxflower" data-name="Wild Waxflower Sprays" data-type="Accent">
+          <img src="https://images.unsplash.com/photo-1508610048659-a06b669e3321?auto=format&fit=crop&w=400&q=80" alt="Waxflower" class="flower-thumb">
+          <div class="flower-info">
+            <h4>18. Waxflower Sprays</h4>
+            <span class="category-badge acc">Accent</span>
+          </div>
+          <div class="quantity-controls">
+            <button class="qty-btn minus" onclick="updateQty('waxflower', -1)">-</button>
+            <span class="qty-count" id="qty-waxflower">0</span>
+            <button class="qty-btn plus" onclick="updateQty('waxflower', 1)">+</button>
+          </div>
+        </div>
+
+        <div class="flower-item-card" data-id="dusty-miller" data-name="Velvet Dusty Miller Leaves" data-type="Accent">
+          <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=400&q=80" alt="Dusty Miller" class="flower-thumb">
+          <div class="flower-info">
+            <h4>19. Velvet Dusty Miller</h4>
+            <span class="category-badge acc">Accent</span>
+          </div>
+          <div class="quantity-controls">
+            <button class="qty-btn minus" onclick="updateQty('dusty-miller', -1)">-</button>
+            <span class="qty-count" id="qty-dusty-miller">0</span>
+            <button class="qty-btn plus" onclick="updateQty('dusty-miller', 1)">+</button>
+          </div>
+        </div>
+
+        <div class="flower-item-card" data-id="queens-lace" data-name="Queen Anne's Lace Stems" data-type="Accent">
+          <img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&w=400&q=80" alt="Queen Anne's Lace" class="flower-thumb">
+          <div class="flower-info">
+            <h4>20. Queen Anne's Lace</h4>
+            <span class="category-badge acc">Accent</span>
+          </div>
+          <div class="quantity-controls">
+            <button class="qty-btn minus" onclick="updateQty('queens-lace', -1)">-</button>
+            <span class="qty-count" id="qty-queens-lace">0</span>
+            <button class="qty-btn plus" onclick="updateQty('queens-lace', 1)">+</button>
+          </div>
+        </div>
+
+        <div class="flower-item-card" data-id="hypericum" data-name="Hypericum Berry Branches" data-type="Accent">
+          <img src="https://images.unsplash.com/photo-1561181286-d3fee7d55364?auto=format&fit=crop&w=400&q=80" alt="Hypericum Berries" class="flower-thumb">
+          <div class="flower-info">
+            <h4>21. Hypericum Berries</h4>
+            <span class="category-badge acc">Accent</span>
+          </div>
+          <div class="quantity-controls">
+            <button class="qty-btn minus" onclick="updateQty('hypericum', -1)">-</button>
+            <span class="qty-count" id="qty-hypericum">0</span>
+            <button class="qty-btn plus" onclick="updateQty('hypericum', 1)">+</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Custom Order Summary & Checkout -->
+    <section class="content-box">
+      <h2 class="section-heading"><i class="fa-solid fa-list-check"></i> Your Custom Arrangement Summary</h2>
+      
+      <div id="selection-summary" class="summary-container">
+        <p class="empty-summary-text">No florals selected yet. Start adding stems above until you reach 21!</p>
       </div>
 
-      <!-- LIVE ORDER SUMMARY -->
-      <div class="builder-summary-card">
-        <h3>Design Specification Summary</h3>
-        <div class="summary-details" id="custom-summary-box"></div>
-        <div class="price-calculator">
-          <span>Arrangement Price:</span>
-          <span class="total-price" id="custom-total-price">$160.00</span>
+      <div class="custom-pricing-box">
+        <div class="price-row">
+          <span>Flat Rate Custom 21-Stem Arrangement:</span>
+          <span class="price-amount">$95.00</span>
         </div>
-        <button type="button" class="btn-primary full-width" id="add-custom-to-cart">
-          <i class="fa-solid fa-plus"></i> Add Custom Arrangement to Cart
+        <button id="add-custom-btn" class="btn btn-large" onclick="addCustomArrangementToCart()" disabled>
+          <i class="fa-solid fa-cart-plus"></i> Select Exactly 21 Stems To Order
         </button>
       </div>
-    </div>
+    </section>
+
   </main>
 
-  <!-- SHOPPING CART DRAWER -->
-  <div id="cart-drawer" class="cart-drawer-overlay">
-    <div class="cart-container">
-      <div class="cart-header">
-        <h3><i class="fa-solid fa-basket-shopping"></i> Your Shopping Cart</h3>
-        <button class="cart-close-btn" id="close-cart-btn">&times;</button>
-      </div>
-      <div class="cart-items" id="cart-items-list"></div>
-      <div class="cart-footer">
-        <div class="cart-subtotal">
-          <span>Subtotal</span>
-          <span id="cart-total-amount">$0.00</span>
-        </div>
-        <p class="tax-note">Taxes & shipping calculated at checkout.</p>
-        <div class="checkout-actions">
-          <button class="btn-checkout stripe-btn" id="stripe-checkout-btn">
-            <i class="fa-brands fa-stripe"></i> Checkout with Credit Card / Stripe
-          </button>
-          <div class="payment-or">- OR -</div>
-          <div id="paypal-button-container"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- FOOTER -->
-  <footer class="site-footer">
+  <!-- Dark Centered Footer -->
+  <footer>
     <div class="footer-content">
-      <div class="footer-brand">
-        <h4>21 Florals</h4>
-        <p>Everlasting Botanical Design Studio</p>
+      <div class="footer-info">
+        <p><i class="fa-solid fa-phone"></i> <a href="tel:8185550121">(818) 555-0121</a></p>
+        <p><i class="fa-solid fa-envelope"></i> <a href="mailto:contact@21florals.com">contact@21florals.com</a></p>
       </div>
-      <div class="footer-contact-info">
-        <div class="contact-item">
-          <i class="fa-solid fa-envelope"></i>
-          <a href="mailto:hello@21florals.com">hello@21florals.com</a>
-        </div>
-        <div class="contact-item">
-          <i class="fa-solid fa-phone"></i>
-          <a href="tel:+18184195401">818-419-5401</a>
-        </div>
-      </div>
-      <div class="footer-social-links">
+      
+      <div class="social-links">
         <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
-        <a href="#" aria-label="Pinterest"><i class="fa-brands fa-pinterest"></i></a>
+        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
         <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
       </div>
-      <div class="footer-copy">
-        <p>&copy; 2026 21 Florals. All rights reserved. Hosted on GitHub Pages.</p>
-      </div>
+
+      <p class="footer-copyright">&copy; 2026 21 Florals. Designed with love in Northridge.</p>
     </div>
   </footer>
 
-  <script src="app.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

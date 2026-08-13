@@ -1,143 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shop Florals | 21 Florals</title>
-  
-  <!-- Open Sans, Noto Sans, and Montserrat Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Open+Sans:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
-  
-  <!-- Font Awesome Icons -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>21 Florals - Shop Florals</title>
+  <!-- Font Awesome CDN for Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- TOP BRAND HEADER -->
-  <header class="site-header">
-    <div class="brand-container">
-      <span class="sub-heading">PERMANENT BOTANICAL STUDIO</span>
-      <a href="index.html" class="logo-link">
-        <img src="1000341364.png" alt="21 Florals Emblem Logo" class="site-logo-img" />
-      </a>
-      <p class="brand-tagline">The Lasting Artistry of Silk Perfection</p>
-    </div>
-
-    <!-- CAPITALIZED NAVIGATION MENU -->
-    <nav class="main-nav">
-      <div class="nav-grid">
-        <a href="index.html" class="nav-btn">
-          <i class="fa-solid fa-house-chimney"></i>
-          <span>Home</span>
-        </a>
-        <a href="shop.html" class="nav-btn active">
-          <i class="fa-solid fa-spa"></i>
-          <span>Shop Florals</span>
-        </a>
-        <a href="custom.html" class="nav-btn">
-          <i class="fa-solid fa-wand-magic-sparkles"></i>
-          <span>Custom Order</span>
-        </a>
-        <a href="contact.html" class="nav-btn">
-          <i class="fa-solid fa-envelope"></i>
-          <span>Contact Us</span>
-        </a>
-        <button class="nav-btn cart-nav-btn" id="open-cart-btn">
-          <i class="fa-solid fa-basket-shopping"></i>
-          <span>Cart (<span id="cart-count">0</span>)</span>
-        </button>
-      </div>
+  <!-- Shared Header -->
+  <header>
+    <h1 class="site-title">Welcome to 21 Florals</h1>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+        <li><a href="shop.html" class="active"><i class="fa-solid fa-store"></i> Shop Florals</a></li>
+        <li><a href="custom.html"><i class="fa-solid fa-wand-magic-sparkles"></i> Custom Order</a></li>
+        <li><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact Us</a></li>
+        <li><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i> Cart</a></li>
+      </ul>
     </nav>
-
-    <!-- DECORATIVE DIVIDER -->
-    <div class="botanical-divider">
-      <span class="line"></span>
-      <span class="divider-icon">❧</span>
-      <span class="line"></span>
+    <div class="floral-divider">
+      <i class="fa-solid fa-seedling floral-icon"></i>
+      <div class="line"></div>
+      <i class="fa-solid fa-seedling floral-icon"></i>
     </div>
   </header>
 
-  <!-- SHOP CONTENT -->
-  <main class="content-container">
-    <div class="shop-header">
-      <h2>Curated Floral Collections</h2>
-      <p>Explore distinct collections crafted for every space, milestone, and seasonal celebration.</p>
-    </div>
+  <main class="main-content">
+    
+    <!-- Category Selection Bar -->
+    <section class="content-box">
+      <h2 class="section-heading">Shop by Occasion</h2>
+      <p style="text-align: center; margin-bottom: 20px;">
+        Select an occasion to explore pre-made silk floral arrangements. Click any picture to view it full size!
+      </p>
 
-    <div id="category-sections-container">
-      <!-- Dynamically rendered category sections with real photos by app.js -->
-    </div>
+      <div class="category-filters">
+        <button class="filter-btn active" onclick="filterFlorals('all')">
+          <i class="fa-solid fa-border-all"></i> All Florals
+        </button>
+        <button class="filter-btn" onclick="filterFlorals('mothers-day')">
+          <i class="fa-solid fa-heart"></i> Mother's Day
+        </button>
+        <button class="filter-btn" onclick="filterFlorals('valentines-day')">
+          <i class="fa-solid fa-rose"></i> Valentine's Day
+        </button>
+        <button class="filter-btn" onclick="filterFlorals('birthdays')">
+          <i class="fa-solid fa-cake-candles"></i> Birthdays &amp; Celebrations
+        </button>
+        <button class="filter-btn" onclick="filterFlorals('corporate')">
+          <i class="fa-solid fa-building"></i> Corporate &amp; Lobbies
+        </button>
+        <button class="filter-btn" onclick="filterFlorals('home-decor')">
+          <i class="fa-solid fa-couch"></i> Home Decor
+        </button>
+      </div>
+    </section>
+
+    <!-- Product Grid -->
+    <section class="content-box">
+      <div class="product-grid" id="product-grid">
+
+        <!-- MOTHER'S DAY -->
+        <div class="product-card" data-category="mothers-day">
+          <div class="img-container">
+            <img 
+              src="https://images.unsplash.com/photo-1561181286-d3fee7d55364?auto=format&fit=crop&w=800&q=80" 
+              alt="Soft Blush Peony & Rose Arrangement" 
+              class="clickable-img"
+              onclick="openLightbox(this.src, 'Soft Blush Peony & Rose Arrangement - $65.00')"
+            >
+            <span class="zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> Zoom</span>
+          </div>
+          <span class="category-tag">Mother's Day</span>
+          <h3>Soft Blush Peony &amp; Rose</h3>
+          <p class="price">$65.00</p>
+          <button class="btn" onclick="addToCart('Soft Blush Peony & Rose', 65)">Add to Cart</button>
+        </div>
+
+        <div class="product-card" data-category="mothers-day">
+          <div class="img-container">
+            <img 
+              src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&w=800&q=80" 
+              alt="Spring Garden Pastel Vase" 
+              class="clickable-img"
+              onclick="openLightbox(this.src, 'Spring Garden Pastel Vase - $58.00')"
+            >
+            <span class="zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> Zoom</span>
+          </div>
+          <span class="category-tag">Mother's Day</span>
+          <h3>Spring Garden Pastel Vase</h3>
+          <p class="price">$58.00</p>
+          <button class="btn" onclick="addToCart('Spring Garden Pastel Vase', 58)">Add to Cart</button>
+        </div>
+
+        <!-- VALENTINE'S DAY -->
+        <div class="product-card" data-category="valentines-day">
+          <div class="img-container">
+            <img 
+              src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80" 
+              alt="Forever Crimson Velvet Roses" 
+              class="clickable-img"
+              onclick="openLightbox(this.src, 'Forever Crimson Velvet Roses - $75.00')"
+            >
+            <span class="zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> Zoom</span>
+          </div>
+          <span class="category-tag">Valentine's Day</span>
+          <h3>Forever Crimson Velvet Roses</h3>
+          <p class="price">$75.00</p>
+          <button class="btn" onclick="addToCart('Forever Crimson Velvet Roses', 75)">Add to Cart</button>
+        </div>
+
+        <!-- BIRTHDAYS & CELEBRATIONS -->
+        <div class="product-card" data-category="birthdays">
+          <div class="img-container">
+            <img 
+              src="https://images.unsplash.com/photo-1508610048659-a06b669e3321?auto=format&fit=crop&w=800&q=80" 
+              alt="Vibrant Celebration Wildflower Centerpiece" 
+              class="clickable-img"
+              onclick="openLightbox(this.src, 'Vibrant Celebration Wildflowers - $62.00')"
+            >
+            <span class="zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> Zoom</span>
+          </div>
+          <span class="category-tag">Birthdays</span>
+          <h3>Celebration Wildflowers</h3>
+          <p class="price">$62.00</p>
+          <button class="btn" onclick="addToCart('Celebration Wildflowers', 62)">Add to Cart</button>
+        </div>
+
+        <!-- CORPORATE & LOBBIES -->
+        <div class="product-card" data-category="corporate">
+          <div class="img-container">
+            <img 
+              src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=800&q=80" 
+              alt="Executive Minimalist White Orchid Display" 
+              class="clickable-img"
+              onclick="openLightbox(this.src, 'Executive Minimalist White Orchid Display - $110.00')"
+            >
+            <span class="zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> Zoom</span>
+          </div>
+          <span class="category-tag">Corporate &amp; Lobbies</span>
+          <h3>Executive White Orchid Display</h3>
+          <p class="price">$110.00</p>
+          <button class="btn" onclick="addToCart('Executive White Orchid Display', 110)">Add to Cart</button>
+        </div>
+
+        <!-- HOME DECOR -->
+        <div class="product-card" data-category="home-decor">
+          <div class="img-container">
+            <img 
+              src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=800&q=80" 
+              alt="Rustic Eucalyptus & Hydrangea Arrangement" 
+              class="clickable-img"
+              onclick="openLightbox(this.src, 'Rustic Eucalyptus & Hydrangea - $82.00')"
+            >
+            <span class="zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> Zoom</span>
+          </div>
+          <span class="category-tag">Home Decor</span>
+          <h3>Rustic Eucalyptus &amp; Hydrangea</h3>
+          <p class="price">$82.00</p>
+          <button class="btn" onclick="addToCart('Rustic Eucalyptus & Hydrangea', 82)">Add to Cart</button>
+        </div>
+
+      </div>
+    </section>
+
   </main>
 
-  <!-- LIGHTBOX MODAL -->
-  <div id="lightbox-modal" class="lightbox-overlay">
-    <div class="lightbox-content">
-      <button class="lightbox-close" id="lightbox-close">&times;</button>
-      <img id="lightbox-img" src="" alt="Enlarged floral view" />
-      <div class="lightbox-caption">
-        <h4 id="lightbox-title"></h4>
-        <p id="lightbox-desc"></p>
-      </div>
+  <!-- Image Expansion Lightbox (Modal) -->
+  <div id="image-modal" class="lightbox-modal" onclick="closeLightbox(event)">
+    <div class="lightbox-content" onclick="event.stopPropagation()">
+      <button class="lightbox-close" onclick="closeLightbox(event)">&times;</button>
+      <img id="lightbox-img" src="" alt="Expanded View" class="bordered-img">
+      <p id="lightbox-caption" class="lightbox-caption"></p>
     </div>
   </div>
 
-  <!-- SHOPPING CART DRAWER -->
-  <div id="cart-drawer" class="cart-drawer-overlay">
-    <div class="cart-container">
-      <div class="cart-header">
-        <h3><i class="fa-solid fa-basket-shopping"></i> Your Shopping Cart</h3>
-        <button class="cart-close-btn" id="close-cart-btn">&times;</button>
-      </div>
-      <div class="cart-items" id="cart-items-list"></div>
-      <div class="cart-footer">
-        <div class="cart-subtotal">
-          <span>Subtotal</span>
-          <span id="cart-total-amount">$0.00</span>
-        </div>
-        <p class="tax-note">Taxes & shipping calculated at checkout.</p>
-        <div class="checkout-actions">
-          <button class="btn-checkout stripe-btn" id="stripe-checkout-btn">
-            <i class="fa-brands fa-stripe"></i> Checkout with Credit Card / Stripe
-          </button>
-          <div class="payment-or">- OR -</div>
-          <div id="paypal-button-container"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- FOOTER -->
-  <footer class="site-footer">
+  <!-- Dark Centered Footer -->
+  <footer>
     <div class="footer-content">
-      <div class="footer-brand">
-        <h4>21 Florals</h4>
-        <p>Everlasting Botanical Design Studio</p>
+      <div class="footer-info">
+        <p><i class="fa-solid fa-phone"></i> <a href="tel:8185550121">(818) 555-0121</a></p>
+        <p><i class="fa-solid fa-envelope"></i> <a href="mailto:contact@21florals.com">contact@21florals.com</a></p>
       </div>
-      <div class="footer-contact-info">
-        <div class="contact-item">
-          <i class="fa-solid fa-envelope"></i>
-          <a href="mailto:hello@21florals.com">hello@21florals.com</a>
-        </div>
-        <div class="contact-item">
-          <i class="fa-solid fa-phone"></i>
-          <a href="tel:+18184195401">818-419-5401</a>
-        </div>
-      </div>
-      <div class="footer-social-links">
+      
+      <div class="social-links">
         <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
-        <a href="#" aria-label="Pinterest"><i class="fa-brands fa-pinterest"></i></a>
+        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
         <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
       </div>
-      <div class="footer-copy">
-        <p>&copy; 2026 21 Florals. All rights reserved. Hosted on GitHub Pages.</p>
-      </div>
+
+      <p class="footer-copyright">&copy; 2026 21 Florals. Designed with love in Northridge.</p>
     </div>
   </footer>
 
-  <script src="app.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
