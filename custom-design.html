@@ -29,30 +29,25 @@
       </div>
     </header>
 <main>
-<section class="page-hero"><div class="container"><p class="eyebrow">07 · Let's Create</p><h1>Contact Us</h1><p>Send the essentials below. For event work, include your target date and budget so we can respond with a useful direction.</p></div></section>
+<section class="page-hero"><div class="container"><h1>Custom Design</h1><p>Tell us the feeling, setting, palette, scale, and occasion. We will translate the brief into a permanent floral composition built specifically for the space.</p></div></section>
 <section class="section"><div class="container">
-  <div class="form-shell">
-    <form action="contact.php" method="post">
+  <div class="info-grid">
+    <article class="info-card"><h3>01 · Define</h3><p>Choose the room or occasion, preferred colors, vessel style, approximate dimensions, and the mood you want the arrangement to create.</p></article>
+    <article class="info-card"><h3>02 · Compose</h3><p>We work through focal, secondary, and accent elements using proportion, negative space, texture, and the signature 3-5-8 structure.</p></article>
+    <article class="info-card"><h3>03 · Refine</h3><p>Your finished concept is adjusted for the environment, viewing angles, and practical requirements before final production.</p></article>
+  </div>
+  <div class="form-shell" style="margin-top:25px">
+    <span class="number-label">21 · Custom Order Brief</span>
+    <h2 class="section-title" style="text-align:left">Start with the essentials</h2>
+    <form action="contact.html" method="get">
       <div class="form-grid">
-        <div class="field"><label for="name">Name</label><input id="name" name="name" required autocomplete="name"></div>
-        <div class="field"><label for="phone">Phone Number</label><input id="phone" name="phone" required autocomplete="tel"></div>
-        <div class="field"><label for="email">Email Address</label><input id="email" name="email" type="email" required autocomplete="email"></div>
-        <div class="field"><label for="target_date">Target Date</label><input id="target_date" name="target_date" type="date"></div>
-        <div class="field full">
-          <label for="subject">Subject / Areas of Interest</label>
-          <select id="subject" name="subject[]" multiple required>
-            <option value="General Inquiry">General Inquiry</option>
-            <option value="Bulk Order" selected>Bulk Order</option>
-            <option value="Home Decor">Home Decor</option>
-            <option value="Work Decor" selected>Work Decor</option>
-            <option value="Wedding" selected>Wedding</option>
-          </select>
-          <small>Multiple selection is enabled; Bulk Order, Work Decor, and Wedding are intentionally pre-selected. On desktop use Ctrl/Cmd-click to add or remove selections.</small>
-        </div>
-        <div class="field"><label for="budget">Budget</label><input id="budget" name="budget" placeholder="e.g. $250–$500"></div>
-        <div class="field full"><label for="message">Message</label><textarea id="message" name="message" required placeholder="Tell us what you are looking for."></textarea></div>
+        <div class="field"><label for="occasion">Occasion / Space</label><input id="occasion" name="occasion" placeholder="e.g. living room, wedding, hotel lobby"></div>
+        <div class="field"><label for="palette">Color Palette</label><input id="palette" name="palette" placeholder="e.g. ivory, blush, sage"></div>
+        <div class="field"><label for="size">Approximate Size</label><input id="size" name="size" placeholder="e.g. 24 inches tall"></div>
+        <div class="field"><label for="budget">Budget Range</label><input id="budget" name="budget" placeholder="e.g. $150–$250"></div>
+        <div class="field full"><label for="vision">Design Vision</label><textarea id="vision" name="vision" placeholder="Describe the look, flowers, vessel, inspiration, or anything else that matters."></textarea></div>
       </div>
-      <div class="form-actions"><button class="primary-btn" type="submit">Send Inquiry</button><span style="color:var(--muted);font-size:13px">We will use the email you provide for the reply.</span></div>
+      <div class="form-actions"><button class="primary-btn" type="submit">Continue to Inquiry</button><a class="secondary-btn" href="shop.html">Browse Florals</a></div>
     </form>
   </div>
 </div></section>

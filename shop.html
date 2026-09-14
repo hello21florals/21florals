@@ -1,203 +1,149 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>21 Florals - Shop Florals</title>
-  <!-- Font Awesome CDN for Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Home — 21 Florals premium artificial and silk flower arrangements.">
+<title>Home | 21 Florals</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <!-- Shared Header -->
-  <header>
-    <h1 class="site-title">Welcome to 21 Florals</h1>
-    <nav>
-      <ul class="nav-links">
-<li><a href="index.html">Home</a></li>
-<li><a href="shop.html" class="active">Shop Florals</a></li>
-<li><a href="custom.html">Custom Order</a></li>
-<li><a href="about.html">About Us</a></li>
-<li><a href="cart.html">Cart</a></li>
-</ul>
-    </nav>
-    <div class="floral-divider">
-      <i class="fa-solid fa-seedling floral-icon"></i>
-      <div class="line"></div>
-      <i class="fa-solid fa-seedling floral-icon"></i>
-    </div>
-  </header>
-
-  <main class="main-content">
-    
-    <!-- Category Selection Bar -->
-    <section class="content-box">
-      <h2 class="section-heading">Shop by Occasion</h2>
-      <p style="text-align: center; margin-bottom: 20px;">
-        Select an occasion to explore pre-made silk floral arrangements. Click any picture to view it full size!
-      </p>
-
-      <div class="category-filters">
-        <button class="filter-btn active" onclick="filterFlorals('all')">
-          <i class="fa-solid fa-border-all"></i> All Florals
-        </button>
-        <button class="filter-btn" onclick="filterFlorals('mothers-day')">
-          <i class="fa-solid fa-heart"></i> Mother's Day
-        </button>
-        <button class="filter-btn" onclick="filterFlorals('valentines-day')">
-          <i class="fa-solid fa-rose"></i> Valentine's Day
-        </button>
-        <button class="filter-btn" onclick="filterFlorals('birthdays')">
-          <i class="fa-solid fa-cake-candles"></i> Birthdays &amp; Celebrations
-        </button>
-        <button class="filter-btn" onclick="filterFlorals('corporate')">
-          <i class="fa-solid fa-building"></i> Corporate &amp; Lobbies
-        </button>
-        <button class="filter-btn" onclick="filterFlorals('home-decor')">
-          <i class="fa-solid fa-couch"></i> Home Decor
-        </button>
+<header class="site-header">
+      <div class="container header-inner">
+        <div class="brand">
+          <a class="logo-script" href="index.html" aria-label="21 Florals Home"><span class="brand-number">21</span> FLORALS</a>
+        </div>
+        <nav class="nav" aria-label="Primary navigation"><button class="nav-btn active" data-page="index.html" aria-current='page'>
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7"/><path d="M5 9v11h14V9"/><path d="M9 20v-6h6v6"/></svg>Home
+        </button><button class="nav-btn " data-page="shop.html" >
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l1 13H5L6 8Z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg>Shop Florals
+        </button><button class="nav-btn " data-page="custom-design.html" >
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4Z"/></svg>Custom Design
+        </button><button class="nav-btn " data-page="floral-guide.html" >
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01"/><path d="M11 12h1v4h1"/></svg>Floral Guide
+        </button><button class="nav-btn " data-page="contact.html" >
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Contact Us
+        </button><button class="nav-btn " data-page="cart.html" >
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/><path d="M3 4h2l2.5 11h11L21 8H6"/></svg>Cart <span data-cart-count>0</span>
+        </button></nav>
       </div>
-    </section>
-
-    <!-- Product Grid -->
-    <section class="content-box">
-      <div class="product-grid" id="product-grid">
-
-        <!-- MOTHER'S DAY -->
-        <div class="product-card" data-category="mothers-day">
-          <div class="img-container">
-            <img 
-              src="https://images.unsplash.com/photo-1561181286-d3fee7d55364?auto=format&fit=crop&w=800&q=80" 
-              alt="Soft Blush Peony & Rose Arrangement" 
-              class="clickable-img"
-              onclick="openLightbox(this.src, 'Soft Blush Peony & Rose Arrangement - $65.00')"
-            >
-            <span class="zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> Zoom</span>
-          </div>
-          <span class="category-tag">Mother's Day</span>
-          <h3>Soft Blush Peony &amp; Rose</h3>
-          <p class="price">$65.00</p>
-          <button class="btn" onclick="addToCart('Soft Blush Peony & Rose', 65)">Add to Cart</button>
-        </div>
-
-        <div class="product-card" data-category="mothers-day">
-          <div class="img-container">
-            <img 
-              src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&w=800&q=80" 
-              alt="Spring Garden Pastel Vase" 
-              class="clickable-img"
-              onclick="openLightbox(this.src, 'Spring Garden Pastel Vase - $58.00')"
-            >
-            <span class="zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> Zoom</span>
-          </div>
-          <span class="category-tag">Mother's Day</span>
-          <h3>Spring Garden Pastel Vase</h3>
-          <p class="price">$58.00</p>
-          <button class="btn" onclick="addToCart('Spring Garden Pastel Vase', 58)">Add to Cart</button>
-        </div>
-
-        <!-- VALENTINE'S DAY -->
-        <div class="product-card" data-category="valentines-day">
-          <div class="img-container">
-            <img 
-              src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80" 
-              alt="Forever Crimson Velvet Roses" 
-              class="clickable-img"
-              onclick="openLightbox(this.src, 'Forever Crimson Velvet Roses - $75.00')"
-            >
-            <span class="zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> Zoom</span>
-          </div>
-          <span class="category-tag">Valentine's Day</span>
-          <h3>Forever Crimson Velvet Roses</h3>
-          <p class="price">$75.00</p>
-          <button class="btn" onclick="addToCart('Forever Crimson Velvet Roses', 75)">Add to Cart</button>
-        </div>
-
-        <!-- BIRTHDAYS & CELEBRATIONS -->
-        <div class="product-card" data-category="birthdays">
-          <div class="img-container">
-            <img 
-              src="https://images.unsplash.com/photo-1508610048659-a06b669e3321?auto=format&fit=crop&w=800&q=80" 
-              alt="Vibrant Celebration Wildflower Centerpiece" 
-              class="clickable-img"
-              onclick="openLightbox(this.src, 'Vibrant Celebration Wildflowers - $62.00')"
-            >
-            <span class="zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> Zoom</span>
-          </div>
-          <span class="category-tag">Birthdays</span>
-          <h3>Celebration Wildflowers</h3>
-          <p class="price">$62.00</p>
-          <button class="btn" onclick="addToCart('Celebration Wildflowers', 62)">Add to Cart</button>
-        </div>
-
-        <!-- CORPORATE & LOBBIES -->
-        <div class="product-card" data-category="corporate">
-          <div class="img-container">
-            <img 
-              src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=800&q=80" 
-              alt="Executive Minimalist White Orchid Display" 
-              class="clickable-img"
-              onclick="openLightbox(this.src, 'Executive Minimalist White Orchid Display - $110.00')"
-            >
-            <span class="zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> Zoom</span>
-          </div>
-          <span class="category-tag">Corporate &amp; Lobbies</span>
-          <h3>Executive White Orchid Display</h3>
-          <p class="price">$110.00</p>
-          <button class="btn" onclick="addToCart('Executive White Orchid Display', 110)">Add to Cart</button>
-        </div>
-
-        <!-- HOME DECOR -->
-        <div class="product-card" data-category="home-decor">
-          <div class="img-container">
-            <img 
-              src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=800&q=80" 
-              alt="Rustic Eucalyptus & Hydrangea Arrangement" 
-              class="clickable-img"
-              onclick="openLightbox(this.src, 'Rustic Eucalyptus & Hydrangea - $82.00')"
-            >
-            <span class="zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> Zoom</span>
-          </div>
-          <span class="category-tag">Home Decor</span>
-          <h3>Rustic Eucalyptus &amp; Hydrangea</h3>
-          <p class="price">$82.00</p>
-          <button class="btn" onclick="addToCart('Rustic Eucalyptus & Hydrangea', 82)">Add to Cart</button>
-        </div>
-
-      </div>
-    </section>
-
-  </main>
-
-  <!-- Image Expansion Lightbox (Modal) -->
-  <div id="image-modal" class="lightbox-modal" onclick="closeLightbox(event)">
-    <div class="lightbox-content" onclick="event.stopPropagation()">
-      <button class="lightbox-close" onclick="closeLightbox(event)">&times;</button>
-      <img id="lightbox-img" src="" alt="Expanded View" class="bordered-img">
-      <p id="lightbox-caption" class="lightbox-caption"></p>
-    </div>
+    </header>
+<main>
+<section class="page-hero">
+  <div class="container"><p class="eyebrow">04 · Twenty-One Botanicals</p><h1>Shop Florals</h1>
+	  <p>Twenty-one individual building blocks—seven Primary, seven Secondary, and seven Accent stems—give you a complete palette for your next composition.</p></div>
+</section>
+<section class="section" id="home-decor"><div class="container">
+  <div class="row-heading"><h2>Primary</h2><span>01–07 · focal forms</span></div><div class="product-grid"><article class="product-card" data-product-id="flower-1" data-product-name="Rose" data-product-price="24.0">
+      <div class="product-image">200 × 200<br>Rose<br>Image Placeholder</div>
+      <h3>Rose</h3><div class="price">$24.00</div>
+      <div class="stepper"><button type="button" data-product-minus aria-label="Decrease Rose">−</button><span data-product-qty>0</span><button type="button" data-product-plus aria-label="Add Rose">+</button></div>
+    </article><article class="product-card" data-product-id="flower-2" data-product-name="Peony" data-product-price="27.0">
+      <div class="product-image">200 × 200<br>Peony<br>Image Placeholder</div>
+      <h3>Peony</h3><div class="price">$27.00</div>
+      <div class="stepper"><button type="button" data-product-minus aria-label="Decrease Peony">−</button><span data-product-qty>0</span><button type="button" data-product-plus aria-label="Add Peony">+</button></div>
+    </article><article class="product-card" data-product-id="flower-3" data-product-name="Hydrangea" data-product-price="22.0">
+      <div class="product-image">200 × 200<br>Hydrangea<br>Image Placeholder</div>
+      <h3>Hydrangea</h3><div class="price">$22.00</div>
+      <div class="stepper"><button type="button" data-product-minus aria-label="Decrease Hydrangea">−</button><span data-product-qty>0</span><button type="button" data-product-plus aria-label="Add Hydrangea">+</button></div>
+    </article><article class="product-card" data-product-id="flower-4" data-product-name="Orchid" data-product-price="29.0">
+      <div class="product-image">200 × 200<br>Orchid<br>Image Placeholder</div>
+      <h3>Orchid</h3><div class="price">$29.00</div>
+      <div class="stepper"><button type="button" data-product-minus aria-label="Decrease Orchid">−</button><span data-product-qty>0</span><button type="button" data-product-plus aria-label="Add Orchid">+</button></div>
+    </article><article class="product-card" data-product-id="flower-5" data-product-name="Tulip" data-product-price="19.0">
+      <div class="product-image">200 × 200<br>Tulip<br>Image Placeholder</div>
+      <h3>Tulip</h3><div class="price">$19.00</div>
+      <div class="stepper"><button type="button" data-product-minus aria-label="Decrease Tulip">−</button><span data-product-qty>0</span><button type="button" data-product-plus aria-label="Add Tulip">+</button></div>
+    </article><article class="product-card" data-product-id="flower-6" data-product-name="Sunflower" data-product-price="18.0">
+      <div class="product-image">200 × 200<br>Sunflower<br>Image Placeholder</div>
+      <h3>Sunflower</h3><div class="price">$18.00</div>
+      <div class="stepper"><button type="button" data-product-minus aria-label="Decrease Sunflower">−</button><span data-product-qty>0</span><button type="button" data-product-plus aria-label="Add Sunflower">+</button></div>
+    </article><article class="product-card" data-product-id="flower-7" data-product-name="Dahlia" data-product-price="26.0">
+      <div class="product-image">200 × 200<br>Dahlia<br>Image Placeholder</div>
+      <h3>Dahlia</h3><div class="price">$26.00</div>
+      <div class="stepper"><button type="button" data-product-minus aria-label="Decrease Dahlia">−</button><span data-product-qty>0</span><button type="button" data-product-plus aria-label="Add Dahlia">+</button></div>
+    </article></div>
+  <div class="row-heading" id="work-decor"><h2>Secondary</h2><span>08–14 · supporting forms</span></div><div class="product-grid"><article class="product-card" data-product-id="flower-8" data-product-name="Lily" data-product-price="17.0">
+      <div class="product-image">200 × 200<br>Lily<br>Image Placeholder</div>
+      <h3>Lily</h3><div class="price">$17.00</div>
+      <div class="stepper"><button type="button" data-product-minus aria-label="Decrease Lily">−</button><span data-product-qty>0</span><button type="button" data-product-plus aria-label="Add Lily">+</button></div>
+    </article><article class="product-card" data-product-id="flower-9" data-product-name="Magnolia" data-product-price="21.0">
+      <div class="product-image">200 × 200<br>Magnolia<br>Image Placeholder</div>
+      <h3>Magnolia</h3><div class="price">$21.00</div>
+      <div class="stepper"><button type="button" data-product-minus aria-label="Decrease Magnolia">−</button><span data-product-qty>0</span><button type="button" data-product-plus aria-label="Add Magnolia">+</button></div>
+    </article><article class="product-card" data-product-id="flower-10" data-product-name="Ranunculus" data-product-price="20.0">
+      <div class="product-image">200 × 200<br>Ranunculus<br>Image Placeholder</div>
+      <h3>Ranunculus</h3><div class="price">$20.00</div>
+      <div class="stepper"><button type="button" data-product-minus aria-label="Decrease Ranunculus">−</button><span data-product-qty>0</span><button type="button" data-product-plus aria-label="Add Ranunculus">+</button></div>
+    </article><article class="product-card" data-product-id="flower-11" data-product-name="Anemone" data-product-price="18.0">
+      <div class="product-image">200 × 200<br>Anemone<br>Image Placeholder</div>
+      <h3>Anemone</h3><div class="price">$18.00</div>
+      <div class="stepper"><button type="button" data-product-minus aria-label="Decrease Anemone">−</button><span data-product-qty>0</span><button type="button" data-product-plus aria-label="Add Anemone">+</button></div>
+    </article><article class="product-card" data-product-id="flower-12" data-product-name="Carnation" data-product-price="15.0">
+      <div class="product-image">200 × 200<br>Carnation<br>Image Placeholder</div>
+      <h3>Carnation</h3><div class="price">$15.00</div>
+      <div class="stepper"><button type="button" data-product-minus aria-label="Decrease Carnation">−</button><span data-product-qty>0</span><button type="button" data-product-plus aria-label="Add Carnation">+</button></div>
+    </article><article class="product-card" data-product-id="flower-13" data-product-name="Gardenia" data-product-price="23.0">
+      <div class="product-image">200 × 200<br>Gardenia<br>Image Placeholder</div>
+      <h3>Gardenia</h3><div class="price">$23.00</div>
+      <div class="stepper"><button type="button" data-product-minus aria-label="Decrease Gardenia">−</button><span data-product-qty>0</span><button type="button" data-product-plus aria-label="Add Gardenia">+</button></div>
+    </article><article class="product-card" data-product-id="flower-14" data-product-name="Calla Lily" data-product-price="25.0">
+      <div class="product-image">200 × 200<br>Calla Lily<br>Image Placeholder</div>
+      <h3>Calla Lily</h3><div class="price">$25.00</div>
+      <div class="stepper"><button type="button" data-product-minus aria-label="Decrease Calla Lily">−</button><span data-product-qty>0</span><button type="button" data-product-plus aria-label="Add Calla Lily">+</button></div>
+    </article></div>
+  <div class="row-heading"><h2>Accent</h2><span>15–21 · finishing texture</span></div><div class="product-grid"><article class="product-card" data-product-id="flower-15" data-product-name="Baby's Breath" data-product-price="12.0">
+      <div class="product-image">200 × 200<br>Baby's Breath<br>Image Placeholder</div>
+      <h3>Baby's Breath</h3><div class="price">$12.00</div>
+      <div class="stepper"><button type="button" data-product-minus aria-label="Decrease Baby's Breath">−</button><span data-product-qty>0</span><button type="button" data-product-plus aria-label="Add Baby's Breath">+</button></div>
+    </article><article class="product-card" data-product-id="flower-16" data-product-name="Eucalyptus" data-product-price="14.0">
+      <div class="product-image">200 × 200<br>Eucalyptus<br>Image Placeholder</div>
+      <h3>Eucalyptus</h3><div class="price">$14.00</div>
+      <div class="stepper"><button type="button" data-product-minus aria-label="Decrease Eucalyptus">−</button><span data-product-qty>0</span><button type="button" data-product-plus aria-label="Add Eucalyptus">+</button></div>
+    </article><article class="product-card" data-product-id="flower-17" data-product-name="Fern" data-product-price="11.0">
+      <div class="product-image">200 × 200<br>Fern<br>Image Placeholder</div>
+      <h3>Fern</h3><div class="price">$11.00</div>
+      <div class="stepper"><button type="button" data-product-minus aria-label="Decrease Fern">−</button><span data-product-qty>0</span><button type="button" data-product-plus aria-label="Add Fern">+</button></div>
+    </article><article class="product-card" data-product-id="flower-18" data-product-name="Lavender" data-product-price="13.0">
+      <div class="product-image">200 × 200<br>Lavender<br>Image Placeholder</div>
+      <h3>Lavender</h3><div class="price">$13.00</div>
+      <div class="stepper"><button type="button" data-product-minus aria-label="Decrease Lavender">−</button><span data-product-qty>0</span><button type="button" data-product-plus aria-label="Add Lavender">+</button></div>
+    </article><article class="product-card" data-product-id="flower-19" data-product-name="Berry Stem" data-product-price="10.0">
+      <div class="product-image">200 × 200<br>Berry Stem<br>Image Placeholder</div>
+      <h3>Berry Stem</h3><div class="price">$10.00</div>
+      <div class="stepper"><button type="button" data-product-minus aria-label="Decrease Berry Stem">−</button><span data-product-qty>0</span><button type="button" data-product-plus aria-label="Add Berry Stem">+</button></div>
+    </article><article class="product-card" data-product-id="flower-20" data-product-name="Willow" data-product-price="16.0">
+      <div class="product-image">200 × 200<br>Willow<br>Image Placeholder</div>
+      <h3>Willow</h3><div class="price">$16.00</div>
+      <div class="stepper"><button type="button" data-product-minus aria-label="Decrease Willow">−</button><span data-product-qty>0</span><button type="button" data-product-plus aria-label="Add Willow">+</button></div>
+    </article><article class="product-card" data-product-id="flower-21" data-product-name="Olive Stem" data-product-price="14.0">
+      <div class="product-image">200 × 200<br>Olive Stem<br>Image Placeholder</div>
+      <h3>Olive Stem</h3><div class="price">$14.00</div>
+      <div class="stepper"><button type="button" data-product-minus aria-label="Decrease Olive Stem">−</button><span data-product-qty>0</span><button type="button" data-product-plus aria-label="Add Olive Stem">+</button></div>
+    </article></div>
+</div></section>
+<section class="section" id="weddings"><div class="container">
+  <span class="number-label">05 · Custom Silk Arrangements</span>
+  <h2 class="section-title">Finished pieces for the moments that matter</h2>
+  <p class="section-kicker">Upload your final photography later by replacing each clearly labeled placeholder. Thumbnails are wired to a 1000 × 1000 lightbox.</p>
+  <div class="custom-grid">
+    <article class="custom-card"><div class="custom-image" data-lightbox="Custom Arrangement 1">1000 × 1000<br>PHOTO PLACEHOLDER<br>Arrangement 1</div><h3>The 21 Signature</h3><p>A balanced statement piece with layered height and texture.</p></article><article class="custom-card"><div class="custom-image" data-lightbox="Custom Arrangement 2">1000 × 1000<br>PHOTO PLACEHOLDER<br>Arrangement 2</div><h3>Rose Garden</h3><p>Romantic neutrals with dimensional focal blooms.</p></article><article class="custom-card"><div class="custom-image" data-lightbox="Custom Arrangement 3">1000 × 1000<br>PHOTO PLACEHOLDER<br>Arrangement 3</div><h3>Modern Orchid</h3><p>Clean lines for contemporary interiors.</p></article><article class="custom-card"><div class="custom-image" data-lightbox="Custom Arrangement 4">1000 × 1000<br>PHOTO PLACEHOLDER<br>Arrangement 4</div><h3>Celebration Table</h3><p>Designed for events, receptions, and milestone gatherings.</p></article><article class="custom-card"><div class="custom-image" data-lightbox="Custom Arrangement 5">1000 × 1000<br>PHOTO PLACEHOLDER<br>Arrangement 5</div><h3>Evergreen Luxe</h3><p>A year-round composition built around rich permanent texture.</p></article>
   </div>
-
-  <!-- Dark Centered Footer -->
-  <footer>
-    <div class="footer-content">
-      <div class="footer-info">
-        <p><i class="fa-solid fa-phone"></i> <a href="tel:8185550121">(818) 555-0121</a></p>
-        <p><i class="fa-solid fa-envelope"></i> <a href="mailto:contact@21florals.com">contact@21florals.com</a></p>
+</div></section>
+<div class="modal" id="lightboxModal" aria-hidden="true"><div class="modal-panel"><button class="close-modal" data-close-modal aria-label="Close">×</button><div class="lightbox"><span data-lightbox-title>1000 × 1000</span></div></div></div>
+</main>
+<footer class="site-footer">
+      <div class="container footer-inner">
+        <div>
+          <div class="footer-brand">21 FLORALS</div>
+          <div class="footer-contact">☎ (818) 419-5401<br>✉ team@21florals.com</div>
+        </div>
+        <div class="footer-copy">© <strong>21</strong> Florals · Twenty-One by design</div>
+        <div class="footer-links" aria-label="Social links">
+          <a href="#" aria-label="Instagram">◎</a><a href="#" aria-label="Facebook">f</a><a href="#" aria-label="Pinterest">p</a><a href="#" aria-label="TikTok">♪</a>
+        </div>
       </div>
-      
-      <div class="social-links">
-        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-        <a href="#" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
-        <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-      </div>
-
-      <p class="footer-copyright">&copy; 2026 21 Florals. Designed with love in Northridge.</p>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
+    </footer>
+<script src="script.js" defer></script>
 </body>
 </html>

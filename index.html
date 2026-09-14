@@ -1,103 +1,100 @@
-<!DOCTYPE html>
+﻿<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website</title>
-    <style>
-        /* Reset margins and default setup */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body, html {
-            width: 100%;
-            height: 100%;
-            font-family: Arial, sans-serif;
-            overflow-x: hidden;
-        }
-
-        /* --------------------------------------------------
-           Full Screen Image Overlay (1408x768 Optimized)
-        -------------------------------------------------- */
-        #image-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background-color: #000;
-            z-index: 9999;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: opacity 0.5s ease, visibility 0.5s ease;
-        }
-
-        #image-overlay img {
-            width: 100%;
-            height: 100%;
-            /* 'cover' makes it fill the screen smoothly while maintaining aspect ratio. 
-               Use 'contain' if you don't want any part of the 1408x768 image cropped. */
-            object-fit: cover; 
-            display: block;
-        }
-
-        /* Class added via JavaScript to hide the overlay */
-        #image-overlay.hidden {
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
-        }
-
-        /* --------------------------------------------------
-           The Real Underlying Page Content
-        -------------------------------------------------- */
-        #real-content {
-            min-height: 100vh;
-            padding: 40px;
-            background-color: #f4f4f9;
-            color: #333;
-        }
-
-        #real-content h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-
-        #real-content p {
-            font-size: 1.2rem;
-            line-height: 1.6;
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Home â€” 21 Florals premium artificial and silk flower arrangements.">
+<title>Home | 21 Florals</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <!-- 1. Fullscreen Image Overlay -->
-    <div id="image-overlay">
-        <!-- Replace 'your-image.jpg' with the path or URL to your 1408x768 image -->
-        <img src="21.jpg" alt="Seizure Notice Screen" id="cover-image">
+<header class="site-header">
+      <div class="container header-inner">
+        <div class="brand">
+          <a class="logo-script" href="index.html" aria-label="21 Florals Home"><span class="brand-number">21</span> FLORALS</a>
+        </div>
+        <nav class="nav" aria-label="Primary navigation"><button class="nav-btn active" data-page="index.html" aria-current='page'>
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7"/><path d="M5 9v11h14V9"/><path d="M9 20v-6h6v6"/></svg>Home
+        </button><button class="nav-btn " data-page="shop.html" >
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l1 13H5L6 8Z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg>Shop Florals
+        </button><button class="nav-btn " data-page="custom-design.html" >
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4Z"/></svg>Custom Design
+        </button><button class="nav-btn " data-page="floral-guide.html" >
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01"/><path d="M11 12h1v4h1"/></svg>Floral Guide
+        </button><button class="nav-btn " data-page="contact.html" >
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Contact Us
+        </button><button class="nav-btn " data-page="cart.html" >
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/><path d="M3 4h2l2.5 11h11L21 8H6"/></svg>Cart <span data-cart-count>0</span>
+        </button></nav>
+      </div>
+    </header>
+<main>
+<section class="section">
+  <div class="container">
+    <div class="page-hero" style="padding-top:10px">
+      <p class="eyebrow">01 Â· The 21 Florals Philosophy</p>
+      <h1>Floral artistry without a formula.</h1>
     </div>
+    <div class="hero-copy">
+      <p>At 21 Florals, we do not believe beauty should be assembled by rulebook. We begin with the flower, the vessel, the room, and the feeling the finished piece is meant to awaken. From there, instinct takes the lead. Every stem is considered, but never forced into a tired formula.</p>
+      <p>Our designs are guided by an intuitive, divinely-inspired creative flowâ€”an almost effortless conversation between color, texture, proportion, light, and movement. What emerges is not simply an arrangement, but a composition with its own character: balanced without being predictable, expressive without becoming excessive.</p>
+      <p>The number 21 is our recurring signature: a reminder that thoughtful structure and inspired freedom can coexist. We design with intention, then allow the arrangement to become what it was meant to be. The result is a flawless symphony of Vase, Accent, and Bloom.</p>
+    </div>
+  </div>
+</section>
 
-    <!-- 2. The Real Website Content (Behind the overlay) -->
-    <main id="real-content">
-        <h1>Welcome to the Real Page</h1>
-        <p>This is the actual page content that was hiding behind the full-screen image overlay.</p>
-    </main>
+<section class="section" id="comparison">
+  <div class="container">
+    <span class="number-label">02 Â· Silk vs. Real</span>
+    <h2 class="section-title">The practical beauty of permanence</h2>
+    <div class="square-grid">
+      <div class="square"><svg class="big-icon icon" viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M7 8c3-2 7-2 10 0"/><path d="M6 13c4-2 8-2 12 0"/></svg><strong>Maintenance</strong><span>Silk stays presentation-ready without daily care.</span></div>
+      <div class="square"><svg class="big-icon icon" viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M5 8c2-3 5-4 7-1 2-3 5-2 7 1"/><path d="M5 16c2-3 5-3 7 0 2-3 5-3 7 0"/></svg><strong>Longevity</strong><span>A permanent botanical can be enjoyed season after season.</span></div>
+      <div class="square"><svg class="big-icon icon" viewBox="0 0 24 24"><path d="M7 4h10"/><path d="M8 4v5a4 4 0 0 0 8 0V4"/><path d="M12 13v7"/><path d="M8 20h8"/></svg><strong>Water</strong><span>No vase water means no spills, refills, or decay.</span></div>
+      <div class="square"><svg class="big-icon icon" viewBox="0 0 24 24"><path d="M4 14c5-7 11-7 16-4-1 5-6 9-12 8-2 0-3-2-4-4Z"/><path d="M6 18c3-3 6-5 10-6"/></svg><strong>Pet Options</strong><span>Choose pet-conscious materials and enjoy flowers with confidence.</span></div>
+      <div class="square"><svg class="big-icon icon" viewBox="0 0 24 24"><path d="M4 18c3-5 5-9 8-12 3 3 5 7 8 12"/><path d="M8 18h8"/><path d="M12 6v12"/></svg><strong>Allergy</strong><span>Silk botanicals can avoid the pollen concerns of many fresh blooms.</span></div>
+      <div class="square"><svg class="big-icon icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 7v5l3 2"/></svg><strong>Availability</strong><span>Favorite forms and colors are not restricted to one growing season.</span></div>
+    </div>
+    <h2 class="horror-title">Because Real Flowers Die</h2>
+    <div class="benefit-grid">
+      <article class="benefit"><h3>Zero Maintenance</h3><p>Once placed, a quality permanent arrangement keeps its visual presence without trimming, feeding, refrigeration, or a recurring care routine.</p></article>
+      <article class="benefit"><h3>No Wilting</h3><p>Skip the predictable decline from fresh to faded. Properly displayed silk florals preserve the intended silhouette for the long term.</p></article>
+      <article class="benefit"><h3>No Watering Required</h3><p>Eliminate vase-water chores, leakage risk, and the bacterial buildup associated with neglected fresh stems.</p></article>
+      <article class="benefit"><h3>Pet-Friendly Choices</h3><p>Select artificial botanicals and materials appropriate for your household, while keeping live plant toxicity concerns out of the arrangement itself.</p></article>
+      <article class="benefit"><h3>Allergy-Friendly Options</h3><p>Permanent florals provide a practical alternative for spaces where pollen and strong floral fragrances are unwelcome.</p></article>
+      <article class="benefit"><h3>Always in Season</h3><p>Design around your favorite bloom, color, or aesthetic year-roundâ€”without waiting for a harvest window.</p></article>
+    </div>
+  </div>
+</section>
 
-    <!-- 3. Keypress Detection Script -->
-    <script>
-        document.addEventListener('keydown', function(event) {
-            // Check if the pressed key is 'x' or 'X'
-            if (event.key === 'x' || event.key === 'X') {
-                const overlay = document.getElementById('image-overlay');
-                
-                // Add class to trigger fade out transition
-                overlay.classList.add('hidden');
-            }
-        });
-    </script>
+<section class="section">
+ <div class="hero-copy">
+  <div class="container">
+    <div class="page-hero" style="padding-top:10px">
+      <p class="eyebrow">01 · The 21 Florals Philosophy</p>
+      <h1>Floral artistry without a formula.</h1>
+    </div>
+    
+    <!-- Lined Paper Container -->
+   
+      <p>At 21 Florals, we do not believe beauty should be assembled by rulebook. We begin with the flower, the vessel, the room, and the feeling the finished piece is meant to awaken. From there, instinct takes the lead. Every stem is considered, but never forced into a tired formula.</p>
+      <p>Our designs are guided by an intuitive, divinely-inspired creative flow—an almost effortless conversation between color, texture, proportion, light, and movement. What emerges is not simply an arrangement, but a composition with its own character: balanced without being predictable, expressive without becoming excessive.</p>
+      <p>The number 21 is our recurring signature: a reminder that thoughtful structure and inspired freedom can coexist. We design with intention, then allow the arrangement to become what it was meant to be. The result is a flawless symphony of Vase, Accent, and Bloom.</p>
+    </div>
+  </div>
+</section></main>
+<footer class="site-footer">
+      <div class="container footer-inner">
+        <div>
+          <div class="footer-brand">21 FLORALS</div>
+          <div class="footer-contact">â˜Ž (818) 419-5401<br>âœ‰ team@21florals.com</div>
+        </div>
+        <div class="footer-copy">Â© <strong>21</strong> Florals Â· Twenty-One by design</div>
+        <div class="footer-links" aria-label="Social links">
+          <a href="#" aria-label="Instagram">â—Ž</a><a href="#" aria-label="Facebook">f</a><a href="#" aria-label="Pinterest">p</a><a href="#" aria-label="TikTok">â™ª</a>
+        </div>
+      </div>
+    </footer>
+<script src="script.js" defer></script>
 </body>
 </html>
